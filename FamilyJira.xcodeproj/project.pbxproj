@@ -1,0 +1,595 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6F2DA6FAE09FB4B053909853 /* Pods_FamilyJira.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDC22B6BB464A22A1587E723 /* Pods_FamilyJira.framework */; };
+		8951C0ADB8771EB6C02636BB /* Pods_FamilyJira_FamilyJiraTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECB23BB9804D1578394DEECD /* Pods_FamilyJira_FamilyJiraTests.framework */; };
+		9CF7D6CE2401832900760442 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7D6CD2401832900760442 /* AppDelegate.swift */; };
+		9CF7D6D22401832900760442 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7D6D12401832900760442 /* ViewController.swift */; };
+		9CF7D6D52401832900760442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CF7D6D32401832900760442 /* Main.storyboard */; };
+		9CF7D6D72401832A00760442 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CF7D6D62401832A00760442 /* Assets.xcassets */; };
+		9CF7D6DA2401832A00760442 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CF7D6D82401832A00760442 /* LaunchScreen.storyboard */; };
+		9CF7D6E52401832B00760442 /* FamilyJiraTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7D6E42401832B00760442 /* FamilyJiraTests.swift */; };
+		9CF7D6F02401879B00760442 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CF7D6EF2401879B00760442 /* GoogleService-Info.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9CF7D6E12401832B00760442 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9CF7D6C22401832900760442 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9CF7D6C92401832900760442;
+			remoteInfo = FamilyJira;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9CF7D6CA2401832900760442 /* FamilyJira.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FamilyJira.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CF7D6CD2401832900760442 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9CF7D6D12401832900760442 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9CF7D6D42401832900760442 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9CF7D6D62401832A00760442 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9CF7D6D92401832A00760442 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9CF7D6DB2401832A00760442 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9CF7D6E02401832B00760442 /* FamilyJiraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FamilyJiraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CF7D6E42401832B00760442 /* FamilyJiraTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyJiraTests.swift; sourceTree = "<group>"; };
+		9CF7D6E62401832B00760442 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9CF7D6EF2401879B00760442 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B5AD1048D675F925E54097C4 /* Pods-FamilyJira.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilyJira.debug.xcconfig"; path = "Target Support Files/Pods-FamilyJira/Pods-FamilyJira.debug.xcconfig"; sourceTree = "<group>"; };
+		BDC22B6BB464A22A1587E723 /* Pods_FamilyJira.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FamilyJira.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC72F85A49571A4043ED660E /* Pods-FamilyJira-FamilyJiraTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilyJira-FamilyJiraTests.debug.xcconfig"; path = "Target Support Files/Pods-FamilyJira-FamilyJiraTests/Pods-FamilyJira-FamilyJiraTests.debug.xcconfig"; sourceTree = "<group>"; };
+		ECB23BB9804D1578394DEECD /* Pods_FamilyJira_FamilyJiraTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FamilyJira_FamilyJiraTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F63A88B49202DB66F723DF80 /* Pods-FamilyJira.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilyJira.release.xcconfig"; path = "Target Support Files/Pods-FamilyJira/Pods-FamilyJira.release.xcconfig"; sourceTree = "<group>"; };
+		FCE7394D6C9CE3697E19BCC0 /* Pods-FamilyJira-FamilyJiraTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilyJira-FamilyJiraTests.release.xcconfig"; path = "Target Support Files/Pods-FamilyJira-FamilyJiraTests/Pods-FamilyJira-FamilyJiraTests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9CF7D6C72401832900760442 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F2DA6FAE09FB4B053909853 /* Pods_FamilyJira.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9CF7D6DD2401832B00760442 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8951C0ADB8771EB6C02636BB /* Pods_FamilyJira_FamilyJiraTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7AC42C8811EA2D844BBC9ECA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BDC22B6BB464A22A1587E723 /* Pods_FamilyJira.framework */,
+				ECB23BB9804D1578394DEECD /* Pods_FamilyJira_FamilyJiraTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9CF7D6C12401832900760442 = {
+			isa = PBXGroup;
+			children = (
+				9CF7D6CC2401832900760442 /* FamilyJira */,
+				9CF7D6E32401832B00760442 /* FamilyJiraTests */,
+				9CF7D6CB2401832900760442 /* Products */,
+				F1953BA4EC867241B8D31CB7 /* Pods */,
+				7AC42C8811EA2D844BBC9ECA /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9CF7D6CB2401832900760442 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9CF7D6CA2401832900760442 /* FamilyJira.app */,
+				9CF7D6E02401832B00760442 /* FamilyJiraTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9CF7D6CC2401832900760442 /* FamilyJira */ = {
+			isa = PBXGroup;
+			children = (
+				9CF7D6CD2401832900760442 /* AppDelegate.swift */,
+				9CF7D6D12401832900760442 /* ViewController.swift */,
+				9CF7D6D32401832900760442 /* Main.storyboard */,
+				9CF7D6D62401832A00760442 /* Assets.xcassets */,
+				9CF7D6D82401832A00760442 /* LaunchScreen.storyboard */,
+				9CF7D6DB2401832A00760442 /* Info.plist */,
+				9CF7D6EF2401879B00760442 /* GoogleService-Info.plist */,
+			);
+			path = FamilyJira;
+			sourceTree = "<group>";
+		};
+		9CF7D6E32401832B00760442 /* FamilyJiraTests */ = {
+			isa = PBXGroup;
+			children = (
+				9CF7D6E42401832B00760442 /* FamilyJiraTests.swift */,
+				9CF7D6E62401832B00760442 /* Info.plist */,
+			);
+			path = FamilyJiraTests;
+			sourceTree = "<group>";
+		};
+		F1953BA4EC867241B8D31CB7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B5AD1048D675F925E54097C4 /* Pods-FamilyJira.debug.xcconfig */,
+				F63A88B49202DB66F723DF80 /* Pods-FamilyJira.release.xcconfig */,
+				CC72F85A49571A4043ED660E /* Pods-FamilyJira-FamilyJiraTests.debug.xcconfig */,
+				FCE7394D6C9CE3697E19BCC0 /* Pods-FamilyJira-FamilyJiraTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9CF7D6C92401832900760442 /* FamilyJira */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9CF7D6E92401832B00760442 /* Build configuration list for PBXNativeTarget "FamilyJira" */;
+			buildPhases = (
+				130246942E4B2F3F92D784CD /* [CP] Check Pods Manifest.lock */,
+				9CF7D6C62401832900760442 /* Sources */,
+				9CF7D6C72401832900760442 /* Frameworks */,
+				9CF7D6C82401832900760442 /* Resources */,
+				3445B6895223E6BEE88390CA /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FamilyJira;
+			productName = FamilyJira;
+			productReference = 9CF7D6CA2401832900760442 /* FamilyJira.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9CF7D6DF2401832B00760442 /* FamilyJiraTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9CF7D6EC2401832B00760442 /* Build configuration list for PBXNativeTarget "FamilyJiraTests" */;
+			buildPhases = (
+				4382241B75DFAD25230FBB07 /* [CP] Check Pods Manifest.lock */,
+				9CF7D6DC2401832B00760442 /* Sources */,
+				9CF7D6DD2401832B00760442 /* Frameworks */,
+				9CF7D6DE2401832B00760442 /* Resources */,
+				1D16FE434E9E3DCD09C3EF02 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9CF7D6E22401832B00760442 /* PBXTargetDependency */,
+			);
+			name = FamilyJiraTests;
+			productName = FamilyJiraTests;
+			productReference = 9CF7D6E02401832B00760442 /* FamilyJiraTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9CF7D6C22401832900760442 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "George Ivannikov";
+				TargetAttributes = {
+					9CF7D6C92401832900760442 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					9CF7D6DF2401832B00760442 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 9CF7D6C92401832900760442;
+					};
+				};
+			};
+			buildConfigurationList = 9CF7D6C52401832900760442 /* Build configuration list for PBXProject "FamilyJira" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9CF7D6C12401832900760442;
+			productRefGroup = 9CF7D6CB2401832900760442 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9CF7D6C92401832900760442 /* FamilyJira */,
+				9CF7D6DF2401832B00760442 /* FamilyJiraTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9CF7D6C82401832900760442 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CF7D6DA2401832A00760442 /* LaunchScreen.storyboard in Resources */,
+				9CF7D6F02401879B00760442 /* GoogleService-Info.plist in Resources */,
+				9CF7D6D72401832A00760442 /* Assets.xcassets in Resources */,
+				9CF7D6D52401832900760442 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9CF7D6DE2401832B00760442 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		130246942E4B2F3F92D784CD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FamilyJira-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1D16FE434E9E3DCD09C3EF02 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FamilyJira-FamilyJiraTests/Pods-FamilyJira-FamilyJiraTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FamilyJira-FamilyJiraTests/Pods-FamilyJira-FamilyJiraTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FamilyJira-FamilyJiraTests/Pods-FamilyJira-FamilyJiraTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3445B6895223E6BEE88390CA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FamilyJira/Pods-FamilyJira-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FamilyJira/Pods-FamilyJira-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FamilyJira/Pods-FamilyJira-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4382241B75DFAD25230FBB07 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FamilyJira-FamilyJiraTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9CF7D6C62401832900760442 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CF7D6D22401832900760442 /* ViewController.swift in Sources */,
+				9CF7D6CE2401832900760442 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9CF7D6DC2401832B00760442 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CF7D6E52401832B00760442 /* FamilyJiraTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9CF7D6E22401832B00760442 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9CF7D6C92401832900760442 /* FamilyJira */;
+			targetProxy = 9CF7D6E12401832B00760442 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9CF7D6D32401832900760442 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9CF7D6D42401832900760442 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9CF7D6D82401832A00760442 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9CF7D6D92401832A00760442 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9CF7D6E72401832B00760442 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9CF7D6E82401832B00760442 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9CF7D6EA2401832B00760442 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5AD1048D675F925E54097C4 /* Pods-FamilyJira.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8JH59DJ45H;
+				INFOPLIST_FILE = FamilyJira/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = G8.FamilyJira;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9CF7D6EB2401832B00760442 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F63A88B49202DB66F723DF80 /* Pods-FamilyJira.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8JH59DJ45H;
+				INFOPLIST_FILE = FamilyJira/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = G8.FamilyJira;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9CF7D6ED2401832B00760442 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC72F85A49571A4043ED660E /* Pods-FamilyJira-FamilyJiraTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8JH59DJ45H;
+				INFOPLIST_FILE = FamilyJiraTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = G8.FamilyJiraTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FamilyJira.app/FamilyJira";
+			};
+			name = Debug;
+		};
+		9CF7D6EE2401832B00760442 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FCE7394D6C9CE3697E19BCC0 /* Pods-FamilyJira-FamilyJiraTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8JH59DJ45H;
+				INFOPLIST_FILE = FamilyJiraTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = G8.FamilyJiraTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FamilyJira.app/FamilyJira";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9CF7D6C52401832900760442 /* Build configuration list for PBXProject "FamilyJira" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CF7D6E72401832B00760442 /* Debug */,
+				9CF7D6E82401832B00760442 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9CF7D6E92401832B00760442 /* Build configuration list for PBXNativeTarget "FamilyJira" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CF7D6EA2401832B00760442 /* Debug */,
+				9CF7D6EB2401832B00760442 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9CF7D6EC2401832B00760442 /* Build configuration list for PBXNativeTarget "FamilyJiraTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CF7D6ED2401832B00760442 /* Debug */,
+				9CF7D6EE2401832B00760442 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9CF7D6C22401832900760442 /* Project object */;
+}
