@@ -1,0 +1,6 @@
+framework module Pods_FamilyJira_FamilyJiraTests {
+  umbrella header "Pods-FamilyJira-FamilyJiraTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
