@@ -1,4 +1,5 @@
 PODS:
+  - CombineDataSources (0.2.5)
   - Firebase (6.15.0):
     - Firebase/Core (= 6.15.0)
   - Firebase/Analytics (6.15.0):
@@ -117,9 +118,12 @@ PODS:
   - Realm/Headers (4.3.1)
   - RealmSwift (4.3.1):
     - Realm (= 4.3.1)
+  - SnapKit (5.0.1)
   - Swinject (2.7.1)
+  - Toast-Swift (5.0.1)
 
 DEPENDENCIES:
+  - CombineDataSources
   - Firebase
   - Firebase/Analytics
   - Firebase/Auth
@@ -128,10 +132,13 @@ DEPENDENCIES:
   - Firebase/Messaging
   - Firebase/Storage
   - RealmSwift
+  - SnapKit
   - Swinject
+  - Toast-Swift
 
 SPEC REPOS:
   trunk:
+    - CombineDataSources
     - Firebase
     - FirebaseAnalytics
     - FirebaseAnalyticsInterop
@@ -156,9 +163,12 @@ SPEC REPOS:
     - Protobuf
     - Realm
     - RealmSwift
+    - SnapKit
     - Swinject
+    - Toast-Swift
 
 SPEC CHECKSUMS:
+  CombineDataSources: dcbc3b06a038ffdf620b3b4533d3ecaf76ca6a2e
   Firebase: 5d77105d9740a07ca6b16927ca971db7e860faaf
   FirebaseAnalytics: e83e64b1231dedcd9ddd4bdecd9bcfd6ba341679
   FirebaseAnalyticsInterop: 3f86269c38ae41f47afeb43ebf32a001f58fcdae
@@ -183,8 +193,10 @@ SPEC CHECKSUMS:
   Protobuf: dd1aaea7140debfe4dd0683fb8ef208e527ae153
   Realm: 31dc40934081ef740f60feedc46d88473cbfeb40
   RealmSwift: b5199e9a41f67b99f51acf6874a6166f5fbe93d1
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
+  Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: b2d27a3a2025435bf628fcaf3ef79e6a172d1b9d
+PODFILE CHECKSUM: 61d83fa9af6517abe061e6487422f6a708f005ce
 
 COCOAPODS: 1.9.0.beta.2

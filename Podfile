@@ -6,6 +6,9 @@ target 'FamilyJira' do
 
   pod 'RealmSwift'
   pod 'Swinject'
+  pod 'SnapKit'
+  pod 'Toast-Swift'
+  pod 'CombineDataSources'
   pod 'Firebase'
   pod 'Firebase/Auth'
   pod 'Firebase/Analytics'

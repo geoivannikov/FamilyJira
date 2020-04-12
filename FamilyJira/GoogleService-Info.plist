@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>584331191814-pf7v2l8ja4pdpj0rilchsh5s282l8dlf.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.584331191814-pf7v2l8ja4pdpj0rilchsh5s282l8dlf</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC5oMDsJOa63wP7IwOIt9FyzGjfHhTJJeQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>584331191814</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>G8.FamilyJira</string>
+	<key>PROJECT_ID</key>
+	<string>familyjira-da90d</string>
+	<key>STORAGE_BUCKET</key>
+	<string>familyjira-da90d.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:584331191814:ios:35d65ebac5c1bdf2e20587</string>
+	<key>DATABASE_URL</key>
+	<string>https://familyjira-da90d.firebaseio.com</string>
+</dict>
+</plist>
