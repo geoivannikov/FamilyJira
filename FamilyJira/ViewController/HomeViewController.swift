@@ -17,6 +17,10 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpLayout()
     }
+    
+    private func setUpLayout() {
 
+    }
 }

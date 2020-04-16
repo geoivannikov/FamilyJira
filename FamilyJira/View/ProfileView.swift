@@ -22,7 +22,7 @@ class ProfileView: BaseView {
         button.backgroundColor = .buttonBlue
         button.layer.cornerRadius = 5.0
         button.clipsToBounds = true
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         button.setTitle("Choose", for: .normal)
         return button
     }()
@@ -66,7 +66,7 @@ class ProfileView: BaseView {
         }
         stackView.addArrangedSubview(chooseButton)
         chooseButton.snp.makeConstraints { make in
-            make.width.equalTo(120)
+            make.width.equalTo(100)
         }
         [nameTextField, roleTextField].forEach {
             stackView.addArrangedSubview($0)

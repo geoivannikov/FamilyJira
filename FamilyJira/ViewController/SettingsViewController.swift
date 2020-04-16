@@ -23,7 +23,6 @@ class SettingsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(SettingsCell.self, forCellReuseIdentifier: "SettingsCell")
         setUpLayout()
         setUpBinds()
         
@@ -37,13 +36,15 @@ class SettingsViewController: UITableViewController {
         tableView.separatorStyle = .singleLine
         tableView.tableFooterView = UIView()
         tableView.bounces = false
+
+        tableView.register(SettingsCell.self, forCellReuseIdentifier: "SettingsCell")
     }
     
     private func setUpBinds() {
         settingsViewModel.settingsData
             .map { sections in
-                sections.map { persons -> Section<Settings> in
-                    Section(header: "Profile", items: persons)
+                sections.map { settings -> Section<Settings> in
+                    Section(header: "Profile", items: settings)
                 }
             }
             .bind(subscriber: tableView.sectionsSubscriber(cellIdentifier: "SettingsCell",

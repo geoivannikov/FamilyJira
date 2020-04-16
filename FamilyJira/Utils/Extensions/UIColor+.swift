@@ -21,4 +21,12 @@ extension UIColor {
     static var buttonBlue: UIColor {
         return UIColor(red: 0.0 / 255.0, green: 141.0 / 255.0, blue: 210.0 / 255.0, alpha: 1)
     }
+    
+    static var darkBlue: UIColor {
+        return UIColor(red: 25.0 / 255.0, green: 25.0 / 255.0, blue: 112.0 / 255.0, alpha: 1)
+    }
+    
+    static var buttonRed: UIColor {
+        return UIColor(red: 0.0 / 255.0, green: 0.0 / 255.0, blue: 139.0 / 255.0, alpha: 1)
+    }
 }
