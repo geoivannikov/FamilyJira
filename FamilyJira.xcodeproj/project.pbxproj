@@ -11,9 +11,18 @@
 		8951C0ADB8771EB6C02636BB /* Pods_FamilyJira_FamilyJiraTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECB23BB9804D1578394DEECD /* Pods_FamilyJira_FamilyJiraTests.framework */; };
 		9C0E1F1B2449066B009A184A /* NoBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0E1F1A2449066B009A184A /* NoBoardViewController.swift */; };
 		9C0E1F1D244906C7009A184A /* NoBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0E1F1C244906C7009A184A /* NoBoardView.swift */; };
+		9C0E1F1F24491FCB009A184A /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0E1F1E24491FCB009A184A /* UITextField+.swift */; };
+		9C0E1F342449F0F6009A184A /* UIControlPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0E1F332449F0F6009A184A /* UIControlPublisher.swift */; };
+		9C0E1F362449F12A009A184A /* UIControlSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0E1F352449F12A009A184A /* UIControlSubscription.swift */; };
+		9C0E1F382449F178009A184A /* CombineCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0E1F372449F178009A184A /* CombineCompatible.swift */; };
+		9C0E1F3A2449F1A5009A184A /* UIControl+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0E1F392449F1A5009A184A /* UIControl+.swift */; };
+		9C0E1F3C2449F824009A184A /* LoginCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0E1F3B2449F824009A184A /* LoginCredentials.swift */; };
 		9C0FA15824466D92001E734C /* TaskCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0FA15724466D92001E734C /* TaskCoordinator.swift */; };
 		9C0FA15A24466DD9001E734C /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0FA15924466DD9001E734C /* TaskViewModel.swift */; };
 		9C0FA15C24467363001E734C /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0FA15B24467363001E734C /* TaskView.swift */; };
+		9C102A7C244AF7C70061E16D /* RegistrationCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C102A7B244AF7C70061E16D /* RegistrationCredentials.swift */; };
+		9C102A80244AFFC00061E16D /* RegistrationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C102A7F244AFFC00061E16D /* RegistrationError.swift */; };
+		9C102A82244B02390061E16D /* ReachabilityServis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C102A81244B02390061E16D /* ReachabilityServis.swift */; };
 		9C332E3F244229D50063F98A /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C332E3E244229D50063F98A /* SettingsViewModel.swift */; };
 		9C332E4124422A460063F98A /* FamilyJiraDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C332E4024422A460063F98A /* FamilyJiraDI.swift */; };
 		9C332E4324423DC40063F98A /* ProfileSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C332E4224423DC40063F98A /* ProfileSection.swift */; };
@@ -31,6 +40,9 @@
 		9C332E5B2443913A0063F98A /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C332E5A2443913A0063F98A /* Task.swift */; };
 		9C332E5D244392F40063F98A /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C332E5C244392F40063F98A /* TaskCell.swift */; };
 		9C332E5F2443C2900063F98A /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C332E5E2443C2900063F98A /* TaskViewController.swift */; };
+		9C4B64B1244B5C9900BA12AF /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B64B0244B5C9900BA12AF /* RequestError.swift */; };
+		9C4B64B3244BB6E700BA12AF /* UIAlertController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B64B2244BB6E700BA12AF /* UIAlertController+.swift */; };
+		9C4B64B5244BB72100BA12AF /* BaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B64B4244BB72100BA12AF /* BaseError.swift */; };
 		9C6467B4240E4A9A0099BC93 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6467B3240E4A9A0099BC93 /* User.swift */; };
 		9CB85074240709FB004AAC23 /* LoginRegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB85073240709FB004AAC23 /* LoginRegistrationViewModel.swift */; };
 		9CB85076240710CF004AAC23 /* LoginRegistrationEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB85075240710CF004AAC23 /* LoginRegistrationEvent.swift */; };
@@ -74,9 +86,18 @@
 /* Begin PBXFileReference section */
 		9C0E1F1A2449066B009A184A /* NoBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoBoardViewController.swift; sourceTree = "<group>"; };
 		9C0E1F1C244906C7009A184A /* NoBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoBoardView.swift; sourceTree = "<group>"; };
+		9C0E1F1E24491FCB009A184A /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
+		9C0E1F332449F0F6009A184A /* UIControlPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControlPublisher.swift; sourceTree = "<group>"; };
+		9C0E1F352449F12A009A184A /* UIControlSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControlSubscription.swift; sourceTree = "<group>"; };
+		9C0E1F372449F178009A184A /* CombineCompatible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineCompatible.swift; sourceTree = "<group>"; };
+		9C0E1F392449F1A5009A184A /* UIControl+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+.swift"; sourceTree = "<group>"; };
+		9C0E1F3B2449F824009A184A /* LoginCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCredentials.swift; sourceTree = "<group>"; };
 		9C0FA15724466D92001E734C /* TaskCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCoordinator.swift; sourceTree = "<group>"; };
 		9C0FA15924466DD9001E734C /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
 		9C0FA15B24467363001E734C /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
+		9C102A7B244AF7C70061E16D /* RegistrationCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationCredentials.swift; sourceTree = "<group>"; };
+		9C102A7F244AFFC00061E16D /* RegistrationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationError.swift; sourceTree = "<group>"; };
+		9C102A81244B02390061E16D /* ReachabilityServis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityServis.swift; sourceTree = "<group>"; };
 		9C332E3E244229D50063F98A /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		9C332E4024422A460063F98A /* FamilyJiraDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyJiraDI.swift; sourceTree = "<group>"; };
 		9C332E4224423DC40063F98A /* ProfileSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSection.swift; sourceTree = "<group>"; };
@@ -94,6 +115,9 @@
 		9C332E5A2443913A0063F98A /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		9C332E5C244392F40063F98A /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		9C332E5E2443C2900063F98A /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
+		9C4B64B0244B5C9900BA12AF /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
+		9C4B64B2244BB6E700BA12AF /* UIAlertController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+.swift"; sourceTree = "<group>"; };
+		9C4B64B4244BB72100BA12AF /* BaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseError.swift; sourceTree = "<group>"; };
 		9C6467B3240E4A9A0099BC93 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9CB85073240709FB004AAC23 /* LoginRegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRegistrationViewModel.swift; sourceTree = "<group>"; };
 		9CB85075240710CF004AAC23 /* LoginRegistrationEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRegistrationEvent.swift; sourceTree = "<group>"; };
@@ -161,6 +185,17 @@
 				ECB23BB9804D1578394DEECD /* Pods_FamilyJira_FamilyJiraTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9C0E1F322449F0E7009A184A /* Combine+ */ = {
+			isa = PBXGroup;
+			children = (
+				9C0E1F372449F178009A184A /* CombineCompatible.swift */,
+				9C0E1F332449F0F6009A184A /* UIControlPublisher.swift */,
+				9C0E1F352449F12A009A184A /* UIControlSubscription.swift */,
+				9C0E1F392449F1A5009A184A /* UIControl+.swift */,
+			);
+			path = "Combine+";
 			sourceTree = "<group>";
 		};
 		9CB85072240709E4004AAC23 /* ViewModel */ = {
@@ -250,6 +285,7 @@
 		9CF7D6FD2401AB8700760442 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				9C0E1F322449F0E7009A184A /* Combine+ */,
 				9CF7D6FE2401ABBF00760442 /* Extensions */,
 				9C332E4024422A460063F98A /* FamilyJiraDI.swift */,
 			);
@@ -265,6 +301,8 @@
 				9CF7D71D2401E85E00760442 /* UIViewController+.swift */,
 				9CF7D728240304F600760442 /* Notification.Name+.swift */,
 				9C332E46244252500063F98A /* UIImageView+.swift */,
+				9C0E1F1E24491FCB009A184A /* UITextField+.swift */,
+				9C4B64B2244BB6E700BA12AF /* UIAlertController+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -275,11 +313,16 @@
 				9CB85075240710CF004AAC23 /* LoginRegistrationEvent.swift */,
 				9CF7D7042401AFC300760442 /* Tabs.swift */,
 				9CB8507724071148004AAC23 /* LoginError.swift */,
+				9C102A7F244AFFC00061E16D /* RegistrationError.swift */,
 				9C6467B3240E4A9A0099BC93 /* User.swift */,
 				9C332E4224423DC40063F98A /* ProfileSection.swift */,
 				9C332E4A24426A270063F98A /* PreferencesSection.swift */,
 				9C332E4C24426E240063F98A /* Settings.swift */,
 				9C332E5A2443913A0063F98A /* Task.swift */,
+				9C0E1F3B2449F824009A184A /* LoginCredentials.swift */,
+				9C102A7B244AF7C70061E16D /* RegistrationCredentials.swift */,
+				9C4B64B0244B5C9900BA12AF /* RequestError.swift */,
+				9C4B64B4244BB72100BA12AF /* BaseError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -317,6 +360,7 @@
 			isa = PBXGroup;
 			children = (
 				9CF7D7202402CF1A00760442 /* FirebaseService.swift */,
+				9C102A81244B02390061E16D /* ReachabilityServis.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -519,19 +563,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C102A82244B02390061E16D /* ReachabilityServis.swift in Sources */,
+				9C0E1F3C2449F824009A184A /* LoginCredentials.swift in Sources */,
+				9C0E1F342449F0F6009A184A /* UIControlPublisher.swift in Sources */,
 				9C332E5924438FC30063F98A /* MyTasksViewModel.swift in Sources */,
+				9C4B64B5244BB72100BA12AF /* BaseError.swift in Sources */,
 				9C0FA15A24466DD9001E734C /* TaskViewModel.swift in Sources */,
 				9CF7D6D22401832900760442 /* TabBarCoordinator.swift in Sources */,
+				9C102A80244AFFC00061E16D /* RegistrationError.swift in Sources */,
 				9CF7D6F92401A7CF00760442 /* MyTasksViewController.swift in Sources */,
 				9CF7D7212402CF1A00760442 /* FirebaseService.swift in Sources */,
 				9C332E4324423DC40063F98A /* ProfileSection.swift in Sources */,
 				9C332E53244362B00063F98A /* ProfileCoordinator.swift in Sources */,
 				9CF7D7232402D2E500760442 /* HomeCoordinator.swift in Sources */,
 				9C332E4F244342F60063F98A /* NotImplementedViewController.swift in Sources */,
+				9C0E1F362449F12A009A184A /* UIControlSubscription.swift in Sources */,
 				9C332E51244362540063F98A /* ProfileViewController.swift in Sources */,
 				9C0E1F1B2449066B009A184A /* NoBoardViewController.swift in Sources */,
+				9C4B64B3244BB6E700BA12AF /* UIAlertController+.swift in Sources */,
+				9C0E1F3A2449F1A5009A184A /* UIControl+.swift in Sources */,
 				9CF7D71E2401E85E00760442 /* UIViewController+.swift in Sources */,
 				9C332E4524423F280063F98A /* ProfileCell.swift in Sources */,
+				9C102A7C244AF7C70061E16D /* RegistrationCredentials.swift in Sources */,
+				9C0E1F1F24491FCB009A184A /* UITextField+.swift in Sources */,
 				9C0FA15C24467363001E734C /* TaskView.swift in Sources */,
 				9CF7D6CE2401832900760442 /* AppDelegate.swift in Sources */,
 				9CF7D7002401AC0000760442 /* UIImage+.swift in Sources */,
@@ -546,6 +600,8 @@
 				9C332E47244252500063F98A /* UIImageView+.swift in Sources */,
 				9C332E49244268C90063F98A /* SettingsCell.swift in Sources */,
 				9C332E4B24426A270063F98A /* PreferencesSection.swift in Sources */,
+				9C0E1F382449F178009A184A /* CombineCompatible.swift in Sources */,
+				9C4B64B1244B5C9900BA12AF /* RequestError.swift in Sources */,
 				9CB85076240710CF004AAC23 /* LoginRegistrationEvent.swift in Sources */,
 				9CF7D7272402D2FE00760442 /* SettingsCoordinator.swift in Sources */,
 				9C332E4D24426E240063F98A /* Settings.swift in Sources */,

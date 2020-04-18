@@ -9,44 +9,76 @@
 import Foundation
 import Combine
 
-//case emptyField
-//case emailValidation
-//case passwordTooShort
-//case passwordsDoNotMatch
-//case noInternetConnection
-
 protocol LoginRegistrationViewModelProtocol {
-    var email: CurrentValueSubject<String, Never> { get }
-    var username: CurrentValueSubject<String, Never> { get }
-    var password: CurrentValueSubject<String, Never> { get }
-    var confirmPassword: CurrentValueSubject<String, Never> { get }
-    
-    var signInTapped: Empty<Void, Never> { get }
+    var signInTapped: PassthroughSubject<LoginCredentials?, LoginError> { get }
+    var signUpTapped: PassthroughSubject<RegistrationCredentials?, RegistrationError> { get }
+    var presentAuthError: PassthroughSubject<BaseError, Never> { get }
+    var userLoggedIn: PassthroughSubject<Void, Never> { get }
+    var registrationSucceed: PassthroughSubject<Void, Never> { get }
 }
 
 final class LoginRegistrationViewModel: LoginRegistrationViewModelProtocol {
-    var email = CurrentValueSubject<String, Never>("")
-    var username = CurrentValueSubject<String, Never>("")
-    var password = CurrentValueSubject<String, Never>("")
-    var confirmPassword = CurrentValueSubject<String, Never>("")
-    
-    let signInTapped = Empty<Void, Never>()
-    
+    let signInTapped: PassthroughSubject<LoginCredentials?, LoginError>
+    let signUpTapped: PassthroughSubject<RegistrationCredentials?, RegistrationError>
+    let presentAuthError: PassthroughSubject<BaseError, Never>
+    let userLoggedIn: PassthroughSubject<Void, Never>
+    let registrationSucceed: PassthroughSubject<Void, Never>
+
     private var subscriptions = Set<AnyCancellable>()
     
     init(
-        firebaseService: FirebaseServiceProtocol = FamilyJiraDI.forceResolve()
+        firebaseService: FirebaseServiceProtocol = FamilyJiraDI.forceResolve(),
+        reachabilityServis: ReachabilityServisProtocolol = FamilyJiraDI.forceResolve()
     ) {
-        firebaseService.signIn(email: "george8@rambler.ru", password: "12345678")
-            .sink(receiveCompletion: { completion in
+        signInTapped = PassthroughSubject<LoginCredentials?, LoginError>()
+        signUpTapped = PassthroughSubject<RegistrationCredentials?, RegistrationError>()
+        presentAuthError = PassthroughSubject<BaseError, Never>()
+        userLoggedIn = PassthroughSubject<Void, Never>()
+        registrationSucceed = PassthroughSubject<Void, Never>()
+        
+        signInTapped
+            .flatMap { credentials -> Future<Void, LoginError> in
+                if reachabilityServis.isConnectedToNetwork() {
+                    return firebaseService.signIn(with: credentials)
+                } else {
+                    return Future<Void, LoginError> {
+                        $0(.failure(.noConnection))
+                    }
+                }
+            }
+            .eraseToAnyPublisher()
+            .sink(receiveCompletion: { [weak self] completion in
                 switch completion {
                 case .finished:
-                    print("Finished")
-                case .failure(_):
-                    print("Failure")
+                    ()
+                case .failure(let error):
+                    self?.presentAuthError.send(error)
                 }
-            }, receiveValue: { value in
-                print(value)
+            }, receiveValue: { [weak self] _ in
+                self?.userLoggedIn.send()
+            })
+            .store(in: &subscriptions)
+        
+        signUpTapped
+            .flatMap { credentials -> Future<Void, RegistrationError> in
+                if reachabilityServis.isConnectedToNetwork() {
+                    return firebaseService.signUp(with: credentials)
+                } else {
+                    return Future<Void, RegistrationError> {
+                        $0(.failure(.noConnection))
+                    }
+                }
+            }
+            .eraseToAnyPublisher()
+            .sink(receiveCompletion: { [weak self] completion in
+                switch completion {
+                case .finished:
+                    ()
+                case .failure(let error):
+                    self?.presentAuthError.send(error)
+                }
+            }, receiveValue: { [weak self] _ in
+                self?.registrationSucceed.send()
             })
             .store(in: &subscriptions)
     }

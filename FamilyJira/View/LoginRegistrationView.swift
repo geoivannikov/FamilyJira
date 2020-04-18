@@ -64,7 +64,7 @@ class LoginRegistrationView: BaseView {
         button.layer.cornerRadius = 5.0
         button.clipsToBounds = true
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-        button.setTitle("Sign Up", for: .normal)
+        button.setTitle("Sign In", for: .normal)
         return button
     }()
     
@@ -91,7 +91,7 @@ class LoginRegistrationView: BaseView {
         scrollView.addSubview(stackView)
         stackView.snp.makeConstraints { make in
             make.centerX.leading.trailing.equalToSuperview()
-            make.top.equalToSuperview().offset(150)
+            make.top.equalToSuperview().offset(250)
         }
         
         stackView.addArrangedSubview(segmentControl)
@@ -123,18 +123,20 @@ class LoginRegistrationView: BaseView {
         confirmPasswordTextField.delegate = self
     }
     
-    func formToggle(isLogin: Bool) {
+    func formToggle(isLogin: Bool, saveCredentials: Bool = false) {
         UIView.animate(withDuration: 0.3) { [weak self] in
             self?.usernameTextField.isHidden = isLogin
             self?.confirmPasswordTextField.isHidden = isLogin
         }
         actionButton.setTitle(isLogin ? "Sign In" : "Sign Up", for: .normal)
-        [emailTextField,
-         usernameTextField,
-         passwordTextField,
-         confirmPasswordTextField].forEach {
-            $0.text = ""
-            $0.resignFirstResponder()
+        if !saveCredentials {
+            [emailTextField,
+             usernameTextField,
+             passwordTextField,
+             confirmPasswordTextField].forEach {
+                $0.text = ""
+                $0.resignFirstResponder()
+            }
         }
     }
 }

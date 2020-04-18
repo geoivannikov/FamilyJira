@@ -13,7 +13,8 @@ import Combine
 
 protocol FirebaseServiceProtocol {
     var isUserLoggedIn: Bool { get }
-    func signIn(email: String, password: String) -> Future<User, LoginError>
+    func signIn(with loginCredentials: LoginCredentials?) -> Future<Void, LoginError>
+    func signUp(with registrationCredentials: RegistrationCredentials?) -> Future<Void, RegistrationError>
 }
 
 final class FirebaseService: FirebaseServiceProtocol {
@@ -26,17 +27,57 @@ final class FirebaseService: FirebaseServiceProtocol {
         return Auth.auth().currentUser?.uid != nil
     }
     
-    func signIn(email: String, password: String) -> Future<User, LoginError> {
-        let signInPublisher = Future<User, LoginError> { promise in
-            Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+    func signIn(with loginCredentials: LoginCredentials?) -> Future<Void, LoginError> {
+        Future<Void, LoginError> { promise in
+            guard let credentials = loginCredentials else {
+                promise(.failure(.validationError))
+                return
+            }
+            Auth.auth().signIn(withEmail: credentials.email,
+                               password: credentials.password) { result, error in
                 if let error = error, let authErrorCode = AuthErrorCode(rawValue: error._code) {
                     let loginError = LoginError(authErrorCode: authErrorCode.rawValue)
                     promise(.failure(loginError))
                 } else {
-                    promise(.success(User()))
+                    promise(.success(()))
                 }
             }
         }
-        return signInPublisher
+    }
+    
+    func signUp(with registrationCredentials: RegistrationCredentials?) -> Future<Void, RegistrationError> {
+        Future<Void, RegistrationError> { promise in
+            guard let credentials = registrationCredentials else {
+                promise(.failure(.validationError))
+                return
+            }
+            guard credentials.password == credentials.confirmPassword else {
+                promise(.failure(.passwordsDoNotMatch))
+                return
+            }
+            guard credentials.password.count > 5 else {
+                promise(.failure(.passwordTooShort))
+                return
+            }
+            guard credentials.isCorrectEmailFormat else {
+                promise(.failure(.incorrectEmailFormat))
+                return
+            }
+            Auth.auth().createUser(withEmail: credentials.email,
+                                   password: credentials.password) { result, error in
+              if let error = error, let authErrorCode = AuthErrorCode(rawValue: error._code) {
+                  let registrationError = RegistrationError(authErrorCode: authErrorCode.rawValue)
+                  promise(.failure(registrationError))
+              } else {
+                  promise(.success(()))
+              }
+            }
+        }
+    }
+    
+    func requestUser() -> Future<User, RequestError> {
+        Future<User, RequestError> { promise in
+            
+        }
     }
 }

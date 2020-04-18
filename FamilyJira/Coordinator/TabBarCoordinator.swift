@@ -8,6 +8,7 @@
 
 import UIKit
 import Combine
+import Firebase
 
 class TabBarCoordinator {
     private var window: UIWindow?
@@ -58,9 +59,9 @@ class TabBarCoordinator {
     }
     
     func start() {
-        if !firebaseService.isUserLoggedIn {
+//        if !firebaseService.isUserLoggedIn {
             loginRegistrationCoordinator.start()
-        }
+//        }
     }
 }
 

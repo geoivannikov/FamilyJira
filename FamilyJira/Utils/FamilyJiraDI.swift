@@ -14,7 +14,11 @@ final class FamilyJiraDI: NSObject {
     
     static func start() {
         FamilyJiraDI.container.register(FirebaseServiceProtocol.self) { _ in
-            return FirebaseService()
+            FirebaseService()
+        }.inObjectScope(.transient)
+        
+        FamilyJiraDI.container.register(ReachabilityServisProtocolol.self) { _ in
+            ReachabilityServis()
         }.inObjectScope(.transient)
     }
     
