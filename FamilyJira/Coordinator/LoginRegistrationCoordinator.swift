@@ -21,12 +21,12 @@ final class LoginRegistrationCoordinator {
         self.presentNavigationController = UINavigationController()
     }
     
-    func start() {
+    func start(animated: Bool = false, completion: (() -> Void)? = nil) {
         let loginRegistrationViewModel = LoginRegistrationViewModel()
         let viewController = LoginRegistrationViewController.instantiate(loginRegistrationViewModel: loginRegistrationViewModel)
         presentNavigationController.viewControllers = [viewController]
         presentNavigationController.modalPresentationStyle = .fullScreen
-        tabBarController.present(presentNavigationController, animated: false, completion: nil)
+        tabBarController.present(presentNavigationController, animated: animated, completion: completion)
         
         loginRegistrationViewModel.presentAuthError
             .sink(receiveValue: presentError(error:))

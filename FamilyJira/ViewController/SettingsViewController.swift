@@ -25,8 +25,7 @@ class SettingsViewController: UITableViewController {
         super.viewDidLoad()
         setUpLayout()
         setUpBinds()
-        
-        settingsViewModel.settingsOpened()
+        settingsViewModel.viewDidLoad()
     }
     
     private func setUpLayout() {
@@ -60,6 +59,8 @@ extension SettingsViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             settingsViewModel.editprofileTapped.send()
+        } else if indexPath.section == 2 {
+            settingsViewModel.signOutTapped.send()
         } else {
             navigationController?.pushViewController(NotImplementedViewController(), animated: true)
         }

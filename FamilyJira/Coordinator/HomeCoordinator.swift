@@ -8,12 +8,27 @@
 
 import Foundation
 import UIKit
+import Combine
 
 final class HomeCoordinator {
     let navigationController: UINavigationController
+    private let loginRegistrationCoordinator: LoginRegistrationCoordinator
     
-    init() {
-        let homeViewController = HomeViewController.instantiate()
-        navigationController = UINavigationController( rootViewController: homeViewController)
+    private var subscriptions = Set<AnyCancellable>()
+    
+    init(
+        loginRegistrationCoordinator: LoginRegistrationCoordinator,
+        homeViewModel: HomeViewModelProtocol = HomeViewModel()
+    ) {
+        self.loginRegistrationCoordinator = loginRegistrationCoordinator
+        let homeViewController = HomeViewController.instantiate(homeViewModel: homeViewModel)
+        navigationController = UINavigationController(rootViewController: homeViewController)
+        
+        homeViewModel.isUserLoggedIn
+            .filter { $0 == false }
+            .sink(receiveValue: { _ in
+                loginRegistrationCoordinator.start()
+            })
+            .store(in: &subscriptions)
     }
 }

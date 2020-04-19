@@ -21,31 +21,22 @@ class TabBarCoordinator {
     }()
     
     private let loginRegistrationCoordinator: LoginRegistrationCoordinator
+    private let homeCoordinator: HomeCoordinator
+    private let myTasksCoordinator: MyTasksCoordinator
+    private let settingsCoordinator: SettingsCoordinator
     
-    private let homeCoordinator: HomeCoordinator = {
-        let coordinator = HomeCoordinator()
-        return coordinator
-    }()
-    
-    private let myTasksCoordinator: MyTasksCoordinator = {
-        let coordinator = MyTasksCoordinator()
-        return coordinator
-    }()
-    
-    private let settingsCoordinator: SettingsCoordinator = {
-        let coordinator = SettingsCoordinator()
-        return coordinator
-    }()
-    
-    private let firebaseService: FirebaseServiceProtocol
+    private var subscriptions = Set<AnyCancellable>()
     
     init(navigationController: UINavigationController,
-         window: UIWindow?,
-         firebaseService: FirebaseServiceProtocol = FirebaseService()) {
+         window: UIWindow?) {
         self.window = window
         self.window?.rootViewController = tabBarController
         loginRegistrationCoordinator = LoginRegistrationCoordinator(tabBarController: tabBarController)
-        
+        homeCoordinator = HomeCoordinator(loginRegistrationCoordinator: loginRegistrationCoordinator)
+        myTasksCoordinator = MyTasksCoordinator()
+        let doSignOut = PassthroughSubject<Void, Never>()
+        settingsCoordinator = SettingsCoordinator(doSignOut: doSignOut)
+
         let homeViewController = homeCoordinator.navigationController
         homeViewController.tabBarItem = UITabBarItem(.home)
         let myTasksViewController = myTasksCoordinator.navigationController
@@ -55,13 +46,19 @@ class TabBarCoordinator {
         tabBarController.viewControllers = [homeViewController,
                                             myTasksViewController,
                                             settingsViewController]
-        self.firebaseService = firebaseService
+        
+        doSignOut
+            .sink(receiveValue: { [weak self] in
+                self?.signOut()
+            })
+            .store(in: &subscriptions)
     }
     
-    func start() {
-        if !firebaseService.isUserLoggedIn {
-            loginRegistrationCoordinator.start()
-        }
+    private func signOut() {
+        loginRegistrationCoordinator.start(animated: true,
+                                           completion: { [weak self] in
+            self?.tabBarController.selectedIndex = 0
+        })
     }
 }
 

@@ -13,12 +13,20 @@ import UIKit
 protocol SettingsViewModelProtocol {
     var settingsData: PassthroughSubject<[[Settings]], Never> { get }
     var editprofileTapped: PassthroughSubject<Void, Never> { get }
-    func settingsOpened()
+    var signOutTapped: PassthroughSubject<Void, Never> { get }
+    var userSignedOut: PassthroughSubject<Void, Never> { get }
+    var signOutFailed: PassthroughSubject<Void, Never> { get }
+
+    func viewDidLoad()
 }
 
 final class SettingsViewModel: SettingsViewModelProtocol {
     let settingsData: PassthroughSubject<[[Settings]], Never>
     let editprofileTapped: PassthroughSubject<Void, Never>
+    let signOutTapped: PassthroughSubject<Void, Never>
+    let userSignedOut: PassthroughSubject<Void, Never>
+    let signOutFailed: PassthroughSubject<Void, Never>
+
     private var subscriptions = Set<AnyCancellable>()
     
     init(
@@ -26,9 +34,23 @@ final class SettingsViewModel: SettingsViewModelProtocol {
     ) {
         settingsData = PassthroughSubject<[[Settings]], Never>()
         editprofileTapped = PassthroughSubject<Void, Never>()
+        signOutTapped = PassthroughSubject<Void, Never>()
+        userSignedOut = PassthroughSubject<Void, Never>()
+        signOutFailed = PassthroughSubject<Void, Never>()
+        
+        signOutTapped
+            .sink(receiveValue: { [weak self] _ in
+                do {
+                    try firebaseService.signOut()
+                    self?.userSignedOut.send()
+                } catch {
+                    self?.signOutFailed.send()
+                }
+            })
+            .store(in: &subscriptions)
     }
     
-    func settingsOpened() {
+    func viewDidLoad() {
         settingsData.send([[.profile(ProfileSection(name: "George", role: "Son"))],
                            [.preferences(PreferencesSection(icon: UIImage.privacyIcon, title: "Privacy")),
                             .preferences(PreferencesSection(icon: UIImage.notificationsIcon, title: "Notifications")),

@@ -22,7 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window? = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         coordinator = TabBarCoordinator(navigationController: navigationController, window: window)
-        coordinator?.start()
         return true
     }
 }

@@ -15,6 +15,7 @@ final class SettingsCoordinator {
     private var subscriptions = Set<AnyCancellable>()
     
     init(
+        doSignOut: PassthroughSubject<Void, Never>,
         settingsViewModel: SettingsViewModelProtocol = SettingsViewModel()
     ) {
         let settingsViewController = SettingsViewController.instantiate(settingsViewModel: settingsViewModel)
@@ -26,5 +27,22 @@ final class SettingsCoordinator {
                 profileCoordinator.start()
             })
             .store(in: &subscriptions)
+        
+        settingsViewModel.signOutFailed
+            .sink(receiveValue: { [weak self] _ in
+                self?.presentError()
+            })
+            .store(in: &subscriptions)
+        
+        settingsViewModel.userSignedOut
+            .sink(receiveValue: { _ in
+                doSignOut.send()
+            })
+            .store(in: &subscriptions)
+    }
+    
+    private func presentError() {
+        let alert = UIAlertController.errorAlert(content: "Sign out failed")
+        navigationController.present(alert, animated: true)
     }
 }

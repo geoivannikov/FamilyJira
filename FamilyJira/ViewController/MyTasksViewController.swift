@@ -32,7 +32,6 @@ class MyTasksViewController: UITableViewController {
         super.viewDidLoad()
         setupLayout()
         setUpBinds()
-        
         myTasksViewModel.myTasksOpened()
     }
     

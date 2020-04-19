@@ -25,6 +25,7 @@ final class LoginRegistrationViewModel: LoginRegistrationViewModelProtocol {
 
     private let firebaseServise: FirebaseServiceProtocol
     private let reachabilityServis: ReachabilityServisProtocolol
+
     private var subscriptions = Set<AnyCancellable>()
     
     init(
