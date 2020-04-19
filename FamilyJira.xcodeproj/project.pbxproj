@@ -43,6 +43,9 @@
 		9C4B64B1244B5C9900BA12AF /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B64B0244B5C9900BA12AF /* RequestError.swift */; };
 		9C4B64B3244BB6E700BA12AF /* UIAlertController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B64B2244BB6E700BA12AF /* UIAlertController+.swift */; };
 		9C4B64B5244BB72100BA12AF /* BaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B64B4244BB72100BA12AF /* BaseError.swift */; };
+		9C4B64BB244BCC5000BA12AF /* Combine+BaseAbstractions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B64BA244BCC5000BA12AF /* Combine+BaseAbstractions.swift */; };
+		9C4B64BD244BCC6D00BA12AF /* Combine+Materialize+Dematerialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B64BC244BCC6D00BA12AF /* Combine+Materialize+Dematerialize.swift */; };
+		9C4B64BF244BCC9900BA12AF /* Combine+WithLatestFrom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B64BE244BCC9900BA12AF /* Combine+WithLatestFrom.swift */; };
 		9C6467B4240E4A9A0099BC93 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6467B3240E4A9A0099BC93 /* User.swift */; };
 		9CB85074240709FB004AAC23 /* LoginRegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB85073240709FB004AAC23 /* LoginRegistrationViewModel.swift */; };
 		9CB85076240710CF004AAC23 /* LoginRegistrationEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB85075240710CF004AAC23 /* LoginRegistrationEvent.swift */; };
@@ -118,6 +121,9 @@
 		9C4B64B0244B5C9900BA12AF /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
 		9C4B64B2244BB6E700BA12AF /* UIAlertController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+.swift"; sourceTree = "<group>"; };
 		9C4B64B4244BB72100BA12AF /* BaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseError.swift; sourceTree = "<group>"; };
+		9C4B64BA244BCC5000BA12AF /* Combine+BaseAbstractions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+BaseAbstractions.swift"; sourceTree = "<group>"; };
+		9C4B64BC244BCC6D00BA12AF /* Combine+Materialize+Dematerialize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+Materialize+Dematerialize.swift"; sourceTree = "<group>"; };
+		9C4B64BE244BCC9900BA12AF /* Combine+WithLatestFrom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+WithLatestFrom.swift"; sourceTree = "<group>"; };
 		9C6467B3240E4A9A0099BC93 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9CB85073240709FB004AAC23 /* LoginRegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRegistrationViewModel.swift; sourceTree = "<group>"; };
 		9CB85075240710CF004AAC23 /* LoginRegistrationEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRegistrationEvent.swift; sourceTree = "<group>"; };
@@ -194,6 +200,9 @@
 				9C0E1F332449F0F6009A184A /* UIControlPublisher.swift */,
 				9C0E1F352449F12A009A184A /* UIControlSubscription.swift */,
 				9C0E1F392449F1A5009A184A /* UIControl+.swift */,
+				9C4B64BA244BCC5000BA12AF /* Combine+BaseAbstractions.swift */,
+				9C4B64BC244BCC6D00BA12AF /* Combine+Materialize+Dematerialize.swift */,
+				9C4B64BE244BCC9900BA12AF /* Combine+WithLatestFrom.swift */,
 			);
 			path = "Combine+";
 			sourceTree = "<group>";
@@ -583,6 +592,7 @@
 				9C4B64B3244BB6E700BA12AF /* UIAlertController+.swift in Sources */,
 				9C0E1F3A2449F1A5009A184A /* UIControl+.swift in Sources */,
 				9CF7D71E2401E85E00760442 /* UIViewController+.swift in Sources */,
+				9C4B64BF244BCC9900BA12AF /* Combine+WithLatestFrom.swift in Sources */,
 				9C332E4524423F280063F98A /* ProfileCell.swift in Sources */,
 				9C102A7C244AF7C70061E16D /* RegistrationCredentials.swift in Sources */,
 				9C0E1F1F24491FCB009A184A /* UITextField+.swift in Sources */,
@@ -603,6 +613,7 @@
 				9C0E1F382449F178009A184A /* CombineCompatible.swift in Sources */,
 				9C4B64B1244B5C9900BA12AF /* RequestError.swift in Sources */,
 				9CB85076240710CF004AAC23 /* LoginRegistrationEvent.swift in Sources */,
+				9C4B64BD244BCC6D00BA12AF /* Combine+Materialize+Dematerialize.swift in Sources */,
 				9CF7D7272402D2FE00760442 /* SettingsCoordinator.swift in Sources */,
 				9C332E4D24426E240063F98A /* Settings.swift in Sources */,
 				9C332E5B2443913A0063F98A /* Task.swift in Sources */,
@@ -616,6 +627,7 @@
 				9C332E4124422A460063F98A /* FamilyJiraDI.swift in Sources */,
 				9C0FA15824466D92001E734C /* TaskCoordinator.swift in Sources */,
 				9C6467B4240E4A9A0099BC93 /* User.swift in Sources */,
+				9C4B64BB244BCC5000BA12AF /* Combine+BaseAbstractions.swift in Sources */,
 				9C332E3F244229D50063F98A /* SettingsViewModel.swift in Sources */,
 				9C332E5F2443C2900063F98A /* TaskViewController.swift in Sources */,
 				9C332E5D244392F40063F98A /* TaskCell.swift in Sources */,

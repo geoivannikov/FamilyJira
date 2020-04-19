@@ -10,43 +10,40 @@ import Foundation
 import Combine
 
 protocol LoginRegistrationViewModelProtocol {
-    var signInTapped: PassthroughSubject<LoginCredentials?, LoginError> { get }
-    var signUpTapped: PassthroughSubject<RegistrationCredentials?, RegistrationError> { get }
     var presentAuthError: PassthroughSubject<BaseError, Never> { get }
     var userLoggedIn: PassthroughSubject<Void, Never> { get }
     var registrationSucceed: PassthroughSubject<Void, Never> { get }
+    
+    func signInTapped(credentials: LoginCredentials?)
+    func signUpTapped(credentials: RegistrationCredentials?)
 }
 
 final class LoginRegistrationViewModel: LoginRegistrationViewModelProtocol {
-    let signInTapped: PassthroughSubject<LoginCredentials?, LoginError>
-    let signUpTapped: PassthroughSubject<RegistrationCredentials?, RegistrationError>
     let presentAuthError: PassthroughSubject<BaseError, Never>
     let userLoggedIn: PassthroughSubject<Void, Never>
     let registrationSucceed: PassthroughSubject<Void, Never>
 
+    private let firebaseServise: FirebaseServiceProtocol
+    private let reachabilityServis: ReachabilityServisProtocolol
     private var subscriptions = Set<AnyCancellable>()
     
     init(
-        firebaseService: FirebaseServiceProtocol = FamilyJiraDI.forceResolve(),
+        firebaseServise: FirebaseServiceProtocol = FamilyJiraDI.forceResolve(),
         reachabilityServis: ReachabilityServisProtocolol = FamilyJiraDI.forceResolve()
     ) {
-        signInTapped = PassthroughSubject<LoginCredentials?, LoginError>()
-        signUpTapped = PassthroughSubject<RegistrationCredentials?, RegistrationError>()
+        self.firebaseServise = firebaseServise
+        self.reachabilityServis = reachabilityServis
         presentAuthError = PassthroughSubject<BaseError, Never>()
         userLoggedIn = PassthroughSubject<Void, Never>()
         registrationSucceed = PassthroughSubject<Void, Never>()
-        
-        signInTapped
-            .flatMap { credentials -> Future<Void, LoginError> in
-                if reachabilityServis.isConnectedToNetwork() {
-                    return firebaseService.signIn(with: credentials)
-                } else {
-                    return Future<Void, LoginError> {
-                        $0(.failure(.noConnection))
-                    }
-                }
-            }
-            .eraseToAnyPublisher()
+    }
+    
+    func signInTapped(credentials: LoginCredentials?) {
+        guard reachabilityServis.isConnectedToNetwork() else {
+            presentAuthError.send(LoginError.noConnection)
+            return
+        }
+        firebaseServise.signIn(with: credentials)
             .sink(receiveCompletion: { [weak self] completion in
                 switch completion {
                 case .finished:
@@ -58,18 +55,14 @@ final class LoginRegistrationViewModel: LoginRegistrationViewModelProtocol {
                 self?.userLoggedIn.send()
             })
             .store(in: &subscriptions)
-        
-        signUpTapped
-            .flatMap { credentials -> Future<Void, RegistrationError> in
-                if reachabilityServis.isConnectedToNetwork() {
-                    return firebaseService.signUp(with: credentials)
-                } else {
-                    return Future<Void, RegistrationError> {
-                        $0(.failure(.noConnection))
-                    }
-                }
-            }
-            .eraseToAnyPublisher()
+    }
+    
+    func signUpTapped(credentials: RegistrationCredentials?) {
+        guard reachabilityServis.isConnectedToNetwork() else {
+            presentAuthError.send(RegistrationError.noConnection)
+            return
+        }
+        firebaseServise.signUp(with: credentials)
             .sink(receiveCompletion: { [weak self] completion in
                 switch completion {
                 case .finished:

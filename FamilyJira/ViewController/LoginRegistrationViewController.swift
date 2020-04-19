@@ -73,9 +73,7 @@ class LoginRegistrationViewController: UIViewController {
                 LoginCredentials(email: self?.loginRegistrationView.emailTextField.text,
                                  password: self?.loginRegistrationView.passwordTextField.text)
             }
-            .sink { [weak self] in
-                self?.loginRegistrationViewModel.signInTapped.send($0)
-            }
+            .sink(receiveValue: loginRegistrationViewModel.signInTapped(credentials:))
             .store(in: &subscriptions)
         
         signUpTapped
@@ -85,9 +83,7 @@ class LoginRegistrationViewController: UIViewController {
                                         password: self?.loginRegistrationView.passwordTextField.text,
                                         confirmPassword: self?.loginRegistrationView.confirmPasswordTextField.text)
             }
-            .sink { [weak self] in
-                self?.loginRegistrationViewModel.signUpTapped.send($0)
-            }
+            .sink(receiveValue: loginRegistrationViewModel.signUpTapped(credentials:))
             .store(in: &subscriptions)
         
         loginRegistrationViewModel.presentAuthError

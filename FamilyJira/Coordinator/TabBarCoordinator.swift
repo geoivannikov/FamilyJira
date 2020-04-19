@@ -59,9 +59,9 @@ class TabBarCoordinator {
     }
     
     func start() {
-//        if !firebaseService.isUserLoggedIn {
+        if !firebaseService.isUserLoggedIn {
             loginRegistrationCoordinator.start()
-//        }
+        }
     }
 }
 
