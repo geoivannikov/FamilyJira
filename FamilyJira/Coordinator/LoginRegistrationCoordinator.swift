@@ -10,23 +10,23 @@ import Foundation
 import UIKit
 import Combine
 
-final class LoginRegistrationCoordinator {
+final class LoginRegistrationCoordinator: Coordinator {
     private let tabBarController: UITabBarController
-    private let presentNavigationController: UINavigationController
+    let navigationController: UINavigationController
     
     private var subscriptions = Set<AnyCancellable>()
     
     init(tabBarController: UITabBarController) {
         self.tabBarController = tabBarController
-        self.presentNavigationController = UINavigationController()
+        self.navigationController = UINavigationController()
     }
     
     func start(animated: Bool = false, completion: (() -> Void)? = nil) {
         let loginRegistrationViewModel = LoginRegistrationViewModel()
         let viewController = LoginRegistrationViewController.instantiate(loginRegistrationViewModel: loginRegistrationViewModel)
-        presentNavigationController.viewControllers = [viewController]
-        presentNavigationController.modalPresentationStyle = .fullScreen
-        tabBarController.present(presentNavigationController, animated: animated, completion: completion)
+        navigationController.viewControllers = [viewController]
+        navigationController.modalPresentationStyle = .fullScreen
+        tabBarController.present(navigationController, animated: animated, completion: completion)
         
         loginRegistrationViewModel.presentAuthError
             .sink(receiveValue: presentError(error:))
@@ -37,10 +37,5 @@ final class LoginRegistrationCoordinator {
                 self?.tabBarController.dismiss(animated: true, completion: nil)
             })
             .store(in: &subscriptions)
-    }
-    
-    private func presentError(error: BaseError) {
-        let alert = UIAlertController.errorAlert(content: error.errorMessage())
-        presentNavigationController.present(alert, animated: true)
     }
 }

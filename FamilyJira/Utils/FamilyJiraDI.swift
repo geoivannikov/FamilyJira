@@ -20,6 +20,10 @@ final class FamilyJiraDI: NSObject {
         FamilyJiraDI.container.register(ReachabilityServisProtocolol.self) { _ in
             ReachabilityServis()
         }.inObjectScope(.transient)
+        
+        FamilyJiraDI.container.register(RealmServiceProtocol.self) { _ in
+            RealmService()
+        }.inObjectScope(.transient)
     }
     
     static func forceResolve<T>() -> T {

@@ -16,6 +16,7 @@ protocol FirebaseServiceProtocol {
     func signIn(with loginCredentials: LoginCredentials?) -> AnyPublisher<Void, LoginError>
     func signUp(with registrationCredentials: RegistrationCredentials?) -> AnyPublisher<Void, RegistrationError>
     func signOut() throws
+    func requestUser() -> AnyPublisher<UserDTO, RequestError>
 }
 
 final class FirebaseService: FirebaseServiceProtocol {
@@ -99,13 +100,26 @@ final class FirebaseService: FirebaseServiceProtocol {
         .eraseToAnyPublisher()
     }
     
-    func requestUser() -> Future<User, RequestError> {
-        Future<User, RequestError> { promise in
-            
-        }
-    }
-    
     func signOut() throws {
         try Auth.auth().signOut()
+    }
+    
+    func requestUser() -> AnyPublisher<UserDTO, RequestError> {
+        Future<UserDTO, RequestError> { [weak self] promise in
+            guard let ref = self?.databaseReference,
+                let id = self?.userID else {
+                promise(.failure(.unknownError))
+                return
+            }
+            ref.child("users").child(id).observeSingleEvent(of: .value, with: { snapshot in
+                let value = snapshot.value as? NSDictionary
+                guard let user = UserDTO(snapshot: value, id: id) else {
+                    promise(.failure(.unknownError))
+                    return
+                }
+                promise(.success(user))
+            })
+        }
+        .eraseToAnyPublisher()
     }
 }

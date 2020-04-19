@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Combine
 
-final class HomeCoordinator {
+final class HomeCoordinator: Coordinator {
     let navigationController: UINavigationController
     private let loginRegistrationCoordinator: LoginRegistrationCoordinator
     
@@ -29,6 +29,10 @@ final class HomeCoordinator {
             .sink(receiveValue: { _ in
                 loginRegistrationCoordinator.start()
             })
+            .store(in: &subscriptions)
+        
+        homeViewModel.presentRequestError
+            .sink(receiveValue: presentError(error:))
             .store(in: &subscriptions)
     }
 }

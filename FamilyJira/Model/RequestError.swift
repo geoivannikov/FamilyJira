@@ -8,6 +8,21 @@
 
 import Foundation
 
-enum RequestError: Error {
+enum RequestError: BaseError {
+    case noConnection
+    case serverError
     case unknownError
+}
+
+extension RequestError {
+    func errorMessage() -> String {
+        switch self {
+        case .serverError:
+            return "Some errors on the server"
+        case .noConnection:
+            return "Check your internet connection"
+        default:
+            return "Unknown error"
+        }
+    }
 }

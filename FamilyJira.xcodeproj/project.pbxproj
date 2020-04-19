@@ -22,7 +22,7 @@
 		9C0FA15C24467363001E734C /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0FA15B24467363001E734C /* TaskView.swift */; };
 		9C102A7C244AF7C70061E16D /* RegistrationCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C102A7B244AF7C70061E16D /* RegistrationCredentials.swift */; };
 		9C102A80244AFFC00061E16D /* RegistrationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C102A7F244AFFC00061E16D /* RegistrationError.swift */; };
-		9C102A82244B02390061E16D /* ReachabilityServis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C102A81244B02390061E16D /* ReachabilityServis.swift */; };
+		9C102A82244B02390061E16D /* ReachabilityServise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C102A81244B02390061E16D /* ReachabilityServise.swift */; };
 		9C332E3F244229D50063F98A /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C332E3E244229D50063F98A /* SettingsViewModel.swift */; };
 		9C332E4124422A460063F98A /* FamilyJiraDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C332E4024422A460063F98A /* FamilyJiraDI.swift */; };
 		9C332E4324423DC40063F98A /* ProfileSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C332E4224423DC40063F98A /* ProfileSection.swift */; };
@@ -47,7 +47,11 @@
 		9C4B64BD244BCC6D00BA12AF /* Combine+Materialize+Dematerialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B64BC244BCC6D00BA12AF /* Combine+Materialize+Dematerialize.swift */; };
 		9C4B64BF244BCC9900BA12AF /* Combine+WithLatestFrom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B64BE244BCC9900BA12AF /* Combine+WithLatestFrom.swift */; };
 		9C4B64C1244C6F7F00BA12AF /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B64C0244C6F7F00BA12AF /* HomeViewModel.swift */; };
-		9C6467B4240E4A9A0099BC93 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6467B3240E4A9A0099BC93 /* User.swift */; };
+		9C4B64C4244C84A600BA12AF /* RealmServise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B64C3244C84A600BA12AF /* RealmServise.swift */; };
+		9C4B64C8244CA7A700BA12AF /* UserObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B64C7244CA7A700BA12AF /* UserObject.swift */; };
+		9C4B64CA244CA81100BA12AF /* RealmObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B64C9244CA81100BA12AF /* RealmObject.swift */; };
+		9C4B64CC244CB76800BA12AF /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B64CB244CB76800BA12AF /* Coordinator.swift */; };
+		9C6467B4240E4A9A0099BC93 /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6467B3240E4A9A0099BC93 /* UserDTO.swift */; };
 		9CB85074240709FB004AAC23 /* LoginRegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB85073240709FB004AAC23 /* LoginRegistrationViewModel.swift */; };
 		9CB85076240710CF004AAC23 /* LoginRegistrationEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB85075240710CF004AAC23 /* LoginRegistrationEvent.swift */; };
 		9CB8507824071148004AAC23 /* LoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB8507724071148004AAC23 /* LoginError.swift */; };
@@ -101,7 +105,7 @@
 		9C0FA15B24467363001E734C /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
 		9C102A7B244AF7C70061E16D /* RegistrationCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationCredentials.swift; sourceTree = "<group>"; };
 		9C102A7F244AFFC00061E16D /* RegistrationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationError.swift; sourceTree = "<group>"; };
-		9C102A81244B02390061E16D /* ReachabilityServis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityServis.swift; sourceTree = "<group>"; };
+		9C102A81244B02390061E16D /* ReachabilityServise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityServise.swift; sourceTree = "<group>"; };
 		9C332E3E244229D50063F98A /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		9C332E4024422A460063F98A /* FamilyJiraDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyJiraDI.swift; sourceTree = "<group>"; };
 		9C332E4224423DC40063F98A /* ProfileSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSection.swift; sourceTree = "<group>"; };
@@ -126,7 +130,11 @@
 		9C4B64BC244BCC6D00BA12AF /* Combine+Materialize+Dematerialize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+Materialize+Dematerialize.swift"; sourceTree = "<group>"; };
 		9C4B64BE244BCC9900BA12AF /* Combine+WithLatestFrom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+WithLatestFrom.swift"; sourceTree = "<group>"; };
 		9C4B64C0244C6F7F00BA12AF /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		9C6467B3240E4A9A0099BC93 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		9C4B64C3244C84A600BA12AF /* RealmServise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmServise.swift; sourceTree = "<group>"; };
+		9C4B64C7244CA7A700BA12AF /* UserObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserObject.swift; sourceTree = "<group>"; };
+		9C4B64C9244CA81100BA12AF /* RealmObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmObject.swift; sourceTree = "<group>"; };
+		9C4B64CB244CB76800BA12AF /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		9C6467B3240E4A9A0099BC93 /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
 		9CB85073240709FB004AAC23 /* LoginRegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRegistrationViewModel.swift; sourceTree = "<group>"; };
 		9CB85075240710CF004AAC23 /* LoginRegistrationEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRegistrationEvent.swift; sourceTree = "<group>"; };
 		9CB8507724071148004AAC23 /* LoginError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginError.swift; sourceTree = "<group>"; };
@@ -207,6 +215,23 @@
 				9C4B64BE244BCC9900BA12AF /* Combine+WithLatestFrom.swift */,
 			);
 			path = "Combine+";
+			sourceTree = "<group>";
+		};
+		9C4B64C2244C72DF00BA12AF /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				9C6467B3240E4A9A0099BC93 /* UserDTO.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		9C4B64C6244CA79600BA12AF /* RealmObject */ = {
+			isa = PBXGroup;
+			children = (
+				9C4B64C9244CA81100BA12AF /* RealmObject.swift */,
+				9C4B64C7244CA7A700BA12AF /* UserObject.swift */,
+			);
+			path = RealmObject;
 			sourceTree = "<group>";
 		};
 		9CB85072240709E4004AAC23 /* ViewModel */ = {
@@ -322,11 +347,12 @@
 		9CF7D7032401AFB700760442 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9C4B64C6244CA79600BA12AF /* RealmObject */,
+				9C4B64C2244C72DF00BA12AF /* DTO */,
 				9CB85075240710CF004AAC23 /* LoginRegistrationEvent.swift */,
 				9CF7D7042401AFC300760442 /* Tabs.swift */,
 				9CB8507724071148004AAC23 /* LoginError.swift */,
 				9C102A7F244AFFC00061E16D /* RegistrationError.swift */,
-				9C6467B3240E4A9A0099BC93 /* User.swift */,
 				9C332E4224423DC40063F98A /* ProfileSection.swift */,
 				9C332E4A24426A270063F98A /* PreferencesSection.swift */,
 				9C332E4C24426E240063F98A /* Settings.swift */,
@@ -342,6 +368,7 @@
 		9CF7D7062401B32200760442 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				9C4B64CB244CB76800BA12AF /* Coordinator.swift */,
 				9CF7D7172401C83500760442 /* LoginRegistrationCoordinator.swift */,
 				9CF7D6D12401832900760442 /* TabBarCoordinator.swift */,
 				9CF7D7222402D2E500760442 /* HomeCoordinator.swift */,
@@ -372,7 +399,8 @@
 			isa = PBXGroup;
 			children = (
 				9CF7D7202402CF1A00760442 /* FirebaseService.swift */,
-				9C102A81244B02390061E16D /* ReachabilityServis.swift */,
+				9C102A81244B02390061E16D /* ReachabilityServise.swift */,
+				9C4B64C3244C84A600BA12AF /* RealmServise.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -575,8 +603,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C102A82244B02390061E16D /* ReachabilityServis.swift in Sources */,
+				9C102A82244B02390061E16D /* ReachabilityServise.swift in Sources */,
 				9C0E1F3C2449F824009A184A /* LoginCredentials.swift in Sources */,
+				9C4B64CC244CB76800BA12AF /* Coordinator.swift in Sources */,
 				9C0E1F342449F0F6009A184A /* UIControlPublisher.swift in Sources */,
 				9C332E5924438FC30063F98A /* MyTasksViewModel.swift in Sources */,
 				9C4B64B5244BB72100BA12AF /* BaseError.swift in Sources */,
@@ -584,6 +613,7 @@
 				9CF7D6D22401832900760442 /* TabBarCoordinator.swift in Sources */,
 				9C102A80244AFFC00061E16D /* RegistrationError.swift in Sources */,
 				9CF7D6F92401A7CF00760442 /* MyTasksViewController.swift in Sources */,
+				9C4B64C4244C84A600BA12AF /* RealmServise.swift in Sources */,
 				9CF7D7212402CF1A00760442 /* FirebaseService.swift in Sources */,
 				9C332E4324423DC40063F98A /* ProfileSection.swift in Sources */,
 				9C332E53244362B00063F98A /* ProfileCoordinator.swift in Sources */,
@@ -594,6 +624,7 @@
 				9C0E1F1B2449066B009A184A /* NoBoardViewController.swift in Sources */,
 				9C4B64B3244BB6E700BA12AF /* UIAlertController+.swift in Sources */,
 				9C0E1F3A2449F1A5009A184A /* UIControl+.swift in Sources */,
+				9C4B64C8244CA7A700BA12AF /* UserObject.swift in Sources */,
 				9CF7D71E2401E85E00760442 /* UIViewController+.swift in Sources */,
 				9C4B64BF244BCC9900BA12AF /* Combine+WithLatestFrom.swift in Sources */,
 				9C332E4524423F280063F98A /* ProfileCell.swift in Sources */,
@@ -625,11 +656,12 @@
 				9CF7D7052401AFC300760442 /* Tabs.swift in Sources */,
 				9C332E57244365E10063F98A /* ProfileView.swift in Sources */,
 				9CF7D729240304F600760442 /* Notification.Name+.swift in Sources */,
+				9C4B64CA244CA81100BA12AF /* RealmObject.swift in Sources */,
 				9CF7D70C2401B6DF00760442 /* LoginRegistrationViewController.swift in Sources */,
 				9CF7D71C2401CEA000760442 /* UIColor+.swift in Sources */,
 				9C332E4124422A460063F98A /* FamilyJiraDI.swift in Sources */,
 				9C0FA15824466D92001E734C /* TaskCoordinator.swift in Sources */,
-				9C6467B4240E4A9A0099BC93 /* User.swift in Sources */,
+				9C6467B4240E4A9A0099BC93 /* UserDTO.swift in Sources */,
 				9C4B64BB244BCC5000BA12AF /* Combine+BaseAbstractions.swift in Sources */,
 				9C4B64C1244C6F7F00BA12AF /* HomeViewModel.swift in Sources */,
 				9C332E3F244229D50063F98A /* SettingsViewModel.swift in Sources */,
