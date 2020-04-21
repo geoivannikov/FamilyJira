@@ -17,20 +17,25 @@ protocol FirebaseServiceProtocol {
     func signUp(with registrationCredentials: RegistrationCredentials?) -> AnyPublisher<Void, RegistrationError>
     func signOut() throws
     func requestUser() -> AnyPublisher<UserDTO, RequestError>
+    func updateProfile(profileDTO: ProfileDTO) -> AnyPublisher<ProfileDTO, UpdateProfileError>
 }
 
 final class FirebaseService: FirebaseServiceProtocol {
-    private var userID: String? {
+    private let userID: String? = {
         let id = Auth.auth().currentUser?.uid
         return id
-    }
+    }()
     
-    private var databaseReference: DatabaseReference {
+    private let databaseReference: DatabaseReference = {
         Database.database().reference()
-    }
+    }()
+    
+    private let storageReference: StorageReference = {
+        Storage.storage().reference()
+    }()
     
     var isUserLoggedIn: Bool {
-        return Auth.auth().currentUser?.uid != nil
+        Auth.auth().currentUser?.uid != nil
     }
     
     func signIn(with loginCredentials: LoginCredentials?) -> AnyPublisher<Void, LoginError> {
@@ -42,6 +47,7 @@ final class FirebaseService: FirebaseServiceProtocol {
             Auth.auth().signIn(withEmail: credentials.email,
                                password: credentials.password) { result, error in
                 if let error = error, let authErrorCode = AuthErrorCode(rawValue: error._code) {
+                    print(authErrorCode.rawValue)
                     let loginError = LoginError(authErrorCode: authErrorCode.rawValue)
                     promise(.failure(loginError))
                 } else {
@@ -114,12 +120,66 @@ final class FirebaseService: FirebaseServiceProtocol {
             ref.child("users").child(id).observeSingleEvent(of: .value, with: { snapshot in
                 let value = snapshot.value as? NSDictionary
                 guard let user = UserDTO(snapshot: value, id: id) else {
-                    promise(.failure(.unknownError))
+                    promise(.failure(.serverError))
                     return
                 }
                 promise(.success(user))
             })
         }
         .eraseToAnyPublisher()
+    }
+    
+    func updateProfile(profileDTO: ProfileDTO) -> AnyPublisher<ProfileDTO, UpdateProfileError> {
+        Future<ProfileDTO, UpdateProfileError> { [weak self] promise in
+            guard let ref = self?.databaseReference,
+                let id = self?.userID else {
+                promise(.failure(.unknownError))
+                return
+            }
+            ref.child("users").child(id).updateChildValues(["username": profileDTO.username,
+                                                            "role": profileDTO.role ?? ""])
+            promise(.success(profileDTO))
+        }
+        .flatMap { [weak self] profileDTO in
+            self?.uploadProfilePhoto(profileDTO: profileDTO) ??
+                Future<ProfileDTO, UpdateProfileError> { $0(.failure(.unknownError)) }
+        }
+        .eraseToAnyPublisher()
+    }
+    
+    func uploadProfilePhoto(profileDTO: ProfileDTO) -> Future<ProfileDTO, UpdateProfileError> {
+        Future<ProfileDTO, UpdateProfileError> { [weak self] promise in
+            guard let data = profileDTO.photoData else {
+                promise(.success(profileDTO))
+                return
+            }
+            guard let storage = self?.storageReference,
+                let id = self?.userID else {
+                promise(.failure(.unknownError))
+                return
+            }
+            storage.child("users").child(id).putData(data,
+                                                 metadata: nil,
+                                                 completion: { _, error in
+                guard error != nil else {
+                    promise(.failure(.serverError))
+                    return
+                }
+                storage.child("users").child(id).downloadURL { url, error in
+                    if let error = error {
+                        promise(.failure(UpdateProfileError(error: error)))
+                        return
+                    } else {
+                        guard let ref = self?.databaseReference,
+                            let photoUrl = url else {
+                            promise(.failure(.unknownError))
+                            return
+                        }
+                        ref.child("users").child(id).updateChildValues(["profilePhoto": photoUrl])
+                        promise(.success(profileDTO))
+                    }
+                }
+            })
+        }
     }
 }

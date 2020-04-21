@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class ProfileView: BaseView {
-    private let profilePhoto: UIImageView = {
+    let profilePhoto: UIImageView = {
         let image = UIImageView()
         image.makeRounded(radius: 80)
         image.backgroundColor = .backgroundOpacityGrey
@@ -27,12 +27,12 @@ class ProfileView: BaseView {
         return button
     }()
     
-    let nameTextField: UITextField = {
+    let usernameTextField: UITextField = {
         let textField = UITextField()
         textField.backgroundColor = .white
         textField.font = UIFont.systemFont(ofSize: 14)
         textField.borderStyle = .roundedRect
-        textField.placeholder = "Name"
+        textField.placeholder = "Username"
         return textField
     }()
     
@@ -58,7 +58,7 @@ class ProfileView: BaseView {
         addSubview(stackView)
         stackView.snp.makeConstraints { make in
             make.centerX.leading.trailing.equalToSuperview()
-            make.top.equalToSuperview().offset(90)
+            make.top.equalToSuperview().offset(120)
         }
         stackView.addArrangedSubview(profilePhoto)
         profilePhoto.snp.makeConstraints { make in
@@ -68,7 +68,7 @@ class ProfileView: BaseView {
         chooseButton.snp.makeConstraints { make in
             make.width.equalTo(100)
         }
-        [nameTextField, roleTextField].forEach {
+        [usernameTextField, roleTextField].forEach {
             stackView.addArrangedSubview($0)
             $0.snp.makeConstraints { make in
                 make.trailing.equalToSuperview().offset(-30)
@@ -76,14 +76,5 @@ class ProfileView: BaseView {
             }
         }
         stackView.setCustomSpacing(30.0, after: chooseButton)
-        
-        setUp()
-    }
-    
-    private func setUp() {
-        let url = NSURL(string: link)! as URL
-        if let data = NSData(contentsOf: url) {
-            profilePhoto.image = UIImage(data: data as Data)
-        }
     }
 }

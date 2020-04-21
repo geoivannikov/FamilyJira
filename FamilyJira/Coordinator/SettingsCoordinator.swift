@@ -10,12 +10,11 @@ import Foundation
 import UIKit
 import Combine
 
-final class SettingsCoordinator {
+final class SettingsCoordinator: Coordinator {
     let navigationController: UINavigationController
     private var subscriptions = Set<AnyCancellable>()
     
     init(
-        doSignOut: PassthroughSubject<Void, Never>,
         settingsViewModel: SettingsViewModelProtocol = SettingsViewModel()
     ) {
         let settingsViewController = SettingsViewController.instantiate(settingsViewModel: settingsViewModel)
@@ -36,7 +35,7 @@ final class SettingsCoordinator {
         
         settingsViewModel.userSignedOut
             .sink(receiveValue: { _ in
-                doSignOut.send()
+                NotificationCenter.default.post(name: .userLoggedOut, object: nil)
             })
             .store(in: &subscriptions)
     }

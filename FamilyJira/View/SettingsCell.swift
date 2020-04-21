@@ -122,7 +122,7 @@ class SettingsCell: UITableViewCell {
         switch model {
         case .profile(let profileSection):
             setupProfileLayout()
-            nameLabel.text = profileSection.name
+            nameLabel.text = profileSection.username
             roleLabel.text = profileSection.role
             if let data = profileSection.photoData {
                 profilePhoto.image = UIImage(data: data as Data)

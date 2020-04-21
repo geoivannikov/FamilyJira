@@ -9,6 +9,7 @@
 import UIKit
 import Combine
 import CombineDataSources
+import Toast_Swift
 
 class SettingsViewController: UITableViewController {
     private var settingsViewModel: SettingsViewModelProtocol!
@@ -37,9 +38,16 @@ class SettingsViewController: UITableViewController {
         tableView.bounces = false
 
         tableView.register(SettingsCell.self, forCellReuseIdentifier: "SettingsCell")
+        view.makeToastActivity(.center)
     }
     
     private func setUpBinds() {
+        settingsViewModel.user
+            .sink(receiveValue: { [weak self] _ in
+                self?.view.hideToastActivity()
+            })
+            .store(in: &subscriptions)
+        
         settingsViewModel.settingsData
             .map { sections in
                 sections.map { settings -> Section<Settings> in

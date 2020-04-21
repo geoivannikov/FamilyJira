@@ -12,6 +12,7 @@ enum LoginError: BaseError {
     case validationError
     case noConnection
     case incorrectData
+    case incorrectPassword
     case unknownError
 }
 
@@ -20,6 +21,10 @@ extension LoginError {
         switch authErrorCode {
         case 17008:
             self = .incorrectData
+        case 17011:
+            self = .incorrectData
+        case 17009:
+            self = .incorrectPassword
         /* TODO: Add new auth error cases */
         default:
             self = .unknownError
@@ -35,7 +40,9 @@ extension LoginError {
         case .noConnection:
             return "Check your internet connection"
         case .incorrectData:
-            return "Incorrect login or password"
+            return "Incorrect credentials"
+        case .incorrectPassword:
+            return "Incorrect password"
         default:
             return "Unknown error"
         }

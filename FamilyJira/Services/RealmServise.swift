@@ -12,7 +12,9 @@ import RealmSwift
 protocol RealmServiceProtocol {
     func insert<T: Object>(_ object: T)
     func get<T: Object>() -> T?
+    func update<T: Object>(objects: T)
     func delete<T: Object>(_ object: T)
+    func deleteAll()
 }
 
 final class RealmService: RealmServiceProtocol {
@@ -30,9 +32,24 @@ final class RealmService: RealmServiceProtocol {
         return realm.objects(T.self).first
     }
     
+    func update<T: Object>(objects: T) {
+        let realm = try! Realm()
+        let realmResults = realm.objects(T.self)
+        try! realm.write {
+            realm.delete(realmResults)
+            realm.add(objects)
+        }
+    }
+    
     func delete<T: Object>(_ object: T) {
         try! realm.write {
             realm.delete(object)
+        }
+    }
+    
+    func deleteAll() {
+        try! realm.write {
+            realm.deleteAll()
         }
     }
 }

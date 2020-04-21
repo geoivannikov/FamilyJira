@@ -34,8 +34,7 @@ class TabBarCoordinator {
         loginRegistrationCoordinator = LoginRegistrationCoordinator(tabBarController: tabBarController)
         homeCoordinator = HomeCoordinator(loginRegistrationCoordinator: loginRegistrationCoordinator)
         myTasksCoordinator = MyTasksCoordinator()
-        let doSignOut = PassthroughSubject<Void, Never>()
-        settingsCoordinator = SettingsCoordinator(doSignOut: doSignOut)
+        settingsCoordinator = SettingsCoordinator()
 
         let homeViewController = homeCoordinator.navigationController
         homeViewController.tabBarItem = UITabBarItem(.home)
@@ -47,8 +46,8 @@ class TabBarCoordinator {
                                             myTasksViewController,
                                             settingsViewController]
         
-        doSignOut
-            .sink(receiveValue: { [weak self] in
+        NotificationCenter.default.publisher(for: .userLoggedOut, object: nil)
+            .sink(receiveValue: { [weak self] _ in
                 self?.signOut()
             })
             .store(in: &subscriptions)

@@ -37,3 +37,13 @@ extension UIImage {
         return UIImage(named: "license")
     }
 }
+
+extension UIImage {
+    convenience init?(url: NSURL?) {
+        guard let imageUrl = url as URL?,
+            let imageData = try? Data(contentsOf: imageUrl) else {
+            return nil
+        }
+        self.init(data: imageData)
+    }
+}

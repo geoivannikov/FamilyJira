@@ -11,15 +11,14 @@ import Foundation
 let link = "https://i.pinimg.com/474x/87/13/62/871362c61b14c0e39528af5c9dafd2ca.jpg"
 
 struct ProfileSection {
+    let username: String
+    let role: String?
     let photoData: NSData?
-    let name: String
-    let role: String
     
-    init(name: String, role: String) {
-        let url = NSURL(string: link)! as URL
-        self.photoData = NSData(contentsOf: url)
-        self.name = name
+    init(username: String, role: String?, photoData: NSData?) {
+        self.username = username
         self.role = role
+        self.photoData = photoData
     }
 }
 

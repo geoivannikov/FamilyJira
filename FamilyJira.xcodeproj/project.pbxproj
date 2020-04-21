@@ -51,6 +51,9 @@
 		9C4B64C8244CA7A700BA12AF /* UserObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B64C7244CA7A700BA12AF /* UserObject.swift */; };
 		9C4B64CA244CA81100BA12AF /* RealmObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B64C9244CA81100BA12AF /* RealmObject.swift */; };
 		9C4B64CC244CB76800BA12AF /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B64CB244CB76800BA12AF /* Coordinator.swift */; };
+		9C4B64CE244DE98C00BA12AF /* Notification.Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B64CD244DE98C00BA12AF /* Notification.Name.swift */; };
+		9C4B64D4244E724A00BA12AF /* ProfileDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B64D3244E724A00BA12AF /* ProfileDTO.swift */; };
+		9C4B64D6244E76DE00BA12AF /* UpdateProfileError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B64D5244E76DE00BA12AF /* UpdateProfileError.swift */; };
 		9C6467B4240E4A9A0099BC93 /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6467B3240E4A9A0099BC93 /* UserDTO.swift */; };
 		9CB85074240709FB004AAC23 /* LoginRegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB85073240709FB004AAC23 /* LoginRegistrationViewModel.swift */; };
 		9CB85076240710CF004AAC23 /* LoginRegistrationEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB85075240710CF004AAC23 /* LoginRegistrationEvent.swift */; };
@@ -78,7 +81,6 @@
 		9CF7D7232402D2E500760442 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7D7222402D2E500760442 /* HomeCoordinator.swift */; };
 		9CF7D7252402D2F200760442 /* MyTasksCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7D7242402D2F200760442 /* MyTasksCoordinator.swift */; };
 		9CF7D7272402D2FE00760442 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7D7262402D2FE00760442 /* SettingsCoordinator.swift */; };
-		9CF7D729240304F600760442 /* Notification.Name+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7D728240304F600760442 /* Notification.Name+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +136,9 @@
 		9C4B64C7244CA7A700BA12AF /* UserObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserObject.swift; sourceTree = "<group>"; };
 		9C4B64C9244CA81100BA12AF /* RealmObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmObject.swift; sourceTree = "<group>"; };
 		9C4B64CB244CB76800BA12AF /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		9C4B64CD244DE98C00BA12AF /* Notification.Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.Name.swift; sourceTree = "<group>"; };
+		9C4B64D3244E724A00BA12AF /* ProfileDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDTO.swift; sourceTree = "<group>"; };
+		9C4B64D5244E76DE00BA12AF /* UpdateProfileError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileError.swift; sourceTree = "<group>"; };
 		9C6467B3240E4A9A0099BC93 /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
 		9CB85073240709FB004AAC23 /* LoginRegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRegistrationViewModel.swift; sourceTree = "<group>"; };
 		9CB85075240710CF004AAC23 /* LoginRegistrationEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRegistrationEvent.swift; sourceTree = "<group>"; };
@@ -165,7 +170,6 @@
 		9CF7D7222402D2E500760442 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		9CF7D7242402D2F200760442 /* MyTasksCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTasksCoordinator.swift; sourceTree = "<group>"; };
 		9CF7D7262402D2FE00760442 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
-		9CF7D728240304F600760442 /* Notification.Name+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+.swift"; sourceTree = "<group>"; };
 		B5AD1048D675F925E54097C4 /* Pods-FamilyJira.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilyJira.debug.xcconfig"; path = "Target Support Files/Pods-FamilyJira/Pods-FamilyJira.debug.xcconfig"; sourceTree = "<group>"; };
 		BDC22B6BB464A22A1587E723 /* Pods_FamilyJira.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FamilyJira.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC72F85A49571A4043ED660E /* Pods-FamilyJira-FamilyJiraTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilyJira-FamilyJiraTests.debug.xcconfig"; path = "Target Support Files/Pods-FamilyJira-FamilyJiraTests/Pods-FamilyJira-FamilyJiraTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -221,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				9C6467B3240E4A9A0099BC93 /* UserDTO.swift */,
+				9C4B64D3244E724A00BA12AF /* ProfileDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -336,10 +341,10 @@
 				9CF7D7012401AF6200760442 /* UITabBarItem+Tabs.swift */,
 				9CF7D71B2401CEA000760442 /* UIColor+.swift */,
 				9CF7D71D2401E85E00760442 /* UIViewController+.swift */,
-				9CF7D728240304F600760442 /* Notification.Name+.swift */,
 				9C332E46244252500063F98A /* UIImageView+.swift */,
 				9C0E1F1E24491FCB009A184A /* UITextField+.swift */,
 				9C4B64B2244BB6E700BA12AF /* UIAlertController+.swift */,
+				9C4B64CD244DE98C00BA12AF /* Notification.Name.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -361,6 +366,7 @@
 				9C102A7B244AF7C70061E16D /* RegistrationCredentials.swift */,
 				9C4B64B0244B5C9900BA12AF /* RequestError.swift */,
 				9C4B64B4244BB72100BA12AF /* BaseError.swift */,
+				9C4B64D5244E76DE00BA12AF /* UpdateProfileError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -619,6 +625,7 @@
 				9C332E53244362B00063F98A /* ProfileCoordinator.swift in Sources */,
 				9CF7D7232402D2E500760442 /* HomeCoordinator.swift in Sources */,
 				9C332E4F244342F60063F98A /* NotImplementedViewController.swift in Sources */,
+				9C4B64D6244E76DE00BA12AF /* UpdateProfileError.swift in Sources */,
 				9C0E1F362449F12A009A184A /* UIControlSubscription.swift in Sources */,
 				9C332E51244362540063F98A /* ProfileViewController.swift in Sources */,
 				9C0E1F1B2449066B009A184A /* NoBoardViewController.swift in Sources */,
@@ -635,6 +642,7 @@
 				9CF7D7002401AC0000760442 /* UIImage+.swift in Sources */,
 				9CF7D7182401C83500760442 /* LoginRegistrationCoordinator.swift in Sources */,
 				9CB8507824071148004AAC23 /* LoginError.swift in Sources */,
+				9C4B64CE244DE98C00BA12AF /* Notification.Name.swift in Sources */,
 				9CF7D70F2401B7B300760442 /* BaseView.swift in Sources */,
 				9CF7D6FB2401A7DA00760442 /* SettingsViewController.swift in Sources */,
 				9CB85074240709FB004AAC23 /* LoginRegistrationViewModel.swift in Sources */,
@@ -653,9 +661,9 @@
 				9C332E5B2443913A0063F98A /* Task.swift in Sources */,
 				9CF7D6F52401A79C00760442 /* HomeViewController.swift in Sources */,
 				9CF7D7252402D2F200760442 /* MyTasksCoordinator.swift in Sources */,
+				9C4B64D4244E724A00BA12AF /* ProfileDTO.swift in Sources */,
 				9CF7D7052401AFC300760442 /* Tabs.swift in Sources */,
 				9C332E57244365E10063F98A /* ProfileView.swift in Sources */,
-				9CF7D729240304F600760442 /* Notification.Name+.swift in Sources */,
 				9C4B64CA244CA81100BA12AF /* RealmObject.swift in Sources */,
 				9CF7D70C2401B6DF00760442 /* LoginRegistrationViewController.swift in Sources */,
 				9CF7D71C2401CEA000760442 /* UIColor+.swift in Sources */,

@@ -16,6 +16,7 @@ protocol SettingsViewModelProtocol {
     var signOutTapped: PassthroughSubject<Void, Never> { get }
     var userSignedOut: PassthroughSubject<Void, Never> { get }
     var signOutFailed: PassthroughSubject<Void, Never> { get }
+    var user: PassthroughSubject<UserObject, Never> { get }
 
     func viewDidLoad()
 }
@@ -26,36 +27,79 @@ final class SettingsViewModel: SettingsViewModelProtocol {
     let signOutTapped: PassthroughSubject<Void, Never>
     let userSignedOut: PassthroughSubject<Void, Never>
     let signOutFailed: PassthroughSubject<Void, Never>
+    let user: PassthroughSubject<UserObject, Never>
+    
+    private let firebaseServise: FirebaseServiceProtocol
+    private let reachabilityService: ReachabilityServisProtocolol
+    private let realmService: RealmServiceProtocol
 
     private var subscriptions = Set<AnyCancellable>()
     
     init(
-        firebaseService: FirebaseServiceProtocol = FamilyJiraDI.forceResolve()
+        firebaseServise: FirebaseServiceProtocol = FamilyJiraDI.forceResolve(),
+        reachabilityService: ReachabilityServisProtocolol = FamilyJiraDI.forceResolve(),
+        realmService: RealmServiceProtocol = FamilyJiraDI.forceResolve()
     ) {
+        self.firebaseServise = firebaseServise
+        self.reachabilityService = reachabilityService
+        self.realmService = realmService
         settingsData = PassthroughSubject<[[Settings]], Never>()
         editprofileTapped = PassthroughSubject<Void, Never>()
         signOutTapped = PassthroughSubject<Void, Never>()
         userSignedOut = PassthroughSubject<Void, Never>()
         signOutFailed = PassthroughSubject<Void, Never>()
+        user = PassthroughSubject<UserObject, Never>()
         
         signOutTapped
             .sink(receiveValue: { [weak self] _ in
                 do {
-                    try firebaseService.signOut()
+                    try firebaseServise.signOut()
+                    realmService.deleteAll()
                     self?.userSignedOut.send()
                 } catch {
                     self?.signOutFailed.send()
                 }
             })
             .store(in: &subscriptions)
+        
+        user
+            .map {
+                [[Settings.profile(ProfileSection(username: $0.username, role: $0.role, photoData: $0.photoData))],
+                [Settings.preferences(PreferencesSection(icon: UIImage.privacyIcon, title: "Privacy")),
+                 Settings.preferences(PreferencesSection(icon: UIImage.notificationsIcon, title: "Notifications")),
+                 Settings.preferences(PreferencesSection(icon: UIImage.soundsIcon, title: "Sounds")),
+                 Settings.preferences(PreferencesSection(icon: UIImage.licenseIcon, title: "License"))],
+                [Settings.logOut]]
+            }
+            .sink(receiveValue: { [weak self] in
+                self?.settingsData.send($0)
+            })
+            .store(in: &subscriptions)
     }
     
     func viewDidLoad() {
-        settingsData.send([[.profile(ProfileSection(name: "George", role: "Son"))],
-                           [.preferences(PreferencesSection(icon: UIImage.privacyIcon, title: "Privacy")),
-                            .preferences(PreferencesSection(icon: UIImage.notificationsIcon, title: "Notifications")),
-                            .preferences(PreferencesSection(icon: UIImage.soundsIcon, title: "Sounds")),
-                            .preferences(PreferencesSection(icon: UIImage.licenseIcon, title: "License"))],
-                           [.logOut]])
+        guard reachabilityService.isConnectedToNetwork() else {
+            if let userObject: UserObject = realmService.get() {
+                user.send(userObject)
+            }
+            return
+        }
+        
+        firebaseServise.requestUser()
+            .compactMap { UserObject(model: $0) }
+            .sink(receiveCompletion: { [weak self] completion in
+                switch completion {
+                case .finished:
+                    ()
+                case .failure(_):
+                    if let userObject: UserObject = self?.realmService.get() {
+                        self?.user.send(userObject)
+                    }
+                }
+            }, receiveValue: { [weak self] user in
+                self?.realmService.insert(user)
+                self?.user.send(user)
+            })
+            .store(in: &subscriptions)
     }
 }

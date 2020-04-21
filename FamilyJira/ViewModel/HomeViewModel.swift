@@ -24,31 +24,52 @@ final class HomeViewModel: HomeViewModelProtocol {
     let user: PassthroughSubject<UserObject, Never>
     
     private let firebaseServise: FirebaseServiceProtocol
+    private let reachabilityService: ReachabilityServisProtocolol
+    private let realmService: RealmServiceProtocol
 
     private var subscriptions = Set<AnyCancellable>()
     
     init(
         firebaseServise: FirebaseServiceProtocol = FamilyJiraDI.forceResolve(),
-        reachabilityServis: ReachabilityServisProtocolol = FamilyJiraDI.forceResolve(),
-        realmServise: RealmServiceProtocol = FamilyJiraDI.forceResolve()
+        reachabilityService: ReachabilityServisProtocolol = FamilyJiraDI.forceResolve(),
+        realmService: RealmServiceProtocol = FamilyJiraDI.forceResolve()
     ) {
         self.firebaseServise = firebaseServise
+        self.reachabilityService = reachabilityService
+        self.realmService = realmService
         isUserLoggedIn = PassthroughSubject<Bool, Never>()
         presentRequestError = PassthroughSubject<RequestError, Never>()
         user = PassthroughSubject<UserObject, Never>()
         
         isUserLoggedIn
             .filter { $0 == true }
-            .setFailureType(to: RequestError.self)
-            .flatMap { _ -> AnyPublisher<UserDTO, RequestError> in
-                if reachabilityServis.isConnectedToNetwork() {
-                    return firebaseServise.requestUser()
-                } else {
-                    return Future<UserDTO, RequestError> {
-                        $0(.failure(.noConnection))
-                    }.eraseToAnyPublisher()
-                }
+            .sink(receiveValue: { [weak self] _ in
+                self?.reguestData()
+            })
+            .store(in: &subscriptions)
+        
+        NotificationCenter.default.publisher(for: .userLoggedIn, object: nil)
+            .sink(receiveValue: { [weak self] _ in
+                self?.isUserLoggedIn.send(true)
+            })
+            .store(in: &subscriptions)
+    }
+    
+    func viewDidLoad() {
+        isUserLoggedIn.send(firebaseServise.isUserLoggedIn)
+    }
+    
+    private func reguestData() {
+        guard reachabilityService.isConnectedToNetwork() else {
+            presentRequestError.send(.noConnection)
+            if let userObject: UserObject = realmService.get() {
+                presentRequestError.send(.noConnection)
+                user.send(userObject)
             }
+            return
+        }
+            
+        firebaseServise.requestUser()
             .compactMap { UserObject(model: $0) }
             .sink(receiveCompletion: { [weak self] completion in
                 switch completion {
@@ -56,18 +77,14 @@ final class HomeViewModel: HomeViewModelProtocol {
                     ()
                 case .failure(let error):
                     self?.presentRequestError.send(error)
-                    if let user: UserObject = realmServise.get() {
-                        self?.user.send(user)
+                    if let userObject: UserObject = self?.realmService.get() {
+                        self?.user.send(userObject)
                     }
                 }
             }, receiveValue: { [weak self] user in
-                realmServise.insert(user)
+                self?.realmService.update(objects: user)
                 self?.user.send(user)
             })
             .store(in: &subscriptions)
-    }
-    
-    func viewDidLoad() {
-        isUserLoggedIn.send(firebaseServise.isUserLoggedIn)
     }
 }

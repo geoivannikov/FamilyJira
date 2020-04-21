@@ -72,7 +72,7 @@ class ProfileCell: UITableViewCell {
     }
     
     func setupCell(model: ProfileSection) {
-        nameLabel.text = model.name
+        nameLabel.text = model.username
         roleLabel.text = model.role
         if let data = model.photoData {
             profilePhoto.image = UIImage(data: data as Data)

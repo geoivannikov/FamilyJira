@@ -14,12 +14,12 @@ import Toast_Swift
 
 class LoginRegistrationViewController: UIViewController {
     private var loginRegistrationViewModel: LoginRegistrationViewModelProtocol!
-    private var subscriptions = Set<AnyCancellable>()
-    
     private let loginRegistrationView: LoginRegistrationView = {
         let loginRegistrationView = LoginRegistrationView()
         return loginRegistrationView
     }()
+    
+    private var subscriptions = Set<AnyCancellable>()
     
     static func instantiate(
         loginRegistrationViewModel: LoginRegistrationViewModelProtocol

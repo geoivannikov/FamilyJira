@@ -24,6 +24,7 @@ class LoginRegistrationView: BaseView {
         textField.font = UIFont.systemFont(ofSize: 14)
         textField.borderStyle = .roundedRect
         textField.placeholder = "Email"
+        textField.text = "george8@rambler.ru"
         return textField
     }()
     
@@ -43,6 +44,7 @@ class LoginRegistrationView: BaseView {
         textField.font = UIFont.systemFont(ofSize: 14)
         textField.borderStyle = .roundedRect
         textField.placeholder = "Password"
+        textField.text = "123456"
         textField.isSecureTextEntry = true
         return textField
     }()
