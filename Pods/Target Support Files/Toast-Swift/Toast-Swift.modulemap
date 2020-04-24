@@ -1,4 +1,4 @@
-framework module Toast_Swift {
+module Toast_Swift {
   umbrella header "Toast-Swift-umbrella.h"
 
   export *

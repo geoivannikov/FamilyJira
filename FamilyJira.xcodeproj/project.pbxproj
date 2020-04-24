@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6F2DA6FAE09FB4B053909853 /* Pods_FamilyJira.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDC22B6BB464A22A1587E723 /* Pods_FamilyJira.framework */; };
-		8951C0ADB8771EB6C02636BB /* Pods_FamilyJira_FamilyJiraTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECB23BB9804D1578394DEECD /* Pods_FamilyJira_FamilyJiraTests.framework */; };
+		93E54C181721351025F8447B /* libPods-FamilyJira-FamilyJiraTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 468876647B1BD88EF9CB5657 /* libPods-FamilyJira-FamilyJiraTests.a */; };
 		9C0E1F1B2449066B009A184A /* NoBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0E1F1A2449066B009A184A /* NoBoardViewController.swift */; };
 		9C0E1F1D244906C7009A184A /* NoBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0E1F1C244906C7009A184A /* NoBoardView.swift */; };
 		9C0E1F1F24491FCB009A184A /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0E1F1E24491FCB009A184A /* UITextField+.swift */; };
@@ -81,6 +80,7 @@
 		9CF7D7232402D2E500760442 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7D7222402D2E500760442 /* HomeCoordinator.swift */; };
 		9CF7D7252402D2F200760442 /* MyTasksCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7D7242402D2F200760442 /* MyTasksCoordinator.swift */; };
 		9CF7D7272402D2FE00760442 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7D7262402D2FE00760442 /* SettingsCoordinator.swift */; };
+		DC3E31E20254E039CD5C3D47 /* libPods-FamilyJira.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5C3F14E90BAC75852CA5E7 /* libPods-FamilyJira.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +94,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		468876647B1BD88EF9CB5657 /* libPods-FamilyJira-FamilyJiraTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FamilyJira-FamilyJiraTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F5C3F14E90BAC75852CA5E7 /* libPods-FamilyJira.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FamilyJira.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C0E1F1A2449066B009A184A /* NoBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoBoardViewController.swift; sourceTree = "<group>"; };
 		9C0E1F1C244906C7009A184A /* NoBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoBoardView.swift; sourceTree = "<group>"; };
 		9C0E1F1E24491FCB009A184A /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
@@ -171,9 +173,7 @@
 		9CF7D7242402D2F200760442 /* MyTasksCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTasksCoordinator.swift; sourceTree = "<group>"; };
 		9CF7D7262402D2FE00760442 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		B5AD1048D675F925E54097C4 /* Pods-FamilyJira.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilyJira.debug.xcconfig"; path = "Target Support Files/Pods-FamilyJira/Pods-FamilyJira.debug.xcconfig"; sourceTree = "<group>"; };
-		BDC22B6BB464A22A1587E723 /* Pods_FamilyJira.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FamilyJira.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC72F85A49571A4043ED660E /* Pods-FamilyJira-FamilyJiraTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilyJira-FamilyJiraTests.debug.xcconfig"; path = "Target Support Files/Pods-FamilyJira-FamilyJiraTests/Pods-FamilyJira-FamilyJiraTests.debug.xcconfig"; sourceTree = "<group>"; };
-		ECB23BB9804D1578394DEECD /* Pods_FamilyJira_FamilyJiraTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FamilyJira_FamilyJiraTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F63A88B49202DB66F723DF80 /* Pods-FamilyJira.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilyJira.release.xcconfig"; path = "Target Support Files/Pods-FamilyJira/Pods-FamilyJira.release.xcconfig"; sourceTree = "<group>"; };
 		FCE7394D6C9CE3697E19BCC0 /* Pods-FamilyJira-FamilyJiraTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilyJira-FamilyJiraTests.release.xcconfig"; path = "Target Support Files/Pods-FamilyJira-FamilyJiraTests/Pods-FamilyJira-FamilyJiraTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -183,7 +183,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F2DA6FAE09FB4B053909853 /* Pods_FamilyJira.framework in Frameworks */,
+				DC3E31E20254E039CD5C3D47 /* libPods-FamilyJira.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,7 +191,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8951C0ADB8771EB6C02636BB /* Pods_FamilyJira_FamilyJiraTests.framework in Frameworks */,
+				93E54C181721351025F8447B /* libPods-FamilyJira-FamilyJiraTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,8 +201,8 @@
 		7AC42C8811EA2D844BBC9ECA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BDC22B6BB464A22A1587E723 /* Pods_FamilyJira.framework */,
-				ECB23BB9804D1578394DEECD /* Pods_FamilyJira_FamilyJiraTests.framework */,
+				4F5C3F14E90BAC75852CA5E7 /* libPods-FamilyJira.a */,
+				468876647B1BD88EF9CB5657 /* libPods-FamilyJira-FamilyJiraTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -433,7 +433,6 @@
 				9CF7D6C62401832900760442 /* Sources */,
 				9CF7D6C72401832900760442 /* Frameworks */,
 				9CF7D6C82401832900760442 /* Resources */,
-				3445B6895223E6BEE88390CA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -452,7 +451,6 @@
 				9CF7D6DC2401832B00760442 /* Sources */,
 				9CF7D6DD2401832B00760442 /* Frameworks */,
 				9CF7D6DE2401832B00760442 /* Resources */,
-				1D16FE434E9E3DCD09C3EF02 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -544,40 +542,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1D16FE434E9E3DCD09C3EF02 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FamilyJira-FamilyJiraTests/Pods-FamilyJira-FamilyJiraTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FamilyJira-FamilyJiraTests/Pods-FamilyJira-FamilyJiraTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FamilyJira-FamilyJiraTests/Pods-FamilyJira-FamilyJiraTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3445B6895223E6BEE88390CA /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FamilyJira/Pods-FamilyJira-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FamilyJira/Pods-FamilyJira-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FamilyJira/Pods-FamilyJira-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4382241B75DFAD25230FBB07 /* [CP] Check Pods Manifest.lock */ = {

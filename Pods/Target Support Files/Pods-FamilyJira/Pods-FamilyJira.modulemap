@@ -1,4 +1,4 @@
-framework module Pods_FamilyJira {
+module Pods_FamilyJira {
   umbrella header "Pods-FamilyJira-umbrella.h"
 
   export *

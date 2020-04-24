@@ -1,4 +1,4 @@
-framework module CombineDataSources {
+module CombineDataSources {
   umbrella header "CombineDataSources-umbrella.h"
 
   export *
