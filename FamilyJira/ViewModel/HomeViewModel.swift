@@ -44,7 +44,7 @@ final class HomeViewModel: HomeViewModelProtocol {
         isUserLoggedIn
             .filter { $0 == true }
             .sink(receiveValue: { [weak self] _ in
-                self?.reguestData()
+                self?.requestData()
             })
             .store(in: &subscriptions)
         
@@ -59,7 +59,7 @@ final class HomeViewModel: HomeViewModelProtocol {
         isUserLoggedIn.send(firebaseServise.isUserLoggedIn)
     }
     
-    private func reguestData() {
+    private func requestData() {
         guard reachabilityService.isConnectedToNetwork() else {
             presentRequestError.send(.noConnection)
             if let userObject: UserObject = realmService.get() {

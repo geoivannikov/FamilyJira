@@ -21,18 +21,17 @@ protocol FirebaseServiceProtocol {
 }
 
 final class FirebaseService: FirebaseServiceProtocol {
-    private let userID: String? = {
-        let id = Auth.auth().currentUser?.uid
-        return id
-    }()
+    private var userID: String? {
+        Auth.auth().currentUser?.uid
+    }
     
-    private let databaseReference: DatabaseReference = {
+    private var databaseReference: DatabaseReference = {
         Database.database().reference()
     }()
     
-    private let storageReference: StorageReference = {
+    private var storageReference: StorageReference {
         Storage.storage().reference()
-    }()
+    }
     
     var isUserLoggedIn: Bool {
         Auth.auth().currentUser?.uid != nil

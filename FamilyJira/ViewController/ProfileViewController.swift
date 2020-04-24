@@ -14,15 +14,7 @@ import Photos
 class ProfileViewController: UIViewController {
     private var profileViewModel: ProfileViewModelProtocol!
     private let profileView = ProfileView()
-    private let doneButton: UIBarButtonItem = {
-        let button = UIBarButtonItem(title: "Done",
-                                     style: .plain,
-                                     target: self,
-                                     action: nil)
-        button.action = #selector(doneTapped)
-        button.isEnabled = false
-        return button
-    }()
+    private var doneButton = UIBarButtonItem()
     private let imagePicker = UIImagePickerController()
     
     private var subscriptions = Set<AnyCancellable>()
@@ -45,6 +37,12 @@ class ProfileViewController: UIViewController {
         title = "Profile"
         view.backgroundColor = .backgroundBlue
         
+        doneButton = UIBarButtonItem(title: "Done",
+                                     style: .plain,
+                                     target: self,
+                                     action: nil)
+        doneButton.action = #selector(doneTapped)
+        doneButton.isEnabled = false
         navigationItem.rightBarButtonItem = doneButton
         
         view.addSubview(profileView)

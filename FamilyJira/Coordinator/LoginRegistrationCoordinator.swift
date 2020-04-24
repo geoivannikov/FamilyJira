@@ -34,8 +34,8 @@ final class LoginRegistrationCoordinator: Coordinator {
         
         loginRegistrationViewModel.userLoggedIn
             .sink(receiveValue: { [weak self] _ in
-                self?.tabBarController.dismiss(animated: true, completion: nil)
                 NotificationCenter.default.post(name: .userLoggedIn, object: nil)
+                self?.tabBarController.dismiss(animated: true, completion: nil)
             })
             .store(in: &subscriptions)
     }
