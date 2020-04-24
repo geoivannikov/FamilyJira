@@ -161,7 +161,7 @@ final class FirebaseService: FirebaseServiceProtocol {
             storage.child("users").child(id).putData(data,
                                                  metadata: nil,
                                                  completion: { _, error in
-                guard error != nil else {
+                guard error == nil else {
                     promise(.failure(.serverError))
                     return
                 }
@@ -175,7 +175,7 @@ final class FirebaseService: FirebaseServiceProtocol {
                             promise(.failure(.unknownError))
                             return
                         }
-                        ref.child("users").child(id).updateChildValues(["profilePhoto": photoUrl])
+                        ref.child("users").child(id).updateChildValues(["profilePhoto": photoUrl.absoluteString])
                         promise(.success(profileDTO))
                     }
                 }

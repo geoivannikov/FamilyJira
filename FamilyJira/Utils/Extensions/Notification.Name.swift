@@ -9,6 +9,7 @@
 import Foundation
 
 extension Notification.Name {
+    static let userUpdated = Notification.Name("userUpdated")
     static let userLoggedIn = Notification.Name("userLoggedIn")
     static let userLoggedOut = Notification.Name("userLoggedOut")
     static let profileImagePickedDismissed = Notification.Name("profileImagePickedDismissed")

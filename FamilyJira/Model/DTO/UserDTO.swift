@@ -36,7 +36,7 @@ struct UserDTO {
                 return nil
         }
         let role = snapshot?["role"] as? String
-        let photoUrl = snapshot?["photoUrl"] as? String
+        let photoUrl = snapshot?["profilePhoto"] as? String
         let boardId = snapshot?["boardId"] as? String
         self.init(id: id,
                   email: email,

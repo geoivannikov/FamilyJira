@@ -74,6 +74,12 @@ class ProfileViewController: UIViewController {
             .assign(to: \.image, on: profileView.profilePhoto)
             .store(in: &subscriptions)
         
+        profileViewModel.presentError
+            .sink(receiveValue: { [weak self] _ in
+                self?.view.hideToastActivity()
+            })
+            .store(in: &subscriptions)
+        
         Publishers.Merge3(NotificationCenter.default.publisher(for: UITextField.textDidChangeNotification,
                                                                object: profileView.usernameTextField),
                          NotificationCenter.default.publisher(for: UITextField.textDidChangeNotification,
@@ -104,9 +110,10 @@ class ProfileViewController: UIViewController {
     }
     
     @objc func doneTapped(sender: UIBarButtonItem) {
+        view.makeToastActivity(.center)
         let profileDTO = ProfileDTO(username: profileView.usernameTextField.text,
                                     role: profileView.roleTextField.text,
-                                    photoData: profileView.profilePhoto.image?.pngData())
+                                    photoData: profileView.profilePhoto.image?.mediumQualityJPEGNSData)
         profileViewModel.doneTapped.send(profileDTO)
     }
 }

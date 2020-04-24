@@ -75,6 +75,15 @@ final class SettingsViewModel: SettingsViewModelProtocol {
                 self?.settingsData.send($0)
             })
             .store(in: &subscriptions)
+        
+        NotificationCenter.default.publisher(for: .userUpdated, object: nil)
+            .sink(receiveValue: { [weak self] _ in
+                guard let user: UserObject = realmService.get() else {
+                    return
+                }
+                self?.user.send(user)
+            })
+            .store(in: &subscriptions)
     }
     
     func viewDidLoad() {

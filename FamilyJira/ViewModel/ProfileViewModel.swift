@@ -72,8 +72,13 @@ final class ProfileViewModel: ProfileViewModelProtocol {
                 case .failure(let error):
                     self?.presentError.send(error)
                 }
-            }, receiveValue: { [weak self] _ in
-                
+            }, receiveValue: { [weak self] profile in
+                guard let user: UserObject = self?.realmService.get() else {
+                    return
+                }
+                let updatedUser = UserObject(user: user, profile: profile)
+                self?.realmService.update(objects: updatedUser)
+                NotificationCenter.default.post(name: .userUpdated, object: nil)
             })
             .store(in: &subscriptions)
     }

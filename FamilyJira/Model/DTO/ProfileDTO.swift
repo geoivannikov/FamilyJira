@@ -16,7 +16,8 @@ struct ProfileDTO {
     init?(username: String?,
           role: String?,
           photoData: Data?) {
-        if let username = username {
+        if let username = username,
+            !username.isEmpty {
             self.username = username
             self.role = role
             self.photoData = photoData

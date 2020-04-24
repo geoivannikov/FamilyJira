@@ -47,3 +47,9 @@ extension UIImage {
         self.init(data: imageData)
     }
 }
+
+extension UIImage {
+    var mediumQualityJPEGNSData: Data?  {
+        jpegData(compressionQuality: 0.4)
+    }
+}

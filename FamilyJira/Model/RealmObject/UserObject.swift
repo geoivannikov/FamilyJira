@@ -31,3 +31,15 @@ final class UserObject: Object, RealmObject {
         }
     }
 }
+
+extension UserObject {
+    convenience init(user: UserObject, profile: ProfileDTO) {
+        self.init()
+        self.id = user.id
+        self.email = user.email
+        self.username = profile.username
+        self.role = profile.role
+        self.boardId = user.boardId
+        self.photoData = profile.photoData as NSData?
+    }
+}
