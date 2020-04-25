@@ -25,7 +25,6 @@ class SearchBoardViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpLayout()
-        dismissKeyboardAfterTap()
     }
 
     private func setUpLayout() {
@@ -33,20 +32,20 @@ class SearchBoardViewController: UITableViewController {
         let cancelButtonAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemBlue]
         UIBarButtonItem.appearance().setTitleTextAttributes(cancelButtonAttributes, for: .normal)
 
+        tableView.backgroundColor = .backgroundBlue
+        tableView.backgroundView = UIView()
+        tableView.tableHeaderView = searchController.searchBar
+        tableView.separatorStyle = .none
+
         searchController.delegate = self
         searchController.searchBar.delegate = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.tintColor = .backgroundBlue
         searchController.searchBar.backgroundColor = .backgroundBlue
         searchController.searchBar.barStyle = .default
-
-        tableView.backgroundColor = .backgroundBlue
-        tableView.backgroundView = UIView()
-        tableView.tableHeaderView = searchController.searchBar
-        tableView.separatorStyle = .none
-
-        let clearImage = UIImage.from(color: UIColor.clear)
-        searchController.searchBar.setBackgroundImage(clearImage, for: UIBarPosition.any, barMetrics: UIBarMetrics.default)
+        searchController.searchBar.setBackgroundImage(UIImage.from(color: UIColor.clear),
+                                                      for: UIBarPosition.any,
+                                                      barMetrics: UIBarMetrics.default)
         searchController.searchBar.backgroundColor = .backgroundBlue
         searchController.searchBar.tintColor = UIColor.white
         UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = UIColor.white
