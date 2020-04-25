@@ -38,7 +38,8 @@ class SettingsViewController: UITableViewController {
         tableView.bounces = false
 
         tableView.register(SettingsCell.self, forCellReuseIdentifier: "SettingsCell")
-        view.makeToastActivity(.center)
+        view.makeToastActivity(CGPoint(x: UIScreen.main.bounds.midX,
+                                       y: UIScreen.main.bounds.midY - 100))
     }
 
     private func setUpBinds() {

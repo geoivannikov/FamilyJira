@@ -10,11 +10,15 @@ import Foundation
 import Combine
 
 protocol NoBoardViewModelProtocol {
+    var joinBoardTapped: PassthroughSubject<Void, Never> { get }
 }
 
 final class NoBoardViewModel: NoBoardViewModelProtocol {
+    let joinBoardTapped: PassthroughSubject<Void, Never>
+
     init(
         reachabilityServis: ReachabilityServisProtocolol = FamilyJiraDI.forceResolve()
     ) {
+        joinBoardTapped = PassthroughSubject<Void, Never>()
     }
 }

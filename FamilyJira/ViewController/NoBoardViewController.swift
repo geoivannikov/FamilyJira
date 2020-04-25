@@ -13,6 +13,9 @@ import Combine
 class NoBoardViewController: UIViewController {
     private var noBoardViewModel: NoBoardViewModelProtocol!
     private let noBoardView = NoBoardView()
+    private let createBoardPopUp = CreateBoardPopUp()
+
+    private var subscriptions = Set<AnyCancellable>()
 
     static func instantiate(
         noBoardViewModel: NoBoardViewModelProtocol
@@ -25,6 +28,7 @@ class NoBoardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpLayout()
+        setUpBinds()
     }
 
     private func setUpLayout() {
@@ -35,5 +39,26 @@ class NoBoardViewController: UIViewController {
         noBoardView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+
+        view.addSubview(createBoardPopUp)
+        createBoardPopUp.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+    }
+
+    private func setUpBinds() {
+        noBoardView.createButton
+            .publisher(for: .touchUpInside)
+            .sink(receiveValue: { [weak self] _ in
+                self?.createBoardPopUp.animateIn()
+            })
+            .store(in: &subscriptions)
+
+        noBoardView.joinButton
+            .publisher(for: .touchUpInside)
+            .sink(receiveValue: { [weak self] _ in
+                self?.noBoardViewModel.joinBoardTapped.send()
+            })
+            .store(in: &subscriptions)
     }
 }

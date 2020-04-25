@@ -12,11 +12,15 @@ import Combine
 
 final class NoBoardCoordinator: Coordinator {
     let navigationController: UINavigationController
-    let presentNavigationController: UINavigationController
+    private let presentNavigationController: UINavigationController
+    private let searchBoardCoordinator: SearchBoardCoordinator
+
+    private var subscriptions = Set<AnyCancellable>()
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
         presentNavigationController = UINavigationController()
+        searchBoardCoordinator = SearchBoardCoordinator(navigationController: navigationController)
     }
 
     func start(
@@ -24,5 +28,11 @@ final class NoBoardCoordinator: Coordinator {
     ) {
         let viewController = NoBoardViewController.instantiate(noBoardViewModel: noBoardViewModel)
         navigationController.pushViewController(viewController, animated: false)
+
+        noBoardViewModel.joinBoardTapped
+            .sink(receiveValue: { [weak self] _ in
+                self?.searchBoardCoordinator.start()
+            })
+            .store(in: &subscriptions)
     }
 }

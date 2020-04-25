@@ -19,7 +19,7 @@ class NoBoardView: BaseView {
         return label
     }()
 
-    private let createButton: UIButton = {
+    let createButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .buttonBlue
         button.layer.cornerRadius = 5.0
@@ -29,7 +29,7 @@ class NoBoardView: BaseView {
         return button
     }()
 
-    private let joinButton: UIButton = {
+    let joinButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .buttonGrey
         button.layer.cornerRadius = 5.0
