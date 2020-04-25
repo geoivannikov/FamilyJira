@@ -12,7 +12,7 @@ import CombineDataSources
 
 class MyTasksViewController: UITableViewController {
     private var myTasksViewModel: MyTasksViewModelProtocol!
-    
+
     private var subscriptions = Set<AnyCancellable>()
 
     private let segmentControl: UISegmentedControl = {
@@ -21,7 +21,7 @@ class MyTasksViewController: UITableViewController {
         segmentControl.selectedSegmentIndex = 0
         return segmentControl
     }()
-    
+
     static func instantiate(myTasksViewModel: MyTasksViewModelProtocol) -> MyTasksViewController {
         let viewController: MyTasksViewController = MyTasksViewController()
         viewController.myTasksViewModel = myTasksViewModel
@@ -34,15 +34,15 @@ class MyTasksViewController: UITableViewController {
         setUpBinds()
         myTasksViewModel.myTasksOpened()
     }
-    
+
     private func setupLayout() {
         navigationItem.titleView = segmentControl
         tableView.backgroundColor = .backgroundBlue
         tableView.separatorStyle = .none
-        
+
         tableView.register(TaskCell.self, forCellReuseIdentifier: "MyTaskCell")
     }
-    
+
     private func setUpBinds() {
         myTasksViewModel.myTasksData
             .map { sections in
@@ -52,7 +52,7 @@ class MyTasksViewController: UITableViewController {
             }
             .bind(subscriber: tableView.sectionsSubscriber(cellIdentifier: "MyTaskCell",
                                                            cellType: TaskCell.self,
-                                                           cellConfig: { cell, indexPath, model in
+                                                           cellConfig: { cell, _, model in
                 cell.setupCell(model: model)
             }))
             .store(in: &subscriptions)

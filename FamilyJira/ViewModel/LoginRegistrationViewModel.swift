@@ -13,7 +13,7 @@ protocol LoginRegistrationViewModelProtocol {
     var presentAuthError: PassthroughSubject<BaseError, Never> { get }
     var userLoggedIn: PassthroughSubject<Void, Never> { get }
     var registrationSucceed: PassthroughSubject<Void, Never> { get }
-    
+
     func signInTapped(credentials: LoginCredentials?)
     func signUpTapped(credentials: RegistrationCredentials?)
 }
@@ -27,7 +27,7 @@ final class LoginRegistrationViewModel: LoginRegistrationViewModelProtocol {
     private let reachabilityServis: ReachabilityServisProtocolol
 
     private var subscriptions = Set<AnyCancellable>()
-    
+
     init(
         firebaseServise: FirebaseServiceProtocol = FamilyJiraDI.forceResolve(),
         reachabilityServis: ReachabilityServisProtocolol = FamilyJiraDI.forceResolve()
@@ -38,7 +38,7 @@ final class LoginRegistrationViewModel: LoginRegistrationViewModelProtocol {
         userLoggedIn = PassthroughSubject<Void, Never>()
         registrationSucceed = PassthroughSubject<Void, Never>()
     }
-    
+
     func signInTapped(credentials: LoginCredentials?) {
         guard reachabilityServis.isConnectedToNetwork() else {
             presentAuthError.send(LoginError.noConnection)
@@ -57,7 +57,7 @@ final class LoginRegistrationViewModel: LoginRegistrationViewModelProtocol {
             })
             .store(in: &subscriptions)
     }
-    
+
     func signUpTapped(credentials: RegistrationCredentials?) {
         guard reachabilityServis.isConnectedToNetwork() else {
             presentAuthError.send(RegistrationError.noConnection)

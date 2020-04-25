@@ -13,7 +13,7 @@ import Combine
 class NoBoardViewController: UIViewController {
     private var noBoardViewModel: NoBoardViewModelProtocol!
     private let noBoardView = NoBoardView()
-    
+
     static func instantiate(
         noBoardViewModel: NoBoardViewModelProtocol
     ) -> NoBoardViewController {
@@ -26,11 +26,11 @@ class NoBoardViewController: UIViewController {
         super.viewDidLoad()
         setUpLayout()
     }
-    
+
     private func setUpLayout() {
         view.backgroundColor = .backgroundBlue
         navigationItem.setHidesBackButton(true, animated: false)
-        
+
         view.addSubview(noBoardView)
         noBoardView.snp.makeConstraints { make in
             make.edges.equalToSuperview()

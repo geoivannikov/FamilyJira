@@ -17,7 +17,7 @@ class TaskView: BaseView {
         label.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
         return label
     }()
-    
+
     private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
@@ -25,14 +25,14 @@ class TaskView: BaseView {
         label.numberOfLines = 0
         return label
     }()
-    
+
     private let priority: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
         label.text = "Priority:"
         return label
     }()
-    
+
     private let priorityValue: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
@@ -40,14 +40,14 @@ class TaskView: BaseView {
         label.textColor = .red
         return label
     }()
-    
+
     private let createdBy: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.text = "Ceated by:"
         return label
     }()
-    
+
     private let creatorPhoto: UIImageView = {
         let image = UIImageView()
         image.makeRounded(radius: 18)
@@ -58,14 +58,14 @@ class TaskView: BaseView {
         }
         return image
     }()
-    
+
     private let creationDate: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
         label.text = "Creation date:"
         return label
     }()
-    
+
     private let creationDateValue: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
@@ -73,14 +73,14 @@ class TaskView: BaseView {
         label.textColor = .gray
         return label
     }()
-    
+
     private let assignedBy: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.text = "Assigned by:"
         return label
     }()
-    
+
     private let assignerPhoto: UIImageView = {
         let image = UIImageView()
         image.makeRounded(radius: 18)
@@ -91,7 +91,7 @@ class TaskView: BaseView {
         }
         return image
     }()
-    
+
     private let completeButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .buttonBlue
@@ -101,7 +101,7 @@ class TaskView: BaseView {
         button.setTitle("Completeв", for: .normal)
         return button
     }()
-    
+
     private let refuseTask: UIButton = {
         let button = UIButton()
         button.backgroundColor = .buttonRed
@@ -111,7 +111,7 @@ class TaskView: BaseView {
         button.setTitle("Refuse", for: .normal)
         return button
     }()
-    
+
     override func setupView() {
         let scrollView: UIScrollView = {
             let scrollView = UIScrollView()
@@ -127,19 +127,19 @@ class TaskView: BaseView {
             stackView.backgroundColor = .red
             return stackView
         }()
-        
+
         addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        
+
         scrollView.addSubview(stackView)
         stackView.snp.makeConstraints { make in
             make.centerX.leading.trailing.equalToSuperview()
             make.top.equalToSuperview().offset(10)
             make.bottom.equalToSuperview()
         }
-        
+
         let hStackViewPriorityCreator: UIStackView = {
             let stackView = UIStackView()
             stackView.axis = .horizontal
@@ -147,7 +147,7 @@ class TaskView: BaseView {
             stackView.spacing = 10
             return stackView
         }()
-        
+
         [priority, priorityValue, createdBy, creatorPhoto].forEach {
             hStackViewPriorityCreator.addArrangedSubview($0)
         }
@@ -157,7 +157,7 @@ class TaskView: BaseView {
         creatorPhoto.snp.makeConstraints { make in
             make.height.width.equalTo(36)
         }
-        
+
         let hStackViewDateAssigner: UIStackView = {
             let stackView = UIStackView()
             stackView.axis = .horizontal
@@ -165,7 +165,7 @@ class TaskView: BaseView {
             stackView.spacing = 10
             return stackView
         }()
-        
+
         [creationDate,
          creationDateValue,
          assignedBy,
@@ -178,7 +178,7 @@ class TaskView: BaseView {
         assignerPhoto.snp.makeConstraints { make in
             make.height.width.equalTo(36)
         }
-        
+
         [titleLabel,
          descriptionLabel,
          hStackViewPriorityCreator,
@@ -189,9 +189,9 @@ class TaskView: BaseView {
                 make.leading.equalToSuperview().offset(15)
             }
         }
-        
+
         stackView.setCustomSpacing(20.0, after: descriptionLabel)
-        
+
         addSubview(completeButton)
         completeButton.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(60)
@@ -199,7 +199,7 @@ class TaskView: BaseView {
             make.width.equalTo(100)
             make.height.equalTo(40)
         }
-        
+
         addSubview(refuseTask)
         refuseTask.snp.makeConstraints { make in
             make.trailing.equalToSuperview().offset(-60)

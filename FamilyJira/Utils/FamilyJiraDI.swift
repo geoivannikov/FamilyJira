@@ -11,22 +11,22 @@ import Swinject
 
 final class FamilyJiraDI: NSObject {
     static var container = Container()
-    
+
     static func start() {
         FamilyJiraDI.container.register(FirebaseServiceProtocol.self) { _ in
             FirebaseService()
         }.inObjectScope(.transient)
-        
+
         FamilyJiraDI.container.register(ReachabilityServisProtocolol.self) { _ in
             ReachabilityServis()
         }.inObjectScope(.transient)
-        
+
         FamilyJiraDI.container.register(RealmServiceProtocol.self) { _ in
             RealmService()
         }.inObjectScope(.transient)
     }
-    
+
     static func forceResolve<T>() -> T {
-        return container.resolve(T.self)!
+        container.resolve(T.self)!
     }
 }

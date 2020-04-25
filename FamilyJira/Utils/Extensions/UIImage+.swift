@@ -10,31 +10,31 @@ import UIKit
 
 extension UIImage {
     class var homeTab: UIImage? {
-        return UIImage(named: "Home_iOS")
+        UIImage(named: "Home_iOS")
     }
 
     class var myTasksTab: UIImage? {
-        return UIImage(named: "MyTasks_iOS")
+        UIImage(named: "MyTasks_iOS")
     }
 
     class var settingsTab: UIImage? {
-        return UIImage(named: "Settings_iOS")
+        UIImage(named: "Settings_iOS")
     }
-    
+
     class var privacyIcon: UIImage? {
-        return UIImage(named: "privacy")
+        UIImage(named: "privacy")
     }
-    
+
     class var notificationsIcon: UIImage? {
-        return UIImage(named: "notifications")
+        UIImage(named: "notifications")
     }
-    
+
     class var soundsIcon: UIImage? {
-        return UIImage(named: "sounds")
+        UIImage(named: "sounds")
     }
-    
+
     class var licenseIcon: UIImage? {
-        return UIImage(named: "license")
+        UIImage(named: "license")
     }
 }
 
@@ -49,7 +49,7 @@ extension UIImage {
 }
 
 extension UIImage {
-    var mediumQualityJPEGNSData: Data?  {
+    var mediumQualityJPEGNSData: Data? {
         jpegData(compressionQuality: 0.4)
     }
 }

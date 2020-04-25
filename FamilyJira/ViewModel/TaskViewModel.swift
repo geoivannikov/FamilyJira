@@ -9,7 +9,7 @@
 import Foundation
 
 protocol TaskViewModelProtocol {
-    
+
 }
 
 final class TaskViewModel: TaskViewModelProtocol {

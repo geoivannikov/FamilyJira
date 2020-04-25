@@ -46,10 +46,10 @@ public struct BatchesInput {
         self.reload = reload ?? Empty<Void, Never>().eraseToAnyPublisher()
         self.loadNext = loadNext
     }
-    
+
     /// Resets the list and loads the initial list of items.
     public let reload: AnyPublisher<Void, Never>
-    
+
     /// Loads the next batch of items.
     public let loadNext: AnyPublisher<Void, Never>
 }
@@ -57,72 +57,72 @@ public struct BatchesInput {
 /// Manages a list of items in batches or pages.
 public struct BatchesDataSource<Element> {
     internal let input: BatchesInput
-    
+
     public class Output {
         /// Is the data source currently fetching a batch of items.
         @Published public var isLoading = false
-        
+
         /// Is the data source loaded all available items.
         @Published public var isCompleted = false
-        
+
         /// The list of items fetched so far.
         @Published public var items = [Element]()
-        
+
         /// The last error while fetching a batch of items.
-        @Published public var error: Error? = nil
+        @Published public var error: Error?
     }
-    
+
     /// The current output of the data source.
     public let output = Output()
-    
+
     private var subscriptions = [AnyCancellable]()
-    
+
     /// The result of loading of a batch of items.
     public enum LoadResult {
         /// A batch of `Element` items to use with pages.
         case items([Element])
-        
+
         /// A batch of `Element` items and a token to provide
         /// to the loader in order to fetch the next batch.
         case itemsToken([Element], nextToken: Data?)
-        
+
         /// No more items available to fetch.
         case completed
     }
-    
+
     enum ResponseResult {
         case result((token: Token, result: BatchesDataSource<Element>.LoadResult))
         case error(Error)
     }
-    
+
     enum Token {
         case int(Int)
         case data(Data?)
     }
-    
+
     private init(items: [Element] = [], input: BatchesInput, initial: Token, loadNextCallback: @escaping (Token) -> AnyPublisher<LoadResult, Error>) {
         let itemsSubject = CurrentValueSubject<[Element], Never>(items)
         let token = CurrentValueSubject<Token, Never>(initial)
-        
+
         self.input = input
         let output = self.output
-        
+
         input.reload
             .map { _ in items }
             .append(Empty(completeImmediately: false))
             .subscribe(itemsSubject)
             .store(in: &subscriptions)
-        
+
         let loadNext = input.loadNext
             .map { token.value }
-        
+
         let batchRequest = loadNext
             .merge(with: input.reload.prepend(()).map { initial })
             .eraseToAnyPublisher()
-        
+
         // TODO: avoid having extra subject when `shareReplay()` is introduced.
         let batchResponse = PassthroughSubject<ResponseResult, Never>()
-        
+
         batchResponse
             .map { result -> Error? in
                 switch result {
@@ -132,12 +132,12 @@ public struct BatchesDataSource<Element> {
         }
         .assign(to: \Output.error, on: output)
         .store(in: &subscriptions)
-        
+
         // Bind `Output.isLoading`
         Publishers.Merge(batchRequest.map { _ in true }, batchResponse.map { _ in false })
             .assign(to: \Output.isLoading, on: output)
             .store(in: &subscriptions)
-        
+
         let successResponse = batchResponse
             .compactMap { result -> (token: Token, result: BatchesDataSource<Element>.LoadResult)? in
                 switch result {
@@ -146,7 +146,7 @@ public struct BatchesDataSource<Element> {
                 }
         }
         .share()
-        
+
         // Bind `Output.isCompleted`
         successResponse
             .map { tuple -> Bool in
@@ -157,7 +157,7 @@ public struct BatchesDataSource<Element> {
         }
         .assign(to: \Output.isCompleted, on: output)
         .store(in: &subscriptions)
-        
+
         let result = successResponse
             .compactMap { tuple -> (token: Token, items: [Element], nextToken: Token)? in
                 switch tuple.result {
@@ -172,13 +172,13 @@ public struct BatchesDataSource<Element> {
                 }
         }
         .share()
-        
+
         // Bind `token`
         result
             .map { $0.nextToken }
             .subscribe(token)
             .store(in: &subscriptions)
-        
+
         // Bind `items`
         result
             .map {
@@ -188,12 +188,12 @@ public struct BatchesDataSource<Element> {
         }
         .subscribe(itemsSubject)
         .store(in: &subscriptions)
-        
+
         // Bind `Output.items`
         itemsSubject
             .assign(to: \Output.items, on: output)
             .store(in: &subscriptions)
-        
+
         batchRequest
             .flatMap { token in
                 return loadNextCallback(token)
@@ -207,9 +207,9 @@ public struct BatchesDataSource<Element> {
         }
         .sink(receiveValue: batchResponse.send)
         .store(in: &subscriptions)
-        
+
     }
-    
+
     /// Initializes a list data source using a token to fetch batches of items.
     /// - Parameter items: initial list of items.
     /// - Parameter input: the input to control the data source.
@@ -226,7 +226,7 @@ public struct BatchesDataSource<Element> {
             }
         })
     }
-    
+
     /// Initialiazes a list data source of items batched in numbered pages.
     /// - Parameter items: initial list of items.
     /// - Parameter input: the input to control the data source.
@@ -244,12 +244,12 @@ public struct BatchesDataSource<Element> {
     }
 }
 
-fileprivate var uuids = [String: Int]()
+private var uuids = [String: Int]()
 
 extension Publisher {
     public func assertMaxSubscriptions(_ max: Int, file: StaticString = #file, line: UInt = #line) -> AnyPublisher<Output, Failure> {
         let uuid = "\(file):\(line)"
-        
+
         return handleEvents(receiveSubscription: { _ in
             let count = uuids[uuid] ?? 0
             guard count < max else {

@@ -13,9 +13,9 @@ final class UserObject: Object, RealmObject {
     @objc dynamic private(set) var id: String = ""
     @objc dynamic private(set) var email: String = ""
     @objc dynamic private(set) var username: String = ""
-    @objc dynamic private(set) var role: String? = nil
+    @objc dynamic private(set) var role: String?
     @objc dynamic private(set) var photoData: NSData?
-    @objc dynamic private(set) var boardId: String? = nil
+    @objc dynamic private(set) var boardId: String?
 
     convenience init(model: UserDTO) {
         self.init()
@@ -24,7 +24,7 @@ final class UserObject: Object, RealmObject {
         self.username = model.username
         self.role = model.role
         self.boardId = model.boardId
-        
+
         if let urlString = model.photoUrl,
             let url = NSURL(string: urlString) {
             self.photoData = NSData(contentsOf: url as URL)

@@ -16,7 +16,7 @@ class ProfileView: BaseView {
         image.backgroundColor = .backgroundOpacityGrey
         return image
     }()
-    
+
     let chooseButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .buttonBlue
@@ -26,7 +26,7 @@ class ProfileView: BaseView {
         button.setTitle("Choose", for: .normal)
         return button
     }()
-    
+
     let usernameTextField: UITextField = {
         let textField = UITextField()
         textField.backgroundColor = .white
@@ -35,7 +35,7 @@ class ProfileView: BaseView {
         textField.placeholder = "Username"
         return textField
     }()
-    
+
     let roleTextField: UITextField = {
         let textField = UITextField()
         textField.backgroundColor = .white
@@ -54,7 +54,7 @@ class ProfileView: BaseView {
             stackView.spacing = 10
             return stackView
         }()
-        
+
         addSubview(stackView)
         stackView.snp.makeConstraints { make in
             make.centerX.leading.trailing.equalToSuperview()

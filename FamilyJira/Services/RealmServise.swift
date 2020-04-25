@@ -17,21 +17,22 @@ protocol RealmServiceProtocol {
     func deleteAll()
 }
 
+// swiftlint:disable force_try
 final class RealmService: RealmServiceProtocol {
     private lazy var realm: Realm = {
-         return try! Realm()
+         try! Realm()
     }()
-    
+
     func insert<T: Object>(_ object: T) {
         try! realm.write {
             realm.add(object)
         }
     }
-    
+
     func get<T: Object>() -> T? {
-        return realm.objects(T.self).first
+        realm.objects(T.self).first
     }
-    
+
     func update<T: Object>(objects: T) {
         let realm = try! Realm()
         let realmResults = realm.objects(T.self)
@@ -40,13 +41,13 @@ final class RealmService: RealmServiceProtocol {
             realm.add(objects)
         }
     }
-    
+
     func delete<T: Object>(_ object: T) {
         try! realm.write {
             realm.delete(object)
         }
     }
-    
+
     func deleteAll() {
         try! realm.write {
             realm.deleteAll()

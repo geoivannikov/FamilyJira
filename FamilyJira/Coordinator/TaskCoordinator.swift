@@ -12,12 +12,12 @@ import UIKit
 final class TaskCoordinator {
     let navigationController: UINavigationController
     let presentNavigationController: UINavigationController
-    
+
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
         self.presentNavigationController = UINavigationController()
     }
-    
+
     func start(
         taskViewModel: TaskViewModelProtocol = TaskViewModel()
     ) {

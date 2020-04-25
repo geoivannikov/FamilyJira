@@ -13,9 +13,9 @@ import Toast_Swift
 
 class SettingsViewController: UITableViewController {
     private var settingsViewModel: SettingsViewModelProtocol!
-    
+
     private var subscriptions = Set<AnyCancellable>()
-    
+
     static func instantiate(settingsViewModel: SettingsViewModelProtocol) -> SettingsViewController {
         let viewController: SettingsViewController = SettingsViewController()
         viewController.settingsViewModel = settingsViewModel
@@ -28,10 +28,10 @@ class SettingsViewController: UITableViewController {
         setUpBinds()
         settingsViewModel.viewDidLoad()
     }
-    
+
     private func setUpLayout() {
         title = "Settings"
-        
+
         tableView.backgroundColor = .backgroundBlue
         tableView.separatorStyle = .singleLine
         tableView.tableFooterView = UIView()
@@ -40,14 +40,14 @@ class SettingsViewController: UITableViewController {
         tableView.register(SettingsCell.self, forCellReuseIdentifier: "SettingsCell")
         view.makeToastActivity(.center)
     }
-    
+
     private func setUpBinds() {
         settingsViewModel.user
             .sink(receiveValue: { [weak self] _ in
                 self?.view.hideToastActivity()
             })
             .store(in: &subscriptions)
-        
+
         settingsViewModel.settingsData
             .map { sections in
                 sections.map { settings -> Section<Settings> in
@@ -56,7 +56,7 @@ class SettingsViewController: UITableViewController {
             }
             .bind(subscriber: tableView.sectionsSubscriber(cellIdentifier: "SettingsCell",
                                                            cellType: SettingsCell.self,
-                                                           cellConfig: { cell, indexPath, model in
+                                                           cellConfig: { cell, _, model in
                 cell.setupCell(model: model)
             }))
             .store(in: &subscriptions)
@@ -73,7 +73,7 @@ extension SettingsViewController {
             navigationController?.pushViewController(NotImplementedViewController(), animated: true)
         }
     }
-    
+
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView(frame: CGRect(x: 0,
                                               y: 0,
@@ -95,7 +95,7 @@ extension SettingsViewController {
         headerView.addSubview(label)
         return headerView
     }
-    
+
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {
             return 30

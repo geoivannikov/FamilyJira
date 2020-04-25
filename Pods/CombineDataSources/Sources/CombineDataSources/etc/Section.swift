@@ -7,7 +7,7 @@ import Foundation
 
 public protocol SectionProtocol {
     associatedtype Element
-    
+
     var header: String? { get }
     var footer: String? { get }
     var items: [Element] { get }
@@ -20,9 +20,9 @@ public struct Section<Element: Hashable>: SectionProtocol, Identifiable {
         self.items = items
         self.footer = footer
     }
-    
+
     public let id: String
-    
+
     public let header: String?
     public let footer: String?
     public let items: [Element]
@@ -44,19 +44,19 @@ extension Section: RandomAccessCollection {
     public var startIndex: Int {
         return items.startIndex
     }
-    
+
     public var endIndex: Int {
         return items.endIndex
     }
-    
+
     public func index(after i: Int) -> Int {
         return items.index(after: i)
     }
-    
+
     public subscript(index: Int) -> Element {
         return items[index]
     }
-    
+
     public var count: Int {
         return items.count
     }

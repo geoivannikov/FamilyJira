@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import FirebaseAuth
 import FirebaseDatabase
 import Combine
 
@@ -24,19 +25,19 @@ final class FirebaseService: FirebaseServiceProtocol {
     private var userID: String? {
         Auth.auth().currentUser?.uid
     }
-    
+
     private var databaseReference: DatabaseReference = {
         Database.database().reference()
     }()
-    
+
     private var storageReference: StorageReference {
         Storage.storage().reference()
     }
-    
+
     var isUserLoggedIn: Bool {
         Auth.auth().currentUser?.uid != nil
     }
-    
+
     func signIn(with loginCredentials: LoginCredentials?) -> AnyPublisher<Void, LoginError> {
         Future<Void, LoginError> { promise in
             guard let credentials = loginCredentials else {
@@ -44,7 +45,7 @@ final class FirebaseService: FirebaseServiceProtocol {
                 return
             }
             Auth.auth().signIn(withEmail: credentials.email,
-                               password: credentials.password) { result, error in
+                               password: credentials.password) { _, error in
                 if let error = error, let authErrorCode = AuthErrorCode(rawValue: error._code) {
                     print(authErrorCode.rawValue)
                     let loginError = LoginError(authErrorCode: authErrorCode.rawValue)
@@ -61,7 +62,7 @@ final class FirebaseService: FirebaseServiceProtocol {
         }
         .eraseToAnyPublisher()
     }
-    
+
     func signUp(with registrationCredentials: RegistrationCredentials?) -> AnyPublisher<Void, RegistrationError> {
         Future<RegistrationCredentials, RegistrationError> { promise in
             guard let credentials = registrationCredentials else {
@@ -81,7 +82,7 @@ final class FirebaseService: FirebaseServiceProtocol {
                 return
             }
             Auth.auth().createUser(withEmail: credentials.email,
-                                   password: credentials.password) { result, error in
+                                   password: credentials.password) { _, error in
                 if let error = error, let authErrorCode = AuthErrorCode(rawValue: error._code) {
                     let registrationError = RegistrationError(authErrorCode: authErrorCode.rawValue)
                     promise(.failure(registrationError))
@@ -104,11 +105,11 @@ final class FirebaseService: FirebaseServiceProtocol {
         }
         .eraseToAnyPublisher()
     }
-    
+
     func signOut() throws {
         try Auth.auth().signOut()
     }
-    
+
     func requestUser() -> AnyPublisher<UserDTO, RequestError> {
         Future<UserDTO, RequestError> { [weak self] promise in
             guard let ref = self?.databaseReference,
@@ -127,7 +128,7 @@ final class FirebaseService: FirebaseServiceProtocol {
         }
         .eraseToAnyPublisher()
     }
-    
+
     func updateProfile(profileDTO: ProfileDTO) -> AnyPublisher<ProfileDTO, UpdateProfileError> {
         Future<ProfileDTO, UpdateProfileError> { [weak self] promise in
             guard let ref = self?.databaseReference,
@@ -145,7 +146,7 @@ final class FirebaseService: FirebaseServiceProtocol {
         }
         .eraseToAnyPublisher()
     }
-    
+
     func uploadProfilePhoto(profileDTO: ProfileDTO) -> Future<ProfileDTO, UpdateProfileError> {
         Future<ProfileDTO, UpdateProfileError> { [weak self] promise in
             guard let data = profileDTO.photoData else {

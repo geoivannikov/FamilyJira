@@ -15,7 +15,7 @@ struct UserDTO {
     let role: String?
     let photoUrl: String?
     let boardId: String?
-    
+
     init(id: String,
          email: String,
          username: String,
@@ -29,7 +29,7 @@ struct UserDTO {
         self.photoUrl = photoUrl
         self.boardId = boardId
     }
-    
+
     init?(snapshot: NSDictionary?, id: String) {
         guard let email = snapshot?["email"] as? String,
             let username = snapshot?["username"] as? String else {

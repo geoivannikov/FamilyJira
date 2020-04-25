@@ -13,7 +13,7 @@ import Combine
 final class ProfileCoordinator: Coordinator {
     let navigationController: UINavigationController
     private var subscriptions = Set<AnyCancellable>()
-    
+
     init(navigationController: UINavigationController?) {
         guard let navigationController = navigationController else {
             self.navigationController = UINavigationController()
@@ -21,17 +21,17 @@ final class ProfileCoordinator: Coordinator {
         }
         self.navigationController = navigationController
     }
-    
+
     func start(
         profileViewModel: ProfileViewModelProtocol = ProfileViewModel()
     ) {
         let profileViewController = ProfileViewController.instantiate(profileViewModel: profileViewModel)
         navigationController.pushViewController(profileViewController, animated: true)
-        
+
         profileViewModel.presentError
             .sink(receiveValue: presentError(error:))
             .store(in: &subscriptions)
-        
+
         NotificationCenter.default.publisher(for: .userUpdated, object: nil)
             .sink(receiveValue: { [weak self] _ in
                 self?.navigationController.popViewController(animated: true)

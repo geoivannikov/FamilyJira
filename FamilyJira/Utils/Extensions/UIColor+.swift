@@ -11,26 +11,26 @@ import UIKit
 
 extension UIColor {
     static var backgroundBlue: UIColor {
-        return UIColor(red: 244.0 / 255.0, green: 247.0 / 255.0, blue: 251.0 / 255.0, alpha: 1)
+        UIColor(red: 244.0 / 255.0, green: 247.0 / 255.0, blue: 251.0 / 255.0, alpha: 1)
     }
-    
+
     static var backgroundOpacityGrey: UIColor {
-        return UIColor(red: 211.0 / 255.0, green: 211.0 / 255.0, blue: 211.0 / 255.0, alpha: 0.8)
+        UIColor(red: 211.0 / 255.0, green: 211.0 / 255.0, blue: 211.0 / 255.0, alpha: 0.8)
     }
-    
+
     static var buttonBlue: UIColor {
-        return UIColor(red: 0.0 / 255.0, green: 141.0 / 255.0, blue: 210.0 / 255.0, alpha: 1)
+        UIColor(red: 0.0 / 255.0, green: 141.0 / 255.0, blue: 210.0 / 255.0, alpha: 1)
     }
-    
+
     class var buttonGrey: UIColor {
         UIColor(red: 169.0 / 255.0, green: 169.0 / 255.0, blue: 169.0 / 255.0, alpha: 1)
     }
-    
+
     static var darkBlue: UIColor {
-        return UIColor(red: 25.0 / 255.0, green: 25.0 / 255.0, blue: 112.0 / 255.0, alpha: 1)
+        UIColor(red: 25.0 / 255.0, green: 25.0 / 255.0, blue: 112.0 / 255.0, alpha: 1)
     }
-    
+
     static var buttonRed: UIColor {
-        return UIColor(red: 0.0 / 255.0, green: 0.0 / 255.0, blue: 139.0 / 255.0, alpha: 1)
+        UIColor(red: 0.0 / 255.0, green: 0.0 / 255.0, blue: 139.0 / 255.0, alpha: 1)
     }
 }

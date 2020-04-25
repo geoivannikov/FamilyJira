@@ -19,14 +19,14 @@ class TabBarCoordinator {
         mainTabBarController.view.backgroundColor = .white
         return mainTabBarController
     }()
-    
+
     private let loginRegistrationCoordinator: LoginRegistrationCoordinator
     private let homeCoordinator: HomeCoordinator
     private let myTasksCoordinator: MyTasksCoordinator
     private let settingsCoordinator: SettingsCoordinator
-    
+
     private var subscriptions = Set<AnyCancellable>()
-    
+
     init(navigationController: UINavigationController,
          window: UIWindow?) {
         self.window = window
@@ -45,14 +45,14 @@ class TabBarCoordinator {
         tabBarController.viewControllers = [homeViewController,
                                             myTasksViewController,
                                             settingsViewController]
-        
+
         NotificationCenter.default.publisher(for: .userLoggedOut, object: nil)
             .sink(receiveValue: { [weak self] _ in
                 self?.signOut()
             })
             .store(in: &subscriptions)
     }
-    
+
     private func signOut() {
         loginRegistrationCoordinator.start(animated: true,
                                            completion: { [weak self] in
@@ -60,4 +60,3 @@ class TabBarCoordinator {
         })
     }
 }
-

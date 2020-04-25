@@ -13,7 +13,7 @@ struct RegistrationCredentials {
     let username: String
     let password: String
     let confirmPassword: String
-    
+
     init(email: String,
          username: String,
          password: String,
@@ -51,7 +51,7 @@ extension RegistrationCredentials {
 extension RegistrationCredentials {
     var isCorrectEmailFormat: Bool {
         let emailFormat = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailFormat)
+        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailFormat)
         return emailPredicate.evaluate(with: email)
     }
 }

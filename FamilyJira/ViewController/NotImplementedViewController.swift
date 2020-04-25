@@ -17,12 +17,12 @@ class NotImplementedViewController: UIViewController {
         label.textColor = .backgroundOpacityGrey
         return label
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
     }
-    
+
     private func setupLayout() {
         view.backgroundColor = .backgroundBlue
 

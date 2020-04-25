@@ -18,9 +18,9 @@ class LoginRegistrationViewController: UIViewController {
         let loginRegistrationView = LoginRegistrationView()
         return loginRegistrationView
     }()
-    
+
     private var subscriptions = Set<AnyCancellable>()
-    
+
     static func instantiate(
         loginRegistrationViewModel: LoginRegistrationViewModelProtocol
     ) -> LoginRegistrationViewController {
@@ -35,7 +35,7 @@ class LoginRegistrationViewController: UIViewController {
         setUpLayout()
         dismissKeyboardAfterTap()
     }
-    
+
     private func setUpLayout() {
         navigationController?.setNavigationBarHidden(true, animated: false)
         view.backgroundColor = .backgroundBlue
@@ -43,14 +43,14 @@ class LoginRegistrationViewController: UIViewController {
         loginRegistrationView.snp.makeConstraints { make in
             make.bottom.top.leading.trailing.equalToSuperview()
         }
-        
+
         loginRegistrationView.segmentControl.addTarget(self, action: #selector(segmentedValueChanged(_:)), for: .valueChanged)
     }
-    
+
     private func setUpBinds() {
         let signInTapped = PassthroughSubject<Void, Never>()
         let signUpTapped = PassthroughSubject<Void, Never>()
-        
+
         loginRegistrationView.actionButton
             .publisher(for: .touchUpInside)
             .compactMap { [weak self] _ in
@@ -66,8 +66,7 @@ class LoginRegistrationViewController: UIViewController {
                 }
             })
             .store(in: &subscriptions)
-        
-        
+
         signInTapped
             .map { [weak self] _ in
                 LoginCredentials(email: self?.loginRegistrationView.emailTextField.text,
@@ -75,7 +74,7 @@ class LoginRegistrationViewController: UIViewController {
             }
             .sink(receiveValue: loginRegistrationViewModel.signInTapped(credentials:))
             .store(in: &subscriptions)
-        
+
         signUpTapped
             .map { [weak self] _ in
                 RegistrationCredentials(email: self?.loginRegistrationView.emailTextField.text,
@@ -85,13 +84,13 @@ class LoginRegistrationViewController: UIViewController {
             }
             .sink(receiveValue: loginRegistrationViewModel.signUpTapped(credentials:))
             .store(in: &subscriptions)
-        
+
         loginRegistrationViewModel.presentAuthError
             .sink(receiveValue: { [weak self] _ in
                 self?.view.hideToastActivity()
             })
             .store(in: &subscriptions)
-        
+
         loginRegistrationViewModel.registrationSucceed
             .sink(receiveValue: { [weak self] _ in
                 self?.view.hideToastActivity()
@@ -101,7 +100,7 @@ class LoginRegistrationViewController: UIViewController {
             })
             .store(in: &subscriptions)
     }
-    
+
     @objc func segmentedValueChanged(_ sender: UISegmentedControl) {
         loginRegistrationView.formToggle(isLogin: sender.selectedSegmentIndex == 0)
     }

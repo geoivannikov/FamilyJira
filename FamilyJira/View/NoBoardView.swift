@@ -18,7 +18,7 @@ class NoBoardView: BaseView {
         label.font = UIFont(name: "HelveticaNeue-Bold", size: 18)
         return label
     }()
-    
+
     private let createButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .buttonBlue
@@ -28,7 +28,7 @@ class NoBoardView: BaseView {
         button.setTitle("Create the board", for: .normal)
         return button
     }()
-    
+
     private let joinButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .buttonGrey
@@ -38,7 +38,7 @@ class NoBoardView: BaseView {
         button.setTitle("Join the board", for: .normal)
         return button
     }()
-    
+
     override func setupView() {
         let scrollView: UIScrollView = {
             let scrollView = UIScrollView()
@@ -53,25 +53,25 @@ class NoBoardView: BaseView {
             stackView.spacing = 10
             return stackView
         }()
-        
+
         addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        
+
         scrollView.addSubview(stackView)
         stackView.snp.makeConstraints { make in
             make.centerX.leading.trailing.equalToSuperview()
             make.centerY.equalToSuperview().offset(-80)
         }
-        
+
         stackView.addArrangedSubview(messageLabel)
         messageLabel.snp.makeConstraints { make in
             make.trailing.equalToSuperview().offset(-15)
             make.leading.equalToSuperview().offset(15)
         }
         stackView.setCustomSpacing(25.0, after: messageLabel)
-        
+
         [createButton, joinButton].forEach {
             stackView.addArrangedSubview($0)
             $0.snp.makeConstraints { make in

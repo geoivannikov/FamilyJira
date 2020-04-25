@@ -23,7 +23,7 @@ class SettingsCell: UITableViewCell {
         label.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
         return label
     }()
-    
+
     private let roleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
@@ -35,7 +35,7 @@ class SettingsCell: UITableViewCell {
         let image = UIImageView()
         return image
     }()
-    
+
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
@@ -46,7 +46,7 @@ class SettingsCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
-    
+
     private func setupProfileLayout() {
         let stackView: UIStackView = {
             let stackView = UIStackView()
@@ -55,14 +55,14 @@ class SettingsCell: UITableViewCell {
             stackView.spacing = 20
             return stackView
         }()
-        
+
         let textInfoStackView: UIStackView = {
             let stackView = UIStackView()
             stackView.axis = .vertical
             stackView.distribution = .fill
             return stackView
         }()
-        
+
         addSubview(stackView)
         [profilePhoto, textInfoStackView].forEach {
             stackView.addArrangedSubview($0)
@@ -82,7 +82,7 @@ class SettingsCell: UITableViewCell {
         }
         accessoryType = .disclosureIndicator
     }
-    
+
     private func setupSettingsLayout() {
         let stackView: UIStackView = {
             let stackView = UIStackView()
@@ -105,7 +105,7 @@ class SettingsCell: UITableViewCell {
         }
         accessoryType = .disclosureIndicator
     }
-    
+
     private func setupLogOutLayout() {
         addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
@@ -117,7 +117,7 @@ class SettingsCell: UITableViewCell {
         titleLabel.textColor = .red
         titleLabel.textAlignment = .center
     }
-    
+
     func setupCell(model: Settings) {
         switch model {
         case .profile(let profileSection):
@@ -135,7 +135,7 @@ class SettingsCell: UITableViewCell {
             setupLogOutLayout()
         }
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

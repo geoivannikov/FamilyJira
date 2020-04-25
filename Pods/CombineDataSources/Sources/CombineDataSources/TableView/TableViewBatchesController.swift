@@ -10,10 +10,10 @@ public class TableViewBatchesController<Element: Hashable> {
     // Input
     public let reload = PassthroughSubject<Void, Never>()
     public let loadNext = PassthroughSubject<Void, Never>()
-    
+
     // Output
     public let loadError = CurrentValueSubject<Error?, Never>(nil)
-    
+
     // Private user interface
     private let tableView: UITableView
     private var batchesDataSource: BatchesDataSource<Element>!
@@ -24,58 +24,58 @@ public class TableViewBatchesController<Element: Hashable> {
         spin.alpha = 0
         return spin
     }()
-    
+
     private var itemsController: TableViewItemsController<[[Element]]>!
     private var subscriptions = [AnyCancellable]()
-    
+
     public convenience init(tableView: UITableView, itemsController: TableViewItemsController<[[Element]]>, initialToken: Data?, loadItemsWithToken: @escaping (Data?) -> AnyPublisher<BatchesDataSource<Element>.LoadResult, Error>) {
         self.init(tableView: tableView)
-        
+
         // Create a token-based batched data source.
         batchesDataSource = BatchesDataSource<Element>(
             input: BatchesInput(reload: reload.eraseToAnyPublisher(), loadNext: loadNext.eraseToAnyPublisher()),
             initialToken: initialToken,
             loadItemsWithToken: loadItemsWithToken
         )
-        
+
         self.itemsController = itemsController
-        
+
         bind()
     }
-    
+
     public convenience init(tableView: UITableView, itemsController: TableViewItemsController<[[Element]]>, loadPage: @escaping (Int) -> AnyPublisher<BatchesDataSource<Element>.LoadResult, Error>) {
         self.init(tableView: tableView)
-        
+
         // Create a paged data source.
         self.batchesDataSource = BatchesDataSource<Element>(
             input: BatchesInput(reload: reload.eraseToAnyPublisher(), loadNext: loadNext.eraseToAnyPublisher()),
             loadPage: loadPage
         )
-        
+
         self.itemsController = itemsController
-        
+
         bind()
     }
-    
+
     private init(tableView: UITableView) {
         self.tableView = tableView
-        
+
         // Add bottom offset.
         var newInsets = tableView.contentInset
         newInsets.bottom += 60
         tableView.contentInset = newInsets
-        
+
         // Add spinner.
         tableView.addSubview(spin)
     }
-    
+
     private func bind() {
         // Display items in table view.
         batchesDataSource.output.$items
             .receive(on: DispatchQueue.main)
             .bind(subscriber: tableView.rowsSubscriber(itemsController))
             .store(in: &subscriptions)
-        
+
         // Show/hide spinner.
         batchesDataSource.output.$isLoading
             .receive(on: DispatchQueue.main)
@@ -90,12 +90,12 @@ public class TableViewBatchesController<Element: Hashable> {
                 }
         }
         .store(in: &subscriptions)
-        
+
         // Bind errors.
         batchesDataSource.output.$error
             .subscribe(loadError)
             .store(in: &subscriptions)
-        
+
         // Observe for table dragging.
         let didDrag = Publishers.CombineLatest(Just(tableView), tableView.publisher(for: \.contentOffset))
             .map { $0.0.isDragging }
@@ -105,7 +105,7 @@ public class TableViewBatchesController<Element: Hashable> {
         .filter { tuple -> Bool in
             tuple == (from: true, to: false)
         }
-        
+
         // Observe table offset and trigger loading next page at bottom
         Publishers.CombineLatest(Just(tableView), didDrag)
             .map { $0.0 }
@@ -119,7 +119,7 @@ public class TableViewBatchesController<Element: Hashable> {
     }
 }
 
-fileprivate func isAtBottom(of tableView: UITableView) -> Bool {
+private func isAtBottom(of tableView: UITableView) -> Bool {
     let height = tableView.frame.size.height
     let contentYoffset = tableView.contentOffset.y
     let distanceFromBottom = tableView.contentSize.height - contentYoffset

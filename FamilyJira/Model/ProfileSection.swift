@@ -14,7 +14,7 @@ struct ProfileSection {
     let username: String
     let role: String?
     let photoData: NSData?
-    
+
     init(username: String, role: String?, photoData: NSData?) {
         self.username = username
         self.role = role

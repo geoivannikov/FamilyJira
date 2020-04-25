@@ -25,9 +25,9 @@ extension Publisher {
     func withLatestFrom<Other: Publisher, Result>(_ other: Other,
                                                   resultSelector: @escaping (Output, Other.Output) -> Result)
         -> Publishers.WithLatestFrom<Self, Other, Result> {
-            return .init(upstream: self, other: other, resultSelector: resultSelector)
+            .init(upstream: self, other: other, resultSelector: resultSelector)
     }
-    
+
     ///  Upon an emission from self, emit the latest value from the
     ///  second publisher, if any exists.
     ///
@@ -36,7 +36,7 @@ extension Publisher {
     ///  - returns: A publisher containing the latest value from the second publisher, if any.
     func withLatestFrom<Other: Publisher>(_ other: Other)
         -> Publishers.WithLatestFrom<Self, Other, Other.Output> {
-            return .init(upstream: self, other: other) { $1 }
+            .init(upstream: self, other: other) { $1 }
     }
 }
 
@@ -48,12 +48,12 @@ extension Publishers {
     Output>: Publisher where Upstream.Failure == Other.Failure {
         public typealias Failure = Upstream.Failure
         public typealias ResultSelector = (Upstream.Output, Other.Output) -> Output
-        
+
         private let upstream: Upstream
         private let other: Other
         private let resultSelector: ResultSelector
         private var latestValue: Other.Output?
-        
+
         init(upstream: Upstream,
              other: Other,
              resultSelector: @escaping ResultSelector) {
@@ -61,12 +61,12 @@ extension Publishers {
             self.other = other
             self.resultSelector = resultSelector
         }
-        
+
         public func receive<S: Subscriber>(subscriber: S) where Failure == S.Failure, Output == S.Input {
             let helper = DownStreamHelper(subscriber: subscriber,
                                           other: other,
                                           resultSelector: resultSelector)
-            
+
             let sub = DownstreamSubscription(upstream: upstream, downStream: helper)
             subscriber.receive(subscription: sub)
         }
@@ -79,12 +79,12 @@ extension Publishers.WithLatestFrom {
     private final class DownStreamHelper<S: Subscriber>: DownStreamHelperProtocol where S.Input == Output, S.Failure == Upstream.Failure {
         typealias Input = Upstream.Output
         typealias Failure = Upstream.Failure
-        
+
         private var subscriber: S?
         private var resultSelector: ResultSelector?
         private var latestValue: Other.Output?
         private var otherCancelable: Cancellable?
-        
+
         init(subscriber: S,
              other: Other,
              resultSelector: @escaping ResultSelector) {
@@ -96,24 +96,24 @@ extension Publishers.WithLatestFrom {
                         self?.latestValue = value
                 })
         }
-        
+
         func request(_ demand: Subscribers.Demand) -> Subscribers.Demand {
-            return demand
+            demand
         }
-        
+
         func downstream(_ value: Input) -> Subscribers.Demand {
             guard let resultSelector = self.resultSelector,
                 let subscriber = self.subscriber else { return .none }
             guard let latest = self.latestValue else { return .max(1) }
-            
+
             return subscriber.receive(resultSelector(value, latest))
         }
-        
+
         func downstream(_ completion: Subscribers.Completion<Failure>) {
             self.subscriber?.receive(completion: completion)
             self.subscriber = nil
         }
-        
+
         func cancel() {
             subscriber = nil
             resultSelector = nil

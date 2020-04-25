@@ -1,0 +1,17 @@
+disabled_rules: # rule identifiers to exclude from running
+  - identifier_name
+  - vertical_parameter_alignment
+  - duplicate_enum_cases
+opt_in_rules: # some rules are only opt-in
+  - implicit_return
+
+  # Find all the available rules by running:
+  # swiftlint rules
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Pods
+
+line_length: 
+  warning: 200
+  error: 500
+  ignores_comments: true
+  ignores_function_declarations: true

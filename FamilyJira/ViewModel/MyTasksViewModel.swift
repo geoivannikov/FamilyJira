@@ -25,9 +25,8 @@ final class MyTasksViewModel: MyTasksViewModelProtocol {
         myTasksData = PassthroughSubject<[[Task]], Never>()
         taskSelected = PassthroughSubject<Void, Never>()
     }
-    
+
     func myTasksOpened() {
         myTasksData.send([[Task(), Task()]])
     }
 }
-

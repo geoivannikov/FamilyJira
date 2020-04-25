@@ -16,9 +16,9 @@ class ProfileViewController: UIViewController {
     private let profileView = ProfileView()
     private var doneButton = UIBarButtonItem()
     private let imagePicker = UIImagePickerController()
-    
+
     private var subscriptions = Set<AnyCancellable>()
-    
+
     static func instantiate(profileViewModel: ProfileViewModelProtocol) -> ProfileViewController {
         let viewController: ProfileViewController = ProfileViewController()
         viewController.profileViewModel = profileViewModel
@@ -32,11 +32,11 @@ class ProfileViewController: UIViewController {
         dismissKeyboardAfterTap()
         profileViewModel.viewDidLoad()
     }
-    
+
     private func setupLayout() {
         title = "Profile"
         view.backgroundColor = .backgroundBlue
-        
+
         doneButton = UIBarButtonItem(title: "Done",
                                      style: .plain,
                                      target: self,
@@ -44,40 +44,40 @@ class ProfileViewController: UIViewController {
         doneButton.action = #selector(doneTapped)
         doneButton.isEnabled = false
         navigationItem.rightBarButtonItem = doneButton
-        
+
         view.addSubview(profileView)
         profileView.snp.makeConstraints { make in
             make.trailing.leading.bottom.top.equalToSuperview()
         }
     }
-    
+
     private func setupBinds() {
         profileViewModel.user
             .map { $0.username }
             .assign(to: \.text, on: profileView.usernameTextField)
             .store(in: &subscriptions)
-        
+
         profileViewModel.user
             .compactMap { $0.photoData as Data? }
             .map { UIImage(data: $0) }
             .assign(to: \.image, on: profileView.profilePhoto)
             .store(in: &subscriptions)
-        
+
         profileViewModel.user
             .map { $0.role }
             .assign(to: \.text, on: profileView.roleTextField)
             .store(in: &subscriptions)
-        
+
         profileViewModel.choosenPhoto
             .assign(to: \.image, on: profileView.profilePhoto)
             .store(in: &subscriptions)
-        
+
         profileViewModel.presentError
             .sink(receiveValue: { [weak self] _ in
                 self?.view.hideToastActivity()
             })
             .store(in: &subscriptions)
-        
+
         Publishers.Merge3(NotificationCenter.default.publisher(for: UITextField.textDidChangeNotification,
                                                                object: profileView.usernameTextField),
                          NotificationCenter.default.publisher(for: UITextField.textDidChangeNotification,
@@ -92,7 +92,7 @@ class ProfileViewController: UIViewController {
             }
             .assign(to: \.isEnabled, on: doneButton)
             .store(in: &subscriptions)
-        
+
         profileView.chooseButton
             .publisher(for: .touchUpInside)
             .sink(receiveValue: { [weak self] _ in
@@ -106,7 +106,7 @@ class ProfileViewController: UIViewController {
             })
             .store(in: &subscriptions)
     }
-    
+
     @objc func doneTapped(sender: UIBarButtonItem) {
         view.makeToastActivity(.center)
         let profileDTO = ProfileDTO(username: profileView.usernameTextField.text,
@@ -120,7 +120,7 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
     public func imagePickerController(_ picker: UIImagePickerController,
                                       didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         let imageUrl = info[.imageURL] as? NSURL
-        
+
         let image = UIImage(url: imageUrl)
         profileViewModel.choosenPhoto.send(image)
         dismiss(animated: true, completion: nil)

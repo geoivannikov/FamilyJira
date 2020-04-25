@@ -24,13 +24,13 @@ final class ProfileViewModel: ProfileViewModelProtocol {
     let choosenPhoto: PassthroughSubject<UIImage?, Never>
     let doneTapped: PassthroughSubject<ProfileDTO?, Never>
     let presentError: PassthroughSubject<UpdateProfileError, Never>
-    
+
     private let firebaseServise: FirebaseServiceProtocol
     private let reachabilityService: ReachabilityServisProtocolol
     private let realmService: RealmServiceProtocol
-    
+
     private var subscriptions = Set<AnyCancellable>()
-    
+
     init(
         firebaseServise: FirebaseServiceProtocol = FamilyJiraDI.forceResolve(),
         reachabilityService: ReachabilityServisProtocolol = FamilyJiraDI.forceResolve(),
@@ -43,18 +43,18 @@ final class ProfileViewModel: ProfileViewModelProtocol {
         choosenPhoto = PassthroughSubject<UIImage?, Never>()
         doneTapped = PassthroughSubject<ProfileDTO?, Never>()
         presentError = PassthroughSubject<UpdateProfileError, Never>()
-        
+
         doneTapped
             .sink(receiveValue: updateProfile(profile:))
             .store(in: &subscriptions)
     }
-    
+
     func viewDidLoad() {
         if let userObject: UserObject = realmService.get() {
             user.send(userObject)
         }
     }
-    
+
     func updateProfile(profile: ProfileDTO?) {
         guard reachabilityService.isConnectedToNetwork() else {
             presentError.send(UpdateProfileError.noConnection)

@@ -28,13 +28,13 @@ final class SettingsViewModel: SettingsViewModelProtocol {
     let userSignedOut: PassthroughSubject<Void, Never>
     let signOutFailed: PassthroughSubject<Void, Never>
     let user: PassthroughSubject<UserObject, Never>
-    
+
     private let firebaseServise: FirebaseServiceProtocol
     private let reachabilityService: ReachabilityServisProtocolol
     private let realmService: RealmServiceProtocol
 
     private var subscriptions = Set<AnyCancellable>()
-    
+
     init(
         firebaseServise: FirebaseServiceProtocol = FamilyJiraDI.forceResolve(),
         reachabilityService: ReachabilityServisProtocolol = FamilyJiraDI.forceResolve(),
@@ -49,7 +49,7 @@ final class SettingsViewModel: SettingsViewModelProtocol {
         userSignedOut = PassthroughSubject<Void, Never>()
         signOutFailed = PassthroughSubject<Void, Never>()
         user = PassthroughSubject<UserObject, Never>()
-        
+
         signOutTapped
             .sink(receiveValue: { [weak self] _ in
                 do {
@@ -61,7 +61,7 @@ final class SettingsViewModel: SettingsViewModelProtocol {
                 }
             })
             .store(in: &subscriptions)
-        
+
         user
             .map {
                 [[Settings.profile(ProfileSection(username: $0.username, role: $0.role, photoData: $0.photoData))],
@@ -75,7 +75,7 @@ final class SettingsViewModel: SettingsViewModelProtocol {
                 self?.settingsData.send($0)
             })
             .store(in: &subscriptions)
-        
+
         NotificationCenter.default.publisher(for: .userUpdated, object: nil)
             .sink(receiveValue: { [weak self] _ in
                 guard let user: UserObject = realmService.get() else {
@@ -85,7 +85,7 @@ final class SettingsViewModel: SettingsViewModelProtocol {
             })
             .store(in: &subscriptions)
     }
-    
+
     func viewDidLoad() {
         guard reachabilityService.isConnectedToNetwork() else {
             if let userObject: UserObject = realmService.get() {
@@ -93,14 +93,14 @@ final class SettingsViewModel: SettingsViewModelProtocol {
             }
             return
         }
-        
+
         firebaseServise.requestUser()
             .compactMap { UserObject(model: $0) }
             .sink(receiveCompletion: { [weak self] completion in
                 switch completion {
                 case .finished:
                     ()
-                case .failure(_):
+                case .failure:
                     if let userObject: UserObject = self?.realmService.get() {
                         self?.user.send(userObject)
                     }

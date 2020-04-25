@@ -13,12 +13,12 @@ import Combine
 final class NoBoardCoordinator: Coordinator {
     let navigationController: UINavigationController
     let presentNavigationController: UINavigationController
-    
+
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
         presentNavigationController = UINavigationController()
     }
-    
+
     func start(
         noBoardViewModel: NoBoardViewModelProtocol = NoBoardViewModel()
     ) {

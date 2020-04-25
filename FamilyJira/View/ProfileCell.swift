@@ -23,19 +23,19 @@ class ProfileCell: UITableViewCell {
         label.font = UIFont(name: "HelveticaNeue-Bold", size: 18)
         return label
     }()
-    
+
     private let roleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 15)
         return label
     }()
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupLayout()
     }
-    
+
     private func setupLayout() {
         let stackView: UIStackView = {
             let stackView = UIStackView()
@@ -44,14 +44,14 @@ class ProfileCell: UITableViewCell {
             stackView.spacing = 20
             return stackView
         }()
-        
+
         let textInfoStackView: UIStackView = {
             let stackView = UIStackView()
             stackView.axis = .vertical
             stackView.distribution = .fill
             return stackView
         }()
-        
+
         addSubview(stackView)
         [profilePhoto, textInfoStackView].forEach {
             stackView.addArrangedSubview($0)
@@ -70,7 +70,7 @@ class ProfileCell: UITableViewCell {
             make.width.height.equalTo(80)
         }
     }
-    
+
     func setupCell(model: ProfileSection) {
         nameLabel.text = model.username
         roleLabel.text = model.role

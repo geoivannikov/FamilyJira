@@ -12,7 +12,7 @@ struct ProfileDTO {
     let username: String
     let role: String?
     let photoData: Data?
-    
+
     init?(username: String?,
           role: String?,
           photoData: Data?) {

@@ -17,7 +17,7 @@ class LoginRegistrationView: BaseView {
         segmentControl.selectedSegmentIndex = 0
         return segmentControl
     }()
-    
+
     let emailTextField: UITextField = {
         let textField = UITextField()
         textField.backgroundColor = .white
@@ -27,7 +27,7 @@ class LoginRegistrationView: BaseView {
         textField.text = "george8@rambler.ru"
         return textField
     }()
-    
+
     let usernameTextField: UITextField = {
         let textField = UITextField()
         textField.backgroundColor = .white
@@ -37,7 +37,7 @@ class LoginRegistrationView: BaseView {
         textField.isHidden = true
         return textField
     }()
-    
+
     let passwordTextField: UITextField = {
         let textField = UITextField()
         textField.backgroundColor = .white
@@ -48,7 +48,7 @@ class LoginRegistrationView: BaseView {
         textField.isSecureTextEntry = true
         return textField
     }()
-    
+
     let confirmPasswordTextField: UITextField = {
         let textField = UITextField()
         textField.backgroundColor = .white
@@ -59,7 +59,7 @@ class LoginRegistrationView: BaseView {
         textField.isHidden = true
         return textField
     }()
-    
+
     let actionButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .buttonBlue
@@ -69,7 +69,7 @@ class LoginRegistrationView: BaseView {
         button.setTitle("Sign In", for: .normal)
         return button
     }()
-    
+
     private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -78,31 +78,31 @@ class LoginRegistrationView: BaseView {
         stackView.spacing = 10.0
         return stackView
     }()
-    
+
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         return scrollView
     }()
-    
+
     override func setupView() {
         addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
             make.bottom.top.leading.trailing.equalToSuperview()
         }
-        
+
         scrollView.addSubview(stackView)
         stackView.snp.makeConstraints { make in
             make.centerX.leading.trailing.equalToSuperview()
             make.top.equalToSuperview().offset(250)
         }
-        
+
         stackView.addArrangedSubview(segmentControl)
         segmentControl.snp.makeConstraints { make in
             make.trailing.equalToSuperview().offset(-70)
             make.leading.equalToSuperview().offset(70)
         }
         stackView.setCustomSpacing(30.0, after: segmentControl)
-        
+
         [emailTextField,
          usernameTextField,
          passwordTextField,
@@ -113,18 +113,18 @@ class LoginRegistrationView: BaseView {
                 make.leading.equalToSuperview().offset(15)
             }
         }
-        
+
         stackView.addArrangedSubview(actionButton)
         actionButton.snp.makeConstraints { make in
             make.width.equalTo(160)
         }
-        
+
         emailTextField.delegate = self
         usernameTextField.delegate = self
         passwordTextField.delegate = self
         confirmPasswordTextField.delegate = self
     }
-    
+
     func formToggle(isLogin: Bool, saveCredentials: Bool = false) {
         UIView.animate(withDuration: 0.3) { [weak self] in
             self?.usernameTextField.isHidden = isLogin

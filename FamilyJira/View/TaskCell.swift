@@ -17,7 +17,7 @@ class TaskCell: UITableViewCell {
         label.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
         return label
     }()
-    
+
     private let taskDescription: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
@@ -26,14 +26,14 @@ class TaskCell: UITableViewCell {
         label.numberOfLines = 3
         return label
     }()
-    
+
     private let priority: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
         label.text = "Priority:"
         return label
     }()
-    
+
     private let priorityValue: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
@@ -41,14 +41,14 @@ class TaskCell: UITableViewCell {
         label.textColor = .red
         return label
     }()
-    
+
     private let createdBy: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.text = "Ceated by:"
         return label
     }()
-    
+
     private let creatorPhoto: UIImageView = {
         let image = UIImageView()
         image.makeRounded(radius: 18)
@@ -60,7 +60,7 @@ class TaskCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setUpLayout()
     }
-    
+
     private func setUpLayout() {
         backgroundColor = .none
         selectionStyle = .none
@@ -76,7 +76,7 @@ class TaskCell: UITableViewCell {
         contentView.snp.makeConstraints { make in
             make.height.equalTo(180)
         }
-        
+
         let vStackView: UIStackView = {
             let stackView = UIStackView()
             stackView.axis = .vertical
@@ -89,7 +89,7 @@ class TaskCell: UITableViewCell {
         vStackView.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(15)
         }
-        
+
         let hStackView: UIStackView = {
             let stackView = UIStackView()
             stackView.axis = .horizontal
@@ -97,7 +97,7 @@ class TaskCell: UITableViewCell {
             stackView.spacing = 10
             return stackView
         }()
-        
+
         [priority, priorityValue, createdBy, creatorPhoto].forEach {
             hStackView.addArrangedSubview($0)
         }
@@ -107,7 +107,7 @@ class TaskCell: UITableViewCell {
         creatorPhoto.snp.makeConstraints { make in
             make.height.width.equalTo(36)
         }
-        
+
         [title, taskDescription, hStackView].forEach {
             vStackView.addArrangedSubview($0)
             $0.snp.makeConstraints { make in
@@ -117,14 +117,14 @@ class TaskCell: UITableViewCell {
         }
         vStackView.setCustomSpacing(20.0, after: taskDescription)
     }
-    
+
     func setupCell(model: Task) {
         let url = NSURL(string: link)! as URL
         if let data = NSData(contentsOf: url) {
             creatorPhoto.image = UIImage(data: data as Data)
         }
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

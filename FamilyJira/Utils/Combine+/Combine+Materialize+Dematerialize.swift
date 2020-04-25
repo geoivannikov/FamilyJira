@@ -9,12 +9,13 @@
 import Foundation
 import Combine
 
-// Mark: - Event enum
+// swiftlint:disable all
+
+// MARK: - Event enum
 public enum Event<Value, Failure: Error> {
     case value(Value)
     case completion(Subscribers.Completion<Failure>)
 }
-
 
 // MARK: - Operator methods
 @available(OSX 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
@@ -26,15 +27,15 @@ extension Publisher {
     ///  - returns: A publisher of Events
     func materialize(forceRecieveCompletion: Bool = true)
         -> Publishers.Materialize<Self> {
-            return .init(upstream: self, forceRecieveCompletion: forceRecieveCompletion)
+            .init(upstream: self, forceRecieveCompletion: forceRecieveCompletion)
     }
-    
+
     ///  Convert Publisher of Events into Publisher.
     ///
     ///  - returns: A publisher from events
     func dematerialize<Value, Failure: Error>()
         -> Publishers.Dematerialize<Self, Value, Failure> where Self.Output == Event<Value, Failure>, Self.Failure == Never {
-            return .init(upstream: self)
+            .init(upstream: self)
     }
 }
 
@@ -44,18 +45,18 @@ extension Publishers {
     public struct Materialize<Upstream: Publisher>: Publisher {
         public typealias Output = Event<Upstream.Output, Upstream.Failure>
         public typealias Failure = Never
-        
+
         private let forceRecieveCompletion: Bool
         private let upstream: Upstream
-        
+
         init(upstream: Upstream, forceRecieveCompletion: Bool) {
             self.upstream = upstream
             self.forceRecieveCompletion = forceRecieveCompletion
         }
-        
+
         public func receive<S: Subscriber>(subscriber: S) where Failure == S.Failure, Output == S.Input {
             var sub: Subscription!
-            
+
             if forceRecieveCompletion {
                 let helper = DownStreamHelperForceReceive(subscriber: subscriber)
                 sub = DownstreamSubscription(upstream: upstream, downStream: helper)
@@ -63,24 +64,24 @@ extension Publishers {
                 let helper = DownStreamHelperWaitReceive(subscriber: subscriber)
                 sub = DownstreamSubscription(upstream: upstream, downStream: helper)
             }
-            
+
             subscriber.receive(subscription: sub)
         }
     }
-    
+
     @available(OSX 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
     public struct Dematerialize<Upstream: Publisher, Value, Failure: Error>: Publisher where Upstream.Output == Event<Value, Failure>, Upstream.Failure == Never {
         public typealias Output = Value
-        
+
         private let upstream: Upstream
-        
+
         init(upstream: Upstream) {
             self.upstream = upstream
         }
-        
+
         public func receive<S: Subscriber>(subscriber: S) where Failure == S.Failure, Output == S.Input {
             let helper = DownStreamHelper<S>(subscriber: subscriber)
-            
+
             let sub = DownstreamSubscription(upstream: upstream, downStream: helper)
             subscriber.receive(subscription: sub)
         }
@@ -93,48 +94,48 @@ extension Publishers.Materialize {
     private final class DownStreamHelperForceReceive<S: Subscriber>: DownStreamHelperProtocol where S.Input == Event<Upstream.Output, Upstream.Failure>, S.Failure == Never {
         typealias Input = Upstream.Output
         typealias Failure = Upstream.Failure
-        
+
         private var subscriber: S?
-        
+
         init(subscriber: S) {
             self.subscriber = subscriber
         }
-        
+
         func request(_ demand: Subscribers.Demand) -> Subscribers.Demand {
-            return demand
+            demand
         }
-        
+
         func downstream(_ value: Input) -> Subscribers.Demand {
-            return self.subscriber?.receive(Event.value(value)) ?? .none
+            self.subscriber?.receive(Event.value(value)) ?? .none
         }
-        
+
         func downstream(_ completion: Subscribers.Completion<Failure>) {
             _ = self.subscriber?.receive(Event.completion(completion))
             self.subscriber?.receive(completion: .finished)
             self.subscriber = nil
         }
-        
+
         func cancel() {
             subscriber = nil
         }
     }
-    
+
     private final class DownStreamHelperWaitReceive<S: Subscriber>: DownStreamHelperProtocol where S.Input == Event<Upstream.Output, Upstream.Failure>, S.Failure == Never {
         typealias Input = Upstream.Output
         typealias Failure = Upstream.Failure
-        
+
         private var subscriber: S?
-        
+
         private var demand: Subscribers.Demand = .none
         private var completion: Subscribers.Completion<Upstream.Failure>?
-        
+
         private var mutex = pthread_mutex_t()
-        
+
         init(subscriber: S) {
             pthread_mutex_init(&mutex, nil)
             self.subscriber = subscriber
         }
-        
+
         func request(_ demand: Subscribers.Demand) -> Subscribers.Demand {
             pthread_mutex_lock(&mutex)
             if let completion = self.completion {
@@ -143,16 +144,16 @@ extension Publishers.Materialize {
                 self.subscriber = nil
                 self.demand = .none
                 pthread_mutex_unlock(&mutex)
-                
+
                 return .none
             }
-            
+
             self.demand += demand
             pthread_mutex_unlock(&mutex)
-            
+
             return demand
         }
-        
+
         func downstream(_ value: Input) -> Subscribers.Demand {
             pthread_mutex_lock(&mutex)
             guard let subscriber = self.subscriber,
@@ -160,14 +161,14 @@ extension Publishers.Materialize {
                     pthread_mutex_unlock(&mutex)
                     return .none
             }
-            
+
             let adjust = subscriber.receive(Event.value(value))
             self.demand = self.demand - 1 + adjust
             pthread_mutex_unlock(&mutex)
-            
+
             return adjust
         }
-        
+
         func downstream(_ completion: Subscribers.Completion<Failure>) {
             pthread_mutex_lock(&mutex)
             if self.demand > .none {
@@ -179,7 +180,7 @@ extension Publishers.Materialize {
             }
             pthread_mutex_unlock(&mutex)
         }
-        
+
         func cancel() {
             subscriber = nil
         }
@@ -193,15 +194,15 @@ extension Publishers.Dematerialize {
         typealias Failure = Upstream.Failure
 
         private var subscriber: S?
-        
+
         init(subscriber: S) {
             self.subscriber = subscriber
         }
-                
+
         func request(_ demand: Subscribers.Demand) -> Subscribers.Demand {
-            return demand
+            demand
         }
-        
+
         func downstream(_ event: Input) -> Subscribers.Demand {
             switch event {
             case let .value(inputValue):
@@ -212,12 +213,12 @@ extension Publishers.Dematerialize {
                 return .none
             }
         }
-        
+
         func downstream(_ completion: Subscribers.Completion<Failure>) {
             self.subscriber?.receive(completion: .finished)
             self.subscriber = nil
         }
-        
+
         func cancel() {
             subscriber = nil
         }
