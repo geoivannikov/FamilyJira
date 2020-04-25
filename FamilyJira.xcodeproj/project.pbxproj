@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,6 +22,8 @@
 		9C102A7C244AF7C70061E16D /* RegistrationCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C102A7B244AF7C70061E16D /* RegistrationCredentials.swift */; };
 		9C102A80244AFFC00061E16D /* RegistrationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C102A7F244AFFC00061E16D /* RegistrationError.swift */; };
 		9C102A82244B02390061E16D /* ReachabilityServise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C102A81244B02390061E16D /* ReachabilityServise.swift */; };
+		9C16D3572453B16500AC1739 /* NoBoardCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16D3562453B16500AC1739 /* NoBoardCoordinator.swift */; };
+		9C16D3592453B27900AC1739 /* NoBoardviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16D3582453B27900AC1739 /* NoBoardviewModel.swift */; };
 		9C332E3F244229D50063F98A /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C332E3E244229D50063F98A /* SettingsViewModel.swift */; };
 		9C332E4124422A460063F98A /* FamilyJiraDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C332E4024422A460063F98A /* FamilyJiraDI.swift */; };
 		9C332E4324423DC40063F98A /* ProfileSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C332E4224423DC40063F98A /* ProfileSection.swift */; };
@@ -110,6 +112,8 @@
 		9C102A7B244AF7C70061E16D /* RegistrationCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationCredentials.swift; sourceTree = "<group>"; };
 		9C102A7F244AFFC00061E16D /* RegistrationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationError.swift; sourceTree = "<group>"; };
 		9C102A81244B02390061E16D /* ReachabilityServise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityServise.swift; sourceTree = "<group>"; };
+		9C16D3562453B16500AC1739 /* NoBoardCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoBoardCoordinator.swift; sourceTree = "<group>"; };
+		9C16D3582453B27900AC1739 /* NoBoardviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoBoardviewModel.swift; sourceTree = "<group>"; };
 		9C332E3E244229D50063F98A /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		9C332E4024422A460063F98A /* FamilyJiraDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyJiraDI.swift; sourceTree = "<group>"; };
 		9C332E4224423DC40063F98A /* ProfileSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSection.swift; sourceTree = "<group>"; };
@@ -248,6 +252,7 @@
 				9C332E3E244229D50063F98A /* SettingsViewModel.swift */,
 				9C332E54244362BD0063F98A /* ProfileViewModel.swift */,
 				9C0FA15924466DD9001E734C /* TaskViewModel.swift */,
+				9C16D3582453B27900AC1739 /* NoBoardviewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -382,6 +387,7 @@
 				9CF7D7262402D2FE00760442 /* SettingsCoordinator.swift */,
 				9C332E52244362B00063F98A /* ProfileCoordinator.swift */,
 				9C0FA15724466D92001E734C /* TaskCoordinator.swift */,
+				9C16D3562453B16500AC1739 /* NoBoardCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -585,6 +591,7 @@
 				9CF7D6F92401A7CF00760442 /* MyTasksViewController.swift in Sources */,
 				9C4B64C4244C84A600BA12AF /* RealmServise.swift in Sources */,
 				9CF7D7212402CF1A00760442 /* FirebaseService.swift in Sources */,
+				9C16D3592453B27900AC1739 /* NoBoardviewModel.swift in Sources */,
 				9C332E4324423DC40063F98A /* ProfileSection.swift in Sources */,
 				9C332E53244362B00063F98A /* ProfileCoordinator.swift in Sources */,
 				9CF7D7232402D2E500760442 /* HomeCoordinator.swift in Sources */,
@@ -640,6 +647,7 @@
 				9C332E5F2443C2900063F98A /* TaskViewController.swift in Sources */,
 				9C332E5D244392F40063F98A /* TaskCell.swift in Sources */,
 				9C332E55244362BD0063F98A /* ProfileViewModel.swift in Sources */,
+				9C16D3572453B16500AC1739 /* NoBoardCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

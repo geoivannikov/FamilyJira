@@ -8,9 +8,19 @@
 
 import Foundation
 import UIKit
+import Combine
 
 class NoBoardViewController: UIViewController {
+    private var noBoardViewModel: NoBoardViewModelProtocol!
     private let noBoardView = NoBoardView()
+    
+    static func instantiate(
+        noBoardViewModel: NoBoardViewModelProtocol
+    ) -> NoBoardViewController {
+        let viewController: NoBoardViewController = NoBoardViewController()
+        viewController.noBoardViewModel = noBoardViewModel
+        return viewController
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +29,7 @@ class NoBoardViewController: UIViewController {
     
     private func setUpLayout() {
         view.backgroundColor = .backgroundBlue
+        navigationItem.setHidesBackButton(true, animated: false)
         
         view.addSubview(noBoardView)
         noBoardView.snp.makeConstraints { make in

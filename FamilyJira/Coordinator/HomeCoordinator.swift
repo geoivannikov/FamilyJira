@@ -13,6 +13,7 @@ import Combine
 final class HomeCoordinator: Coordinator {
     let navigationController: UINavigationController
     private let loginRegistrationCoordinator: LoginRegistrationCoordinator
+    private let noBoardCoordinator: NoBoardCoordinator
     
     private var subscriptions = Set<AnyCancellable>()
     
@@ -23,6 +24,7 @@ final class HomeCoordinator: Coordinator {
         self.loginRegistrationCoordinator = loginRegistrationCoordinator
         let homeViewController = HomeViewController.instantiate(homeViewModel: homeViewModel)
         navigationController = UINavigationController(rootViewController: homeViewController)
+        noBoardCoordinator = NoBoardCoordinator(navigationController: navigationController)
         
         homeViewModel.isUserLoggedIn
             .filter { $0 == false }
@@ -33,6 +35,13 @@ final class HomeCoordinator: Coordinator {
         
         homeViewModel.presentRequestError
             .sink(receiveValue: presentError(error:))
+            .store(in: &subscriptions)
+        
+        homeViewModel.doesUserHaveBoard
+            .filter { $0 == false }
+            .sink(receiveValue: { [weak self] _ in
+                self?.noBoardCoordinator.start()
+            })
             .store(in: &subscriptions)
     }
 }

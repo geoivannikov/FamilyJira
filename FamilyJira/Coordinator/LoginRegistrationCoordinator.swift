@@ -21,8 +21,9 @@ final class LoginRegistrationCoordinator: Coordinator {
         self.navigationController = UINavigationController()
     }
     
-    func start(animated: Bool = false, completion: (() -> Void)? = nil) {
-        let loginRegistrationViewModel = LoginRegistrationViewModel()
+    func start(animated: Bool = false,
+               completion: (() -> Void)? = nil,
+               loginRegistrationViewModel: LoginRegistrationViewModelProtocol = LoginRegistrationViewModel()) {
         let viewController = LoginRegistrationViewController.instantiate(loginRegistrationViewModel: loginRegistrationViewModel)
         navigationController.viewControllers = [viewController]
         navigationController.modalPresentationStyle = .fullScreen

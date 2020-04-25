@@ -14,6 +14,7 @@ protocol HomeViewModelProtocol {
     var isUserLoggedIn: PassthroughSubject<Bool, Never> { get }
     var presentRequestError: PassthroughSubject<RequestError, Never> { get }
     var user: PassthroughSubject<UserObject, Never> { get }
+    var doesUserHaveBoard: PassthroughSubject<Bool, Never> { get }
 
     func viewDidLoad()
 }
@@ -22,6 +23,7 @@ final class HomeViewModel: HomeViewModelProtocol {
     let isUserLoggedIn: PassthroughSubject<Bool, Never>
     let presentRequestError: PassthroughSubject<RequestError, Never>
     let user: PassthroughSubject<UserObject, Never>
+    let doesUserHaveBoard: PassthroughSubject<Bool, Never>
     
     private let firebaseServise: FirebaseServiceProtocol
     private let reachabilityService: ReachabilityServisProtocolol
@@ -40,6 +42,7 @@ final class HomeViewModel: HomeViewModelProtocol {
         isUserLoggedIn = PassthroughSubject<Bool, Never>()
         presentRequestError = PassthroughSubject<RequestError, Never>()
         user = PassthroughSubject<UserObject, Never>()
+        doesUserHaveBoard = PassthroughSubject<Bool, Never>()
         
         isUserLoggedIn
             .filter { $0 == true }
@@ -53,7 +56,16 @@ final class HomeViewModel: HomeViewModelProtocol {
                 self?.isUserLoggedIn.send(true)
             })
             .store(in: &subscriptions)
+        
+        user
+            .map { $0.boardId != nil }
+            .sink(receiveValue: { [weak self] in
+                self?.doesUserHaveBoard.send($0)
+            })
+            .store(in: &subscriptions)
+            
     }
+//    .assign(to: \.text, on: profileView.roleTextField)
     
     func viewDidLoad() {
         isUserLoggedIn.send(firebaseServise.isUserLoggedIn)

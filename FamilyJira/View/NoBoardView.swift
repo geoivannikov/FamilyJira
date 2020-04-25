@@ -19,9 +19,19 @@ class NoBoardView: BaseView {
         return label
     }()
     
-    private let joinButton: UIButton = {
+    private let createButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .buttonBlue
+        button.layer.cornerRadius = 5.0
+        button.clipsToBounds = true
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        button.setTitle("Create the board", for: .normal)
+        return button
+    }()
+    
+    private let joinButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .buttonGrey
         button.layer.cornerRadius = 5.0
         button.clipsToBounds = true
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
@@ -40,7 +50,7 @@ class NoBoardView: BaseView {
             stackView.axis = .vertical
             stackView.distribution = .fill
             stackView.alignment = .center
-            stackView.spacing = 25
+            stackView.spacing = 10
             return stackView
         }()
         
@@ -55,16 +65,18 @@ class NoBoardView: BaseView {
             make.centerY.equalToSuperview().offset(-80)
         }
         
-        [messageLabel, joinButton].forEach {
-            stackView.addArrangedSubview($0)
-        }
+        stackView.addArrangedSubview(messageLabel)
         messageLabel.snp.makeConstraints { make in
             make.trailing.equalToSuperview().offset(-15)
             make.leading.equalToSuperview().offset(15)
         }
+        stackView.setCustomSpacing(25.0, after: messageLabel)
         
-        joinButton.snp.makeConstraints { make in
-            make.width.equalTo(140)
+        [createButton, joinButton].forEach {
+            stackView.addArrangedSubview($0)
+            $0.snp.makeConstraints { make in
+                make.width.equalTo(140)
+            }
         }
     }
 }
