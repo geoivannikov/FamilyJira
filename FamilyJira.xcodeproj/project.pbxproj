@@ -29,6 +29,10 @@
 		9C16D3612454633C00AC1739 /* SearchBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16D3602454633C00AC1739 /* SearchBoardViewModel.swift */; };
 		9C16D363245465F200AC1739 /* SearchBoardCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16D362245465F200AC1739 /* SearchBoardCoordinator.swift */; };
 		9C16D3652454707A00AC1739 /* UISearchController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16D3642454707A00AC1739 /* UISearchController+.swift */; };
+		9C16D3672454FB0900AC1739 /* BoardBasicInfoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16D3662454FB0900AC1739 /* BoardBasicInfoDTO.swift */; };
+		9C16D3692455064200AC1739 /* CreateBoardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16D3682455064200AC1739 /* CreateBoardError.swift */; };
+		9C16D36B24559D2200AC1739 /* BoardObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16D36A24559D2200AC1739 /* BoardObject.swift */; };
+		9C16D36D24559E5100AC1739 /* TaskObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16D36C24559E5100AC1739 /* TaskObject.swift */; };
 		9C332E3F244229D50063F98A /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C332E3E244229D50063F98A /* SettingsViewModel.swift */; };
 		9C332E4124422A460063F98A /* FamilyJiraDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C332E4024422A460063F98A /* FamilyJiraDI.swift */; };
 		9C332E4324423DC40063F98A /* ProfileSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C332E4224423DC40063F98A /* ProfileSection.swift */; };
@@ -124,6 +128,10 @@
 		9C16D3602454633C00AC1739 /* SearchBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBoardViewModel.swift; sourceTree = "<group>"; };
 		9C16D362245465F200AC1739 /* SearchBoardCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBoardCoordinator.swift; sourceTree = "<group>"; };
 		9C16D3642454707A00AC1739 /* UISearchController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchController+.swift"; sourceTree = "<group>"; };
+		9C16D3662454FB0900AC1739 /* BoardBasicInfoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardBasicInfoDTO.swift; sourceTree = "<group>"; };
+		9C16D3682455064200AC1739 /* CreateBoardError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBoardError.swift; sourceTree = "<group>"; };
+		9C16D36A24559D2200AC1739 /* BoardObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardObject.swift; sourceTree = "<group>"; };
+		9C16D36C24559E5100AC1739 /* TaskObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskObject.swift; sourceTree = "<group>"; };
 		9C332E3E244229D50063F98A /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		9C332E4024422A460063F98A /* FamilyJiraDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyJiraDI.swift; sourceTree = "<group>"; };
 		9C332E4224423DC40063F98A /* ProfileSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSection.swift; sourceTree = "<group>"; };
@@ -240,6 +248,7 @@
 			children = (
 				9C6467B3240E4A9A0099BC93 /* UserDTO.swift */,
 				9C4B64D3244E724A00BA12AF /* ProfileDTO.swift */,
+				9C16D3662454FB0900AC1739 /* BoardBasicInfoDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -249,6 +258,8 @@
 			children = (
 				9C4B64C9244CA81100BA12AF /* RealmObject.swift */,
 				9C4B64C7244CA7A700BA12AF /* UserObject.swift */,
+				9C16D36A24559D2200AC1739 /* BoardObject.swift */,
+				9C16D36C24559E5100AC1739 /* TaskObject.swift */,
 			);
 			path = RealmObject;
 			sourceTree = "<group>";
@@ -385,6 +396,7 @@
 				9C4B64B0244B5C9900BA12AF /* RequestError.swift */,
 				9C4B64B4244BB72100BA12AF /* BaseError.swift */,
 				9C4B64D5244E76DE00BA12AF /* UpdateProfileError.swift */,
+				9C16D3682455064200AC1739 /* CreateBoardError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -632,6 +644,7 @@
 				9C332E4F244342F60063F98A /* NotImplementedViewController.swift in Sources */,
 				9C4B64D6244E76DE00BA12AF /* UpdateProfileError.swift in Sources */,
 				9C0E1F362449F12A009A184A /* UIControlSubscription.swift in Sources */,
+				9C16D36B24559D2200AC1739 /* BoardObject.swift in Sources */,
 				9C332E51244362540063F98A /* ProfileViewController.swift in Sources */,
 				9C0E1F1B2449066B009A184A /* NoBoardViewController.swift in Sources */,
 				9C4B64B3244BB6E700BA12AF /* UIAlertController+.swift in Sources */,
@@ -652,6 +665,7 @@
 				9C4B64CE244DE98C00BA12AF /* Notification.Name.swift in Sources */,
 				9CF7D70F2401B7B300760442 /* BaseView.swift in Sources */,
 				9CF7D6FB2401A7DA00760442 /* SettingsViewController.swift in Sources */,
+				9C16D36D24559E5100AC1739 /* TaskObject.swift in Sources */,
 				9CB85074240709FB004AAC23 /* LoginRegistrationViewModel.swift in Sources */,
 				9C0E1F1D244906C7009A184A /* NoBoardView.swift in Sources */,
 				9CF7D7162401B83A00760442 /* LoginRegistrationView.swift in Sources */,
@@ -659,6 +673,7 @@
 				9C332E47244252500063F98A /* UIImageView+.swift in Sources */,
 				9C332E49244268C90063F98A /* SettingsCell.swift in Sources */,
 				9C332E4B24426A270063F98A /* PreferencesSection.swift in Sources */,
+				9C16D3692455064200AC1739 /* CreateBoardError.swift in Sources */,
 				9C0E1F382449F178009A184A /* CombineCompatible.swift in Sources */,
 				9C4B64B1244B5C9900BA12AF /* RequestError.swift in Sources */,
 				9CB85076240710CF004AAC23 /* LoginRegistrationEvent.swift in Sources */,
@@ -673,6 +688,7 @@
 				9CF7D7052401AFC300760442 /* Tabs.swift in Sources */,
 				9C332E57244365E10063F98A /* ProfileView.swift in Sources */,
 				9C4B64CA244CA81100BA12AF /* RealmObject.swift in Sources */,
+				9C16D3672454FB0900AC1739 /* BoardBasicInfoDTO.swift in Sources */,
 				9CF7D70C2401B6DF00760442 /* LoginRegistrationViewController.swift in Sources */,
 				9CF7D71C2401CEA000760442 /* UIColor+.swift in Sources */,
 				9C332E4124422A460063F98A /* FamilyJiraDI.swift in Sources */,

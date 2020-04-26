@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class CreateBoardPopUp: BaseView {
+class CreateBoardPopUp: BaseView, UIGestureRecognizerDelegate, UITextFieldDelegate {
     private let container: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -25,7 +25,7 @@ class CreateBoardPopUp: BaseView {
         return label
     }()
 
-    private let nameTextField: UITextField = {
+    let nameTextField: UITextField = {
         let textField = UITextField()
         textField.backgroundColor = .white
         textField.font = UIFont.systemFont(ofSize: 16)
@@ -34,7 +34,7 @@ class CreateBoardPopUp: BaseView {
         return textField
     }()
 
-    let profilePhoto: UIImageView = {
+    let boardPhoto: UIImageView = {
         let image = UIImageView()
         image.makeRounded(radius: 80)
         image.backgroundColor = .backgroundOpacityGrey
@@ -58,7 +58,7 @@ class CreateBoardPopUp: BaseView {
         button.backgroundColor = .buttonBlue
         button.layer.cornerRadius = 5.0
         button.clipsToBounds = true
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         button.setTitle("Create", for: .normal)
         return button
     }()
@@ -67,7 +67,7 @@ class CreateBoardPopUp: BaseView {
         let stackView: UIStackView = {
             let stackView = UIStackView(arrangedSubviews: [titleLabel,
                                                            nameTextField,
-                                                           profilePhoto,
+                                                           boardPhoto,
                                                            chooseButton,
                                                            createButton])
             stackView.axis = .vertical
@@ -97,7 +97,7 @@ class CreateBoardPopUp: BaseView {
         nameTextField.snp.makeConstraints { make in
             make.width.equalTo(240)
         }
-        profilePhoto.snp.makeConstraints { make in
+        boardPhoto.snp.makeConstraints { make in
             make.height.width.equalTo(160)
         }
         chooseButton.snp.makeConstraints { make in
@@ -107,7 +107,10 @@ class CreateBoardPopUp: BaseView {
             make.width.equalTo(200)
         }
 
-        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(animateOut)))
+        nameTextField.delegate = self
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(animateOut))
+        gestureRecognizer.delegate = self
+        addGestureRecognizer(gestureRecognizer)
     }
 
     @objc fileprivate func animateOut() {
@@ -123,6 +126,7 @@ class CreateBoardPopUp: BaseView {
             self.container.transform = CGAffineTransform(translationX: 0, y: -self.frame.height)
             self.alpha = 0
         })
+        endEditing(true)
     }
 
     @objc func animateIn() {
@@ -139,5 +143,14 @@ class CreateBoardPopUp: BaseView {
             }
             self.container.transform = .identity
         })
+    }
+
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        touch.view?.isDescendant(of: container) != true
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        endEditing(true)
+        return false
     }
 }

@@ -34,5 +34,15 @@ final class NoBoardCoordinator: Coordinator {
                 self?.searchBoardCoordinator.start()
             })
             .store(in: &subscriptions)
+
+        noBoardViewModel.presentError
+            .sink(receiveValue: presentError(error:))
+            .store(in: &subscriptions)
+
+        noBoardViewModel.boardCreated
+            .sink(receiveValue: { [weak self] _ in
+                self?.navigationController.popViewController(animated: true)
+            })
+            .store(in: &subscriptions)
     }
 }

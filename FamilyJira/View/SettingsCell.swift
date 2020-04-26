@@ -14,6 +14,7 @@ class SettingsCell: UITableViewCell {
         let image = UIImageView()
         image.makeRounded(radius: 40)
         image.backgroundColor = .backgroundOpacityGrey
+        image.contentMode = .scaleAspectFill
         return image
     }()
 

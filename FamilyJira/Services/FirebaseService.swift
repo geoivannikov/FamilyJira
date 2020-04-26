@@ -19,6 +19,7 @@ protocol FirebaseServiceProtocol {
     func signOut() throws
     func requestUser() -> AnyPublisher<UserDTO, RequestError>
     func updateProfile(profileDTO: ProfileDTO) -> AnyPublisher<ProfileDTO, UpdateProfileError>
+    func createBoard(boardInfo: BoardBasicInfoDTO) -> AnyPublisher<BoardBasicInfoDTO, CreateBoardError>
 }
 
 final class FirebaseService: FirebaseServiceProtocol {
@@ -147,7 +148,7 @@ final class FirebaseService: FirebaseServiceProtocol {
         .eraseToAnyPublisher()
     }
 
-    func uploadProfilePhoto(profileDTO: ProfileDTO) -> Future<ProfileDTO, UpdateProfileError> {
+    private func uploadProfilePhoto(profileDTO: ProfileDTO) -> Future<ProfileDTO, UpdateProfileError> {
         Future<ProfileDTO, UpdateProfileError> { [weak self] promise in
             guard let data = profileDTO.photoData else {
                 promise(.success(profileDTO))
@@ -177,6 +178,60 @@ final class FirebaseService: FirebaseServiceProtocol {
                         }
                         ref.child("users").child(id).updateChildValues(["profilePhoto": photoUrl.absoluteString])
                         promise(.success(profileDTO))
+                    }
+                }
+            })
+        }
+    }
+
+    func createBoard(boardInfo: BoardBasicInfoDTO) -> AnyPublisher<BoardBasicInfoDTO, CreateBoardError> {
+        Future<BoardBasicInfoDTO, CreateBoardError> { [weak self] promise in
+            guard let ref = self?.databaseReference,
+                let id = self?.userID else {
+                promise(.failure(.unknownError))
+                return
+            }
+            ref.child("boards").child(boardInfo.id).updateChildValues(["name": boardInfo.name,
+                                                                       "creatorId": id])
+            ref.child("users").child(id).updateChildValues(["boardId": boardInfo.id])
+            promise(.success(boardInfo))
+        }
+        .flatMap { [weak self] _ in
+            self?.uploadBoardPhoto(boardInfo: boardInfo) ??
+                Future<BoardBasicInfoDTO, CreateBoardError> { $0(.failure(.unknownError)) }
+        }
+        .eraseToAnyPublisher()
+    }
+
+    private func uploadBoardPhoto(boardInfo: BoardBasicInfoDTO) -> Future<BoardBasicInfoDTO, CreateBoardError> {
+        Future<BoardBasicInfoDTO, CreateBoardError> { [weak self] promise in
+            guard let data = boardInfo.photoData else {
+                promise(.success(boardInfo))
+                return
+            }
+            guard let storage = self?.storageReference else {
+                promise(.failure(.unknownError))
+                return
+            }
+            storage.child("boards").child(boardInfo.id).putData(data,
+                                                                metadata: nil,
+                                                                completion: { _, error in
+                guard error == nil else {
+                    promise(.failure(.serverError))
+                    return
+                }
+                storage.child("boards").child(boardInfo.id).downloadURL { url, error in
+                    if let error = error {
+                        promise(.failure(CreateBoardError(error: error)))
+                        return
+                    } else {
+                        guard let ref = self?.databaseReference,
+                            let photoUrl = url else {
+                            promise(.failure(.unknownError))
+                            return
+                        }
+                        ref.child("boards").child(boardInfo.id).updateChildValues(["photo": photoUrl.absoluteString])
+                        promise(.success(boardInfo))
                     }
                 }
             })

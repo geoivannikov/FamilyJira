@@ -18,7 +18,7 @@ protocol SettingsViewModelProtocol {
     var signOutFailed: PassthroughSubject<Void, Never> { get }
     var user: PassthroughSubject<UserObject, Never> { get }
 
-    func viewDidLoad()
+    func requestUser()
 }
 
 final class SettingsViewModel: SettingsViewModelProtocol {
@@ -84,9 +84,15 @@ final class SettingsViewModel: SettingsViewModelProtocol {
                 self?.user.send(user)
             })
             .store(in: &subscriptions)
+
+        NotificationCenter.default.publisher(for: .userLoggedIn, object: nil)
+            .sink(receiveValue: { [weak self] _ in
+                self?.requestUser()
+            })
+            .store(in: &subscriptions)
     }
 
-    func viewDidLoad() {
+    func requestUser() {
         guard reachabilityService.isConnectedToNetwork() else {
             if let userObject: UserObject = realmService.get() {
                 user.send(userObject)

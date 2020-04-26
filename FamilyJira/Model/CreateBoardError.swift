@@ -1,28 +1,28 @@
 //
-//  UpdateProfileError.swift
+//  CreateBoardError.swift
 //  FamilyJira
 //
-//  Created by George Ivannikov on 4/21/20.
+//  Created by George Ivannikov on 4/26/20.
 //  Copyright © 2020 George Ivannikov. All rights reserved.
 //
 
 import Foundation
 
-enum UpdateProfileError: BaseError {
+enum CreateBoardError: BaseError {
     case noConnection
     case serverError
     case validationError
     case unknownError
 }
 
-extension UpdateProfileError {
+extension CreateBoardError {
     init(error: Error) {
         /* TODO: Add new error cases */
         self = .serverError
     }
 }
 
-extension UpdateProfileError {
+extension CreateBoardError {
     func errorMessage() -> String {
         switch self {
         case .serverError:
@@ -30,7 +30,7 @@ extension UpdateProfileError {
         case .noConnection:
             return "Check your internet connection"
         case .validationError:
-            return "Username can not be empty"
+            return "Family name can not be empty"
         default:
             return "Unknown error"
         }

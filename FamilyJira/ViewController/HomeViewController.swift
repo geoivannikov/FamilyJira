@@ -44,5 +44,17 @@ class HomeViewController: UIViewController {
                 self?.view.hideToastActivity()
             })
             .store(in: &subscriptions)
+
+        homeViewModel.board
+            .sink(receiveValue: {
+                print("Success \($0)")
+            })
+            .store(in: &subscriptions)
+
+        NotificationCenter.default.publisher(for: .boardUpdated, object: nil)
+            .sink(receiveValue: { [weak self] _ in
+                self?.view.makeToastActivity(.center)
+            })
+            .store(in: &subscriptions)
     }
 }

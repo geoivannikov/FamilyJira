@@ -26,7 +26,7 @@ class SettingsViewController: UITableViewController {
         super.viewDidLoad()
         setUpLayout()
         setUpBinds()
-        settingsViewModel.viewDidLoad()
+        settingsViewModel.requestUser()
     }
 
     private func setUpLayout() {

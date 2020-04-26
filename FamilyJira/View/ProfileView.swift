@@ -14,16 +14,19 @@ class ProfileView: BaseView {
         let image = UIImageView()
         image.makeRounded(radius: 80)
         image.backgroundColor = .backgroundOpacityGrey
+        image.contentMode = .scaleAspectFill
         return image
     }()
 
     let chooseButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .buttonBlue
+        button.layer.borderColor = UIColor.buttonBlue.cgColor
+        button.layer.borderWidth = 1.0
         button.layer.cornerRadius = 5.0
         button.clipsToBounds = true
         button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         button.setTitle("Choose", for: .normal)
+        button.setTitleColor(.buttonBlue, for: .normal)
         return button
     }()
 

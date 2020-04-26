@@ -15,7 +15,7 @@ class NoBoardView: BaseView {
         label.textAlignment = .center
         label.textColor = .darkGray
         label.text = "You are not a member of any board"
-        label.font = UIFont(name: "HelveticaNeue-Bold", size: 18)
+        label.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
         return label
     }()
 
@@ -24,7 +24,7 @@ class NoBoardView: BaseView {
         button.backgroundColor = .buttonBlue
         button.layer.cornerRadius = 5.0
         button.clipsToBounds = true
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         button.setTitle("Create the board", for: .normal)
         return button
     }()
@@ -34,7 +34,7 @@ class NoBoardView: BaseView {
         button.backgroundColor = .buttonGrey
         button.layer.cornerRadius = 5.0
         button.clipsToBounds = true
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         button.setTitle("Join the board", for: .normal)
         return button
     }()
@@ -75,7 +75,7 @@ class NoBoardView: BaseView {
         [createButton, joinButton].forEach {
             stackView.addArrangedSubview($0)
             $0.snp.makeConstraints { make in
-                make.width.equalTo(140)
+                make.width.equalTo(175)
             }
         }
     }

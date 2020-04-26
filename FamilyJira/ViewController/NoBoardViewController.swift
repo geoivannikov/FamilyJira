@@ -9,11 +9,13 @@
 import Foundation
 import UIKit
 import Combine
+import Toast_Swift
 
 class NoBoardViewController: UIViewController {
     private var noBoardViewModel: NoBoardViewModelProtocol!
     private let noBoardView = NoBoardView()
     private let createBoardPopUp = CreateBoardPopUp()
+    private let imagePicker = UIImagePickerController()
 
     private var subscriptions = Set<AnyCancellable>()
 
@@ -29,6 +31,7 @@ class NoBoardViewController: UIViewController {
         super.viewDidLoad()
         setUpLayout()
         setUpBinds()
+        dismissKeyboardAfterTap()
     }
 
     private func setUpLayout() {
@@ -60,5 +63,46 @@ class NoBoardViewController: UIViewController {
                 self?.noBoardViewModel.joinBoardTapped.send()
             })
             .store(in: &subscriptions)
+
+        createBoardPopUp.createButton
+            .publisher(for: .touchUpInside)
+            .map { [weak self] _ in
+                BoardBasicInfoDTO(name: self?.createBoardPopUp.nameTextField.text,
+                                  photoData: self?.createBoardPopUp.boardPhoto.image?.mediumQualityJPEGNSData)
+            }
+            .sink(receiveValue: { [weak self] in
+                self?.view.makeToastActivity(.center)
+                self?.noBoardViewModel.createTapped.send($0)
+            })
+            .store(in: &subscriptions)
+
+        noBoardViewModel.presentError
+            .sink(receiveValue: { [weak self] _ in
+                self?.view.hideToastActivity()
+            })
+            .store(in: &subscriptions)
+
+        createBoardPopUp.chooseButton
+            .publisher(for: .touchUpInside)
+            .sink(receiveValue: { [weak self] _ in
+                guard let imagePicker = self?.imagePicker else {
+                    return
+                }
+                imagePicker.delegate = self
+                imagePicker.mediaTypes = ["public.image"]
+                imagePicker.allowsEditing = false
+                self?.present(imagePicker, animated: true, completion: nil)
+            })
+            .store(in: &subscriptions)
+    }
+}
+
+extension NoBoardViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    public func imagePickerController(_ picker: UIImagePickerController,
+                                      didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        let imageUrl = info[.imageURL] as? NSURL
+        let image = UIImage(url: imageUrl)
+        createBoardPopUp.boardPhoto.image = image
+        dismiss(animated: true, completion: nil)
     }
 }

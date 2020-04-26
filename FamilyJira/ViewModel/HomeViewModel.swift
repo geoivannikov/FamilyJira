@@ -14,6 +14,7 @@ protocol HomeViewModelProtocol {
     var isUserLoggedIn: PassthroughSubject<Bool, Never> { get }
     var presentRequestError: PassthroughSubject<RequestError, Never> { get }
     var user: PassthroughSubject<UserObject, Never> { get }
+    var board: PassthroughSubject<BoardObject, Never> { get }
     var doesUserHaveBoard: PassthroughSubject<Bool, Never> { get }
 
     func viewDidLoad()
@@ -23,6 +24,7 @@ final class HomeViewModel: HomeViewModelProtocol {
     let isUserLoggedIn: PassthroughSubject<Bool, Never>
     let presentRequestError: PassthroughSubject<RequestError, Never>
     let user: PassthroughSubject<UserObject, Never>
+    let board: PassthroughSubject<BoardObject, Never>
     let doesUserHaveBoard: PassthroughSubject<Bool, Never>
 
     private let firebaseServise: FirebaseServiceProtocol
@@ -42,6 +44,7 @@ final class HomeViewModel: HomeViewModelProtocol {
         isUserLoggedIn = PassthroughSubject<Bool, Never>()
         presentRequestError = PassthroughSubject<RequestError, Never>()
         user = PassthroughSubject<UserObject, Never>()
+        board = PassthroughSubject<BoardObject, Never>()
         doesUserHaveBoard = PassthroughSubject<Bool, Never>()
 
         isUserLoggedIn
@@ -64,8 +67,22 @@ final class HomeViewModel: HomeViewModelProtocol {
             })
             .store(in: &subscriptions)
 
+        doesUserHaveBoard
+            .filter { $0 }
+            .sink(receiveValue: { [weak self] _ in
+                guard let boardObject: BoardObject = realmService.get() else {
+                    return
+                }
+                self?.board.send(boardObject)
+            })
+            .store(in: &subscriptions)
+
+        NotificationCenter.default.publisher(for: .boardUpdated, object: nil)
+            .sink(receiveValue: { [weak self] _ in
+                self?.requestData()
+            })
+            .store(in: &subscriptions)
     }
-//    .assign(to: \.text, on: profileView.roleTextField)
 
     func viewDidLoad() {
         isUserLoggedIn.send(firebaseServise.isUserLoggedIn)
