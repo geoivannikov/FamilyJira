@@ -1,4 +1,5 @@
 PODS:
+  - BTNavigationDropdownMenu (0.5)
   - CombineDataSources (0.2.5)
   - Firebase (6.23.0):
     - Firebase/Core (= 6.23.0)
@@ -126,6 +127,7 @@ PODS:
   - Toast-Swift (5.0.1)
 
 DEPENDENCIES:
+  - BTNavigationDropdownMenu
   - CombineDataSources
   - Firebase
   - Firebase/Analytics
@@ -142,6 +144,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - BTNavigationDropdownMenu
     - CombineDataSources
     - Firebase
     - FirebaseAnalytics
@@ -173,6 +176,7 @@ SPEC REPOS:
     - Toast-Swift
 
 SPEC CHECKSUMS:
+  BTNavigationDropdownMenu: ba3a26fdb6a56c4721c31df8a0875106c259663a
   CombineDataSources: dcbc3b06a038ffdf620b3b4533d3ecaf76ca6a2e
   Firebase: 585ae467b3edda6a5444e788fda6888f024d8d6f
   FirebaseAnalytics: 558f7a03d19de451093032c806f39d5f9dff096e
@@ -203,6 +207,6 @@ SPEC CHECKSUMS:
   Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: 168d76782c252a49abb6bb8385917a104fe39838
+PODFILE CHECKSUM: 352c3f38dbe436cdf1770b93687954581f7fa20b
 
 COCOAPODS: 1.9.1

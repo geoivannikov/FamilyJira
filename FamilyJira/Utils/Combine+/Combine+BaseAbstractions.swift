@@ -9,6 +9,9 @@
 import Foundation
 import Combine
 
+// https://gist.github.com/serbats/e7effd6c96a56e2377f36618061088ef
+// swiftlint:disable all
+
 // Base Abstraction Classes
 @available(OSX 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
 protocol DownStreamHelperProtocol {

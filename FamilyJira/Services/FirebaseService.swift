@@ -22,6 +22,8 @@ protocol FirebaseServiceProtocol {
     func createBoard(boardInfo: BoardBasicInfoDTO) -> AnyPublisher<BoardBasicInfoDTO, CreateBoardError>
 }
 
+// TODO: Refactor based on the DRY principles
+// TODO: Remove handling validation errors
 final class FirebaseService: FirebaseServiceProtocol {
     private var userID: String? {
         Auth.auth().currentUser?.uid
@@ -48,7 +50,6 @@ final class FirebaseService: FirebaseServiceProtocol {
             Auth.auth().signIn(withEmail: credentials.email,
                                password: credentials.password) { _, error in
                 if let error = error, let authErrorCode = AuthErrorCode(rawValue: error._code) {
-                    print(authErrorCode.rawValue)
                     let loginError = LoginError(authErrorCode: authErrorCode.rawValue)
                     promise(.failure(loginError))
                 } else {
@@ -236,5 +237,9 @@ final class FirebaseService: FirebaseServiceProtocol {
                 }
             })
         }
+    }
+
+    func getAllBoards() {
+
     }
 }

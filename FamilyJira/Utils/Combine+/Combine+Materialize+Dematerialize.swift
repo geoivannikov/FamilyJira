@@ -9,6 +9,7 @@
 import Foundation
 import Combine
 
+// https://gist.github.com/serbats/e7effd6c96a56e2377f36618061088ef
 // swiftlint:disable all
 
 // MARK: - Event enum

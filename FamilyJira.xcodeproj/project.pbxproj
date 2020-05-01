@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,7 +21,7 @@
 		9C0FA15C24467363001E734C /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0FA15B24467363001E734C /* TaskView.swift */; };
 		9C102A7C244AF7C70061E16D /* RegistrationCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C102A7B244AF7C70061E16D /* RegistrationCredentials.swift */; };
 		9C102A80244AFFC00061E16D /* RegistrationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C102A7F244AFFC00061E16D /* RegistrationError.swift */; };
-		9C102A82244B02390061E16D /* ReachabilityServise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C102A81244B02390061E16D /* ReachabilityServise.swift */; };
+		9C102A82244B02390061E16D /* ReachabilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C102A81244B02390061E16D /* ReachabilityService.swift */; };
 		9C16D3572453B16500AC1739 /* NoBoardCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16D3562453B16500AC1739 /* NoBoardCoordinator.swift */; };
 		9C16D3592453B27900AC1739 /* NoBoardviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16D3582453B27900AC1739 /* NoBoardviewModel.swift */; };
 		9C16D35D245439D300AC1739 /* CreateBoardPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16D35C245439D300AC1739 /* CreateBoardPopUp.swift */; };
@@ -33,6 +33,12 @@
 		9C16D3692455064200AC1739 /* CreateBoardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16D3682455064200AC1739 /* CreateBoardError.swift */; };
 		9C16D36B24559D2200AC1739 /* BoardObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16D36A24559D2200AC1739 /* BoardObject.swift */; };
 		9C16D36D24559E5100AC1739 /* TaskObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16D36C24559E5100AC1739 /* TaskObject.swift */; };
+		9C16D39E2455D51900AC1739 /* BoardPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16D39D2455D51900AC1739 /* BoardPreview.swift */; };
+		9C16D3A02455D6B100AC1739 /* BoardPreviewDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16D39F2455D6B100AC1739 /* BoardPreviewDTO.swift */; };
+		9C16D3B52459CF7B00AC1739 /* LoginRegistrationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16D3B42459CF7B00AC1739 /* LoginRegistrationViewModelTests.swift */; };
+		9C16D3B82459D05200AC1739 /* FirebaseServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16D3B72459D05200AC1739 /* FirebaseServiceMock.swift */; };
+		9C16D3BB2459D37D00AC1739 /* LogOutError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16D3BA2459D37D00AC1739 /* LogOutError.swift */; };
+		9C16D3BD2459D89E00AC1739 /* ReachabilityServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16D3BC2459D89E00AC1739 /* ReachabilityServiceMock.swift */; };
 		9C332E3F244229D50063F98A /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C332E3E244229D50063F98A /* SettingsViewModel.swift */; };
 		9C332E4124422A460063F98A /* FamilyJiraDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C332E4024422A460063F98A /* FamilyJiraDI.swift */; };
 		9C332E4324423DC40063F98A /* ProfileSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C332E4224423DC40063F98A /* ProfileSection.swift */; };
@@ -65,6 +71,10 @@
 		9C4B64D4244E724A00BA12AF /* ProfileDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B64D3244E724A00BA12AF /* ProfileDTO.swift */; };
 		9C4B64D6244E76DE00BA12AF /* UpdateProfileError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B64D5244E76DE00BA12AF /* UpdateProfileError.swift */; };
 		9C6467B4240E4A9A0099BC93 /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6467B3240E4A9A0099BC93 /* UserDTO.swift */; };
+		9C73B59B245CB2A100240BA7 /* XCTestCase+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C73B59A245CB2A100240BA7 /* XCTestCase+.swift */; };
+		9C73B5A0245CB6A300240BA7 /* FirebaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C73B59F245CB6A300240BA7 /* FirebaseTests.swift */; };
+		9C73B5A4245CC67200240BA7 /* LoginCredentialsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C73B5A3245CC67200240BA7 /* LoginCredentialsTests.swift */; };
+		9C73B5A6245CCB2F00240BA7 /* RegistrationCredentialsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C73B5A5245CCB2F00240BA7 /* RegistrationCredentialsTests.swift */; };
 		9CB85074240709FB004AAC23 /* LoginRegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB85073240709FB004AAC23 /* LoginRegistrationViewModel.swift */; };
 		9CB85076240710CF004AAC23 /* LoginRegistrationEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB85075240710CF004AAC23 /* LoginRegistrationEvent.swift */; };
 		9CB8507824071148004AAC23 /* LoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB8507724071148004AAC23 /* LoginError.swift */; };
@@ -73,7 +83,6 @@
 		9CF7D6D52401832900760442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CF7D6D32401832900760442 /* Main.storyboard */; };
 		9CF7D6D72401832A00760442 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CF7D6D62401832A00760442 /* Assets.xcassets */; };
 		9CF7D6DA2401832A00760442 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CF7D6D82401832A00760442 /* LaunchScreen.storyboard */; };
-		9CF7D6E52401832B00760442 /* FamilyJiraTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7D6E42401832B00760442 /* FamilyJiraTests.swift */; };
 		9CF7D6F52401A79C00760442 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7D6F42401A79C00760442 /* HomeViewController.swift */; };
 		9CF7D6F92401A7CF00760442 /* MyTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7D6F82401A7CF00760442 /* MyTasksViewController.swift */; };
 		9CF7D6FB2401A7DA00760442 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7D6FA2401A7DA00760442 /* SettingsViewController.swift */; };
@@ -120,7 +129,7 @@
 		9C0FA15B24467363001E734C /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
 		9C102A7B244AF7C70061E16D /* RegistrationCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationCredentials.swift; sourceTree = "<group>"; };
 		9C102A7F244AFFC00061E16D /* RegistrationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationError.swift; sourceTree = "<group>"; };
-		9C102A81244B02390061E16D /* ReachabilityServise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityServise.swift; sourceTree = "<group>"; };
+		9C102A81244B02390061E16D /* ReachabilityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityService.swift; sourceTree = "<group>"; };
 		9C16D3562453B16500AC1739 /* NoBoardCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoBoardCoordinator.swift; sourceTree = "<group>"; };
 		9C16D3582453B27900AC1739 /* NoBoardviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoBoardviewModel.swift; sourceTree = "<group>"; };
 		9C16D35C245439D300AC1739 /* CreateBoardPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBoardPopUp.swift; sourceTree = "<group>"; };
@@ -132,6 +141,12 @@
 		9C16D3682455064200AC1739 /* CreateBoardError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBoardError.swift; sourceTree = "<group>"; };
 		9C16D36A24559D2200AC1739 /* BoardObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardObject.swift; sourceTree = "<group>"; };
 		9C16D36C24559E5100AC1739 /* TaskObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskObject.swift; sourceTree = "<group>"; };
+		9C16D39D2455D51900AC1739 /* BoardPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardPreview.swift; sourceTree = "<group>"; };
+		9C16D39F2455D6B100AC1739 /* BoardPreviewDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardPreviewDTO.swift; sourceTree = "<group>"; };
+		9C16D3B42459CF7B00AC1739 /* LoginRegistrationViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRegistrationViewModelTests.swift; sourceTree = "<group>"; };
+		9C16D3B72459D05200AC1739 /* FirebaseServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseServiceMock.swift; sourceTree = "<group>"; };
+		9C16D3BA2459D37D00AC1739 /* LogOutError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutError.swift; sourceTree = "<group>"; };
+		9C16D3BC2459D89E00AC1739 /* ReachabilityServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityServiceMock.swift; sourceTree = "<group>"; };
 		9C332E3E244229D50063F98A /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		9C332E4024422A460063F98A /* FamilyJiraDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyJiraDI.swift; sourceTree = "<group>"; };
 		9C332E4224423DC40063F98A /* ProfileSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSection.swift; sourceTree = "<group>"; };
@@ -164,6 +179,10 @@
 		9C4B64D3244E724A00BA12AF /* ProfileDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDTO.swift; sourceTree = "<group>"; };
 		9C4B64D5244E76DE00BA12AF /* UpdateProfileError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileError.swift; sourceTree = "<group>"; };
 		9C6467B3240E4A9A0099BC93 /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
+		9C73B59A245CB2A100240BA7 /* XCTestCase+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+.swift"; sourceTree = "<group>"; };
+		9C73B59F245CB6A300240BA7 /* FirebaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTests.swift; sourceTree = "<group>"; };
+		9C73B5A3245CC67200240BA7 /* LoginCredentialsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCredentialsTests.swift; sourceTree = "<group>"; };
+		9C73B5A5245CCB2F00240BA7 /* RegistrationCredentialsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationCredentialsTests.swift; sourceTree = "<group>"; };
 		9CB85073240709FB004AAC23 /* LoginRegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRegistrationViewModel.swift; sourceTree = "<group>"; };
 		9CB85075240710CF004AAC23 /* LoginRegistrationEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRegistrationEvent.swift; sourceTree = "<group>"; };
 		9CB8507724071148004AAC23 /* LoginError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginError.swift; sourceTree = "<group>"; };
@@ -175,7 +194,6 @@
 		9CF7D6D92401832A00760442 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9CF7D6DB2401832A00760442 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CF7D6E02401832B00760442 /* FamilyJiraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FamilyJiraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9CF7D6E42401832B00760442 /* FamilyJiraTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyJiraTests.swift; sourceTree = "<group>"; };
 		9CF7D6E62401832B00760442 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CF7D6F42401A79C00760442 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9CF7D6F82401A7CF00760442 /* MyTasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTasksViewController.swift; sourceTree = "<group>"; };
@@ -243,12 +261,30 @@
 			path = "Combine+";
 			sourceTree = "<group>";
 		};
+		9C16D3B32459CEEC00AC1739 /* ViewModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				9C16D3B42459CF7B00AC1739 /* LoginRegistrationViewModelTests.swift */,
+			);
+			path = ViewModelTests;
+			sourceTree = "<group>";
+		};
+		9C16D3B62459D03F00AC1739 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				9C16D3B72459D05200AC1739 /* FirebaseServiceMock.swift */,
+				9C16D3BC2459D89E00AC1739 /* ReachabilityServiceMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		9C4B64C2244C72DF00BA12AF /* DTO */ = {
 			isa = PBXGroup;
 			children = (
 				9C6467B3240E4A9A0099BC93 /* UserDTO.swift */,
 				9C4B64D3244E724A00BA12AF /* ProfileDTO.swift */,
 				9C16D3662454FB0900AC1739 /* BoardBasicInfoDTO.swift */,
+				9C16D39F2455D6B100AC1739 /* BoardPreviewDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -262,6 +298,31 @@
 				9C16D36C24559E5100AC1739 /* TaskObject.swift */,
 			);
 			path = RealmObject;
+			sourceTree = "<group>";
+		};
+		9C73B59E245CB69000240BA7 /* ServiceTests */ = {
+			isa = PBXGroup;
+			children = (
+				9C73B59F245CB6A300240BA7 /* FirebaseTests.swift */,
+			);
+			path = ServiceTests;
+			sourceTree = "<group>";
+		};
+		9C73B5A2245CC65100240BA7 /* ModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				9C73B5A3245CC67200240BA7 /* LoginCredentialsTests.swift */,
+				9C73B5A5245CCB2F00240BA7 /* RegistrationCredentialsTests.swift */,
+			);
+			path = ModelTests;
+			sourceTree = "<group>";
+		};
+		9C73B5A7245CCB8000240BA7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9C73B59A245CB2A100240BA7 /* XCTestCase+.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		9CB85072240709E4004AAC23 /* ViewModel */ = {
@@ -321,7 +382,11 @@
 		9CF7D6E32401832B00760442 /* FamilyJiraTests */ = {
 			isa = PBXGroup;
 			children = (
-				9CF7D6E42401832B00760442 /* FamilyJiraTests.swift */,
+				9C73B5A7245CCB8000240BA7 /* Utils */,
+				9C16D3B62459D03F00AC1739 /* Mocks */,
+				9C73B5A2245CC65100240BA7 /* ModelTests */,
+				9C73B59E245CB69000240BA7 /* ServiceTests */,
+				9C16D3B32459CEEC00AC1739 /* ViewModelTests */,
 				9CF7D6E62401832B00760442 /* Info.plist */,
 			);
 			path = FamilyJiraTests;
@@ -397,6 +462,8 @@
 				9C4B64B4244BB72100BA12AF /* BaseError.swift */,
 				9C4B64D5244E76DE00BA12AF /* UpdateProfileError.swift */,
 				9C16D3682455064200AC1739 /* CreateBoardError.swift */,
+				9C16D39D2455D51900AC1739 /* BoardPreview.swift */,
+				9C16D3BA2459D37D00AC1739 /* LogOutError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -438,7 +505,7 @@
 			isa = PBXGroup;
 			children = (
 				9CF7D7202402CF1A00760442 /* FirebaseService.swift */,
-				9C102A81244B02390061E16D /* ReachabilityServise.swift */,
+				9C102A81244B02390061E16D /* ReachabilityService.swift */,
 				9C4B64C3244C84A600BA12AF /* RealmServise.swift */,
 			);
 			path = Services;
@@ -467,6 +534,7 @@
 				9CF7D6C72401832900760442 /* Frameworks */,
 				9CF7D6C82401832900760442 /* Resources */,
 				9C16D35B2453BB6D00AC1739 /* ShellScript */,
+				8CE86D74B1AAD497D104E2FC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -485,6 +553,7 @@
 				9CF7D6DC2401832B00760442 /* Sources */,
 				9CF7D6DD2401832B00760442 /* Frameworks */,
 				9CF7D6DE2401832B00760442 /* Resources */,
+				5811D1FDCB488FA6B2584180 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -600,6 +669,40 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		5811D1FDCB488FA6B2584180 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FamilyJira-FamilyJiraTests/Pods-FamilyJira-FamilyJiraTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FamilyJira-FamilyJiraTests/Pods-FamilyJira-FamilyJiraTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FamilyJira-FamilyJiraTests/Pods-FamilyJira-FamilyJiraTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8CE86D74B1AAD497D104E2FC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FamilyJira/Pods-FamilyJira-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FamilyJira/Pods-FamilyJira-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FamilyJira/Pods-FamilyJira-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9C16D35B2453BB6D00AC1739 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -624,13 +727,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C102A82244B02390061E16D /* ReachabilityServise.swift in Sources */,
+				9C102A82244B02390061E16D /* ReachabilityService.swift in Sources */,
 				9C0E1F3C2449F824009A184A /* LoginCredentials.swift in Sources */,
 				9C4B64CC244CB76800BA12AF /* Coordinator.swift in Sources */,
 				9C0E1F342449F0F6009A184A /* UIControlPublisher.swift in Sources */,
 				9C332E5924438FC30063F98A /* MyTasksViewModel.swift in Sources */,
 				9C4B64B5244BB72100BA12AF /* BaseError.swift in Sources */,
 				9C0FA15A24466DD9001E734C /* TaskViewModel.swift in Sources */,
+				9C16D3BB2459D37D00AC1739 /* LogOutError.swift in Sources */,
 				9CF7D6D22401832900760442 /* TabBarCoordinator.swift in Sources */,
 				9C102A80244AFFC00061E16D /* RegistrationError.swift in Sources */,
 				9CF7D6F92401A7CF00760442 /* MyTasksViewController.swift in Sources */,
@@ -657,6 +761,7 @@
 				9C102A7C244AF7C70061E16D /* RegistrationCredentials.swift in Sources */,
 				9C0E1F1F24491FCB009A184A /* UITextField+.swift in Sources */,
 				9C0FA15C24467363001E734C /* TaskView.swift in Sources */,
+				9C16D3A02455D6B100AC1739 /* BoardPreviewDTO.swift in Sources */,
 				9CF7D6CE2401832900760442 /* AppDelegate.swift in Sources */,
 				9CF7D7002401AC0000760442 /* UIImage+.swift in Sources */,
 				9CF7D7182401C83500760442 /* LoginRegistrationCoordinator.swift in Sources */,
@@ -698,6 +803,7 @@
 				9C4B64BB244BCC5000BA12AF /* Combine+BaseAbstractions.swift in Sources */,
 				9C4B64C1244C6F7F00BA12AF /* HomeViewModel.swift in Sources */,
 				9C332E3F244229D50063F98A /* SettingsViewModel.swift in Sources */,
+				9C16D39E2455D51900AC1739 /* BoardPreview.swift in Sources */,
 				9C332E5F2443C2900063F98A /* TaskViewController.swift in Sources */,
 				9C332E5D244392F40063F98A /* TaskCell.swift in Sources */,
 				9C332E55244362BD0063F98A /* ProfileViewModel.swift in Sources */,
@@ -709,7 +815,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CF7D6E52401832B00760442 /* FamilyJiraTests.swift in Sources */,
+				9C73B5A0245CB6A300240BA7 /* FirebaseTests.swift in Sources */,
+				9C73B59B245CB2A100240BA7 /* XCTestCase+.swift in Sources */,
+				9C73B5A4245CC67200240BA7 /* LoginCredentialsTests.swift in Sources */,
+				9C16D3BD2459D89E00AC1739 /* ReachabilityServiceMock.swift in Sources */,
+				9C16D3B82459D05200AC1739 /* FirebaseServiceMock.swift in Sources */,
+				9C73B5A6245CCB2F00240BA7 /* RegistrationCredentialsTests.swift in Sources */,
+				9C16D3B52459CF7B00AC1739 /* LoginRegistrationViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

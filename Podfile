@@ -8,6 +8,7 @@ target 'FamilyJira' do
   pod 'Swinject'
   pod 'SnapKit'
   pod 'Toast-Swift'
+  pod 'BTNavigationDropdownMenu'
   pod 'SwiftLint'
   pod 'CombineDataSources'
   pod 'Firebase'

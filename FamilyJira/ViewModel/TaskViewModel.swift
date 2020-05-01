@@ -8,10 +8,8 @@
 
 import Foundation
 
-protocol TaskViewModelProtocol {
-
-}
+protocol TaskViewModelProtocol { }
 
 final class TaskViewModel: TaskViewModelProtocol {
-    init() {}
+    init() { }
 }

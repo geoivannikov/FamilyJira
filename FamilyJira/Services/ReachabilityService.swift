@@ -1,5 +1,5 @@
 //
-//  ReachabilityServise.swift
+//  ReachabilityService.swift
 //  FamilyJira
 //
 //  Created by George Ivannikov on 4/18/20.

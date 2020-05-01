@@ -9,6 +9,7 @@
 import UIKit
 import Combine
 import Toast_Swift
+import BTNavigationDropdownMenu
 
 class HomeViewController: UIViewController {
     private var homeViewModel: HomeViewModelProtocol!
@@ -30,6 +31,16 @@ class HomeViewController: UIViewController {
 
     private func setUpLayout() {
         view.makeToastActivity(.center)
+
+        let items = ["Tasks", "Members", "Settings"]
+        let menuView = BTNavigationDropdownMenu(title: BTTitle.index(0), items: items)
+        menuView.arrowTintColor = .black
+        menuView.navigationBarTitleFont = UIFont.boldSystemFont(ofSize: 17)
+        menuView.cellTextLabelFont = UIFont.systemFont(ofSize: 16)
+        menuView.cellSeparatorColor = .white
+        menuView.cellTextLabelAlignment = .center
+        menuView.checkMarkImage = .strokedCheckmark
+        self.navigationItem.titleView = menuView
     }
 
     private func setUpBinds() {
