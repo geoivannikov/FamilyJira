@@ -50,7 +50,7 @@ extension UIImage {
 
 extension UIImage {
     var mediumQualityJPEGNSData: Data? {
-        jpegData(compressionQuality: 0.4)
+        jpegData(compressionQuality: 0.5)
     }
 }
 

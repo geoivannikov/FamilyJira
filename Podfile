@@ -24,3 +24,17 @@ target 'FamilyJira' do
   end
 
 end
+
+target 'TodayTasks' do
+    pod 'SnapKit'
+end
+
+post_install do |installer_representation|
+    installer_representation.pods_project.targets.each do |target|
+        if target.name.start_with? "Pods-TodayTasks"
+            target.build_configurations.each do |config|
+                config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)', 'AF_APP_EXTENSIONS=1']
+            end
+        end
+    end
+end

@@ -75,6 +75,10 @@
 		9C73B5A0245CB6A300240BA7 /* FirebaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C73B59F245CB6A300240BA7 /* FirebaseTests.swift */; };
 		9C73B5A4245CC67200240BA7 /* LoginCredentialsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C73B5A3245CC67200240BA7 /* LoginCredentialsTests.swift */; };
 		9C73B5A6245CCB2F00240BA7 /* RegistrationCredentialsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C73B5A5245CCB2F00240BA7 /* RegistrationCredentialsTests.swift */; };
+		9C73B5AE245D81E800240BA7 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C73B5AD245D81E800240BA7 /* NotificationCenter.framework */; };
+		9C73B5B1245D81E800240BA7 /* TodayTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C73B5B0245D81E800240BA7 /* TodayTaskViewController.swift */; };
+		9C73B5B4245D81E800240BA7 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C73B5B2245D81E800240BA7 /* MainInterface.storyboard */; };
+		9C73B5B8245D81E800240BA7 /* TodayTasks.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9C73B5AC245D81E800240BA7 /* TodayTasks.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9CB85074240709FB004AAC23 /* LoginRegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB85073240709FB004AAC23 /* LoginRegistrationViewModel.swift */; };
 		9CB85076240710CF004AAC23 /* LoginRegistrationEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB85075240710CF004AAC23 /* LoginRegistrationEvent.swift */; };
 		9CB8507824071148004AAC23 /* LoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB8507724071148004AAC23 /* LoginError.swift */; };
@@ -100,10 +104,18 @@
 		9CF7D7232402D2E500760442 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7D7222402D2E500760442 /* HomeCoordinator.swift */; };
 		9CF7D7252402D2F200760442 /* MyTasksCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7D7242402D2F200760442 /* MyTasksCoordinator.swift */; };
 		9CF7D7272402D2FE00760442 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7D7262402D2FE00760442 /* SettingsCoordinator.swift */; };
+		D9B3A59816F04C17E4237510 /* libPods-TodayTasks.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59D1FA1F11FAC50C15D4A4C1 /* libPods-TodayTasks.a */; };
 		DC3E31E20254E039CD5C3D47 /* libPods-FamilyJira.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5C3F14E90BAC75852CA5E7 /* libPods-FamilyJira.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		9C73B5B6245D81E800240BA7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9CF7D6C22401832900760442 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9C73B5AB245D81E800240BA7;
+			remoteInfo = TodayTasks;
+		};
 		9CF7D6E12401832B00760442 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9CF7D6C22401832900760442 /* Project object */;
@@ -113,9 +125,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		9C73B5BC245D81E800240BA7 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				9C73B5B8245D81E800240BA7 /* TodayTasks.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		468876647B1BD88EF9CB5657 /* libPods-FamilyJira-FamilyJiraTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FamilyJira-FamilyJiraTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F5C3F14E90BAC75852CA5E7 /* libPods-FamilyJira.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FamilyJira.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		59D1FA1F11FAC50C15D4A4C1 /* libPods-TodayTasks.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TodayTasks.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D6AA0184991FD7784984C75 /* Pods-TodayTasks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayTasks.release.xcconfig"; path = "Target Support Files/Pods-TodayTasks/Pods-TodayTasks.release.xcconfig"; sourceTree = "<group>"; };
 		9C0E1F1A2449066B009A184A /* NoBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoBoardViewController.swift; sourceTree = "<group>"; };
 		9C0E1F1C244906C7009A184A /* NoBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoBoardView.swift; sourceTree = "<group>"; };
 		9C0E1F1E24491FCB009A184A /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
@@ -183,6 +211,11 @@
 		9C73B59F245CB6A300240BA7 /* FirebaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTests.swift; sourceTree = "<group>"; };
 		9C73B5A3245CC67200240BA7 /* LoginCredentialsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCredentialsTests.swift; sourceTree = "<group>"; };
 		9C73B5A5245CCB2F00240BA7 /* RegistrationCredentialsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationCredentialsTests.swift; sourceTree = "<group>"; };
+		9C73B5AC245D81E800240BA7 /* TodayTasks.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TodayTasks.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C73B5AD245D81E800240BA7 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		9C73B5B0245D81E800240BA7 /* TodayTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTaskViewController.swift; sourceTree = "<group>"; };
+		9C73B5B3245D81E800240BA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		9C73B5B5245D81E800240BA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CB85073240709FB004AAC23 /* LoginRegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRegistrationViewModel.swift; sourceTree = "<group>"; };
 		9CB85075240710CF004AAC23 /* LoginRegistrationEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRegistrationEvent.swift; sourceTree = "<group>"; };
 		9CB8507724071148004AAC23 /* LoginError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginError.swift; sourceTree = "<group>"; };
@@ -212,13 +245,25 @@
 		9CF7D7222402D2E500760442 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		9CF7D7242402D2F200760442 /* MyTasksCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTasksCoordinator.swift; sourceTree = "<group>"; };
 		9CF7D7262402D2FE00760442 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		A03E62391B2054F0103D5C6A /* Pods-FamilyJira-TodayTasks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilyJira-TodayTasks.debug.xcconfig"; path = "Target Support Files/Pods-FamilyJira-TodayTasks/Pods-FamilyJira-TodayTasks.debug.xcconfig"; sourceTree = "<group>"; };
 		B5AD1048D675F925E54097C4 /* Pods-FamilyJira.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilyJira.debug.xcconfig"; path = "Target Support Files/Pods-FamilyJira/Pods-FamilyJira.debug.xcconfig"; sourceTree = "<group>"; };
+		C767CA6580373251CC99036E /* Pods-FamilyJira-TodayTasks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilyJira-TodayTasks.release.xcconfig"; path = "Target Support Files/Pods-FamilyJira-TodayTasks/Pods-FamilyJira-TodayTasks.release.xcconfig"; sourceTree = "<group>"; };
 		CC72F85A49571A4043ED660E /* Pods-FamilyJira-FamilyJiraTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilyJira-FamilyJiraTests.debug.xcconfig"; path = "Target Support Files/Pods-FamilyJira-FamilyJiraTests/Pods-FamilyJira-FamilyJiraTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E40776335F5936DF48797DE1 /* Pods-TodayTasks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayTasks.debug.xcconfig"; path = "Target Support Files/Pods-TodayTasks/Pods-TodayTasks.debug.xcconfig"; sourceTree = "<group>"; };
 		F63A88B49202DB66F723DF80 /* Pods-FamilyJira.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilyJira.release.xcconfig"; path = "Target Support Files/Pods-FamilyJira/Pods-FamilyJira.release.xcconfig"; sourceTree = "<group>"; };
 		FCE7394D6C9CE3697E19BCC0 /* Pods-FamilyJira-FamilyJiraTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilyJira-FamilyJiraTests.release.xcconfig"; path = "Target Support Files/Pods-FamilyJira-FamilyJiraTests/Pods-FamilyJira-FamilyJiraTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		9C73B5A9245D81E800240BA7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C73B5AE245D81E800240BA7 /* NotificationCenter.framework in Frameworks */,
+				D9B3A59816F04C17E4237510 /* libPods-TodayTasks.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9CF7D6C72401832900760442 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -243,6 +288,8 @@
 			children = (
 				4F5C3F14E90BAC75852CA5E7 /* libPods-FamilyJira.a */,
 				468876647B1BD88EF9CB5657 /* libPods-FamilyJira-FamilyJiraTests.a */,
+				9C73B5AD245D81E800240BA7 /* NotificationCenter.framework */,
+				59D1FA1F11FAC50C15D4A4C1 /* libPods-TodayTasks.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -325,6 +372,16 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		9C73B5AF245D81E800240BA7 /* TodayTasks */ = {
+			isa = PBXGroup;
+			children = (
+				9C73B5B0245D81E800240BA7 /* TodayTaskViewController.swift */,
+				9C73B5B2245D81E800240BA7 /* MainInterface.storyboard */,
+				9C73B5B5245D81E800240BA7 /* Info.plist */,
+			);
+			path = TodayTasks;
+			sourceTree = "<group>";
+		};
 		9CB85072240709E4004AAC23 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -345,6 +402,7 @@
 			children = (
 				9CF7D6CC2401832900760442 /* FamilyJira */,
 				9CF7D6E32401832B00760442 /* FamilyJiraTests */,
+				9C73B5AF245D81E800240BA7 /* TodayTasks */,
 				9CF7D6CB2401832900760442 /* Products */,
 				F1953BA4EC867241B8D31CB7 /* Pods */,
 				7AC42C8811EA2D844BBC9ECA /* Frameworks */,
@@ -356,6 +414,7 @@
 			children = (
 				9CF7D6CA2401832900760442 /* FamilyJira.app */,
 				9CF7D6E02401832B00760442 /* FamilyJiraTests.xctest */,
+				9C73B5AC245D81E800240BA7 /* TodayTasks.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -518,6 +577,10 @@
 				F63A88B49202DB66F723DF80 /* Pods-FamilyJira.release.xcconfig */,
 				CC72F85A49571A4043ED660E /* Pods-FamilyJira-FamilyJiraTests.debug.xcconfig */,
 				FCE7394D6C9CE3697E19BCC0 /* Pods-FamilyJira-FamilyJiraTests.release.xcconfig */,
+				A03E62391B2054F0103D5C6A /* Pods-FamilyJira-TodayTasks.debug.xcconfig */,
+				C767CA6580373251CC99036E /* Pods-FamilyJira-TodayTasks.release.xcconfig */,
+				E40776335F5936DF48797DE1 /* Pods-TodayTasks.debug.xcconfig */,
+				5D6AA0184991FD7784984C75 /* Pods-TodayTasks.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -525,6 +588,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		9C73B5AB245D81E800240BA7 /* TodayTasks */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C73B5B9245D81E800240BA7 /* Build configuration list for PBXNativeTarget "TodayTasks" */;
+			buildPhases = (
+				B13BD72B2711831D60A63E31 /* [CP] Check Pods Manifest.lock */,
+				9C73B5A8245D81E800240BA7 /* Sources */,
+				9C73B5A9245D81E800240BA7 /* Frameworks */,
+				9C73B5AA245D81E800240BA7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TodayTasks;
+			productName = TodayTasks;
+			productReference = 9C73B5AC245D81E800240BA7 /* TodayTasks.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		9CF7D6C92401832900760442 /* FamilyJira */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9CF7D6E92401832B00760442 /* Build configuration list for PBXNativeTarget "FamilyJira" */;
@@ -535,10 +616,12 @@
 				9CF7D6C82401832900760442 /* Resources */,
 				9C16D35B2453BB6D00AC1739 /* ShellScript */,
 				8CE86D74B1AAD497D104E2FC /* [CP] Copy Pods Resources */,
+				9C73B5BC245D81E800240BA7 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				9C73B5B7245D81E800240BA7 /* PBXTargetDependency */,
 			);
 			name = FamilyJira;
 			productName = FamilyJira;
@@ -575,6 +658,9 @@
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "George Ivannikov";
 				TargetAttributes = {
+					9C73B5AB245D81E800240BA7 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
 					9CF7D6C92401832900760442 = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
@@ -599,11 +685,20 @@
 			targets = (
 				9CF7D6C92401832900760442 /* FamilyJira */,
 				9CF7D6DF2401832B00760442 /* FamilyJiraTests */,
+				9C73B5AB245D81E800240BA7 /* TodayTasks */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		9C73B5AA245D81E800240BA7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C73B5B4245D81E800240BA7 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9CF7D6C82401832900760442 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -720,9 +815,39 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint autocorrect\n  swiftlint\n  exit $?\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
+		B13BD72B2711831D60A63E31 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TodayTasks-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		9C73B5A8245D81E800240BA7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C73B5B1245D81E800240BA7 /* TodayTaskViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9CF7D6C62401832900760442 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -828,6 +953,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		9C73B5B7245D81E800240BA7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9C73B5AB245D81E800240BA7 /* TodayTasks */;
+			targetProxy = 9C73B5B6245D81E800240BA7 /* PBXContainerItemProxy */;
+		};
 		9CF7D6E22401832B00760442 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9CF7D6C92401832900760442 /* FamilyJira */;
@@ -836,6 +966,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		9C73B5B2245D81E800240BA7 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9C73B5B3245D81E800240BA7 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		9CF7D6D32401832900760442 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -855,6 +993,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		9C73B5BA245D81E800240BA7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E40776335F5936DF48797DE1 /* Pods-TodayTasks.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8JH59DJ45H;
+				INFOPLIST_FILE = TodayTasks/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = G8.FamilyJira.TodayTasks;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9C73B5BB245D81E800240BA7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D6AA0184991FD7784984C75 /* Pods-TodayTasks.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8JH59DJ45H;
+				INFOPLIST_FILE = TodayTasks/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = G8.FamilyJira.TodayTasks;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		9CF7D6E72401832B00760442 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -973,6 +1151,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B5AD1048D675F925E54097C4 /* Pods-FamilyJira.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8JH59DJ45H;
@@ -992,6 +1171,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F63A88B49202DB66F723DF80 /* Pods-FamilyJira.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8JH59DJ45H;
@@ -1056,6 +1236,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		9C73B5B9245D81E800240BA7 /* Build configuration list for PBXNativeTarget "TodayTasks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C73B5BA245D81E800240BA7 /* Debug */,
+				9C73B5BB245D81E800240BA7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		9CF7D6C52401832900760442 /* Build configuration list for PBXProject "FamilyJira" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
